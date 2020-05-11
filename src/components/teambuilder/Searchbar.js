@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Container, Button } from "reactstrap";
-import { useDispatch } from "react-redux";
-
-import { FetchPlayer } from "../../actions/SingleSearchActions";
-import LoadPlayerStats from "./LoadPlayerStats";
+import { useDispatch, useSelector } from "react-redux";
+import { FetchPlayer } from "../../actions/TeamBuilderAction";
+import TeamBuilder from "./TeamBuilder";
 
 const Searchbar = () => {
+  const { loading } = useSelector((state) => state.Team);
+
   const [formData, setFormData] = useState({
     Player: "",
     Flag: false,
@@ -39,7 +40,6 @@ const Searchbar = () => {
           <Button className="btn btn-primary">Submit</Button>
         </FormGroup>
       </Form>
-      <div>{Flag ? <LoadPlayerStats /> : null}</div>
     </Container>
   );
 };
