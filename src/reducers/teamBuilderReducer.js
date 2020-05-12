@@ -3,6 +3,10 @@ import {
   CENTER_FETCH,
   GUARD_FETCH,
   FORWARD_FETCH,
+  REMOVE_STATE,
+  REMOVE_CENTER,
+  REMOVE_FORWARD,
+  REMOVE_GUARD,
 } from "../actions/types";
 
 const initialState = {
@@ -39,6 +43,13 @@ export default function (state = initialState, action) {
       return {
         ...state,
         forward: [action.payload, ...state.forward],
+      };
+    case REMOVE_CENTER:
+      return {
+        ...state,
+        center: state.center.filter(
+          (player) => player[1].id !== action.payload
+        ),
       };
     default:
       return state;

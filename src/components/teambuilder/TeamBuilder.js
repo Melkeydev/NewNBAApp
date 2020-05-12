@@ -5,16 +5,9 @@ import { StatsDisplay } from "./StatsDisplay";
 import { Container } from "reactstrap";
 
 const TeamBuilder = () => {
-  const { loading } = useSelector((state) => state.Team.loading);
-  const Player = useSelector((state) => state.Team.player);
-  const Stats = useSelector((state) => state.Team.stats);
   const Forward = useSelector((state) => state.Team.forward);
   const Center = useSelector((state) => state.Team.center);
   const Guard = useSelector((state) => state.Team.guard);
-
-  console.log("Player", Player);
-  console.log("Stats", Stats);
-  console.log("guard", Guard);
 
   const renderGridPlacement = (position) => {
     return position === "F"
@@ -35,7 +28,9 @@ const TeamBuilder = () => {
       return (
         <div
           key={zip[1].id}
-          style={{ gridArea: renderGridPlacement(zip[1].position) }}
+          style={{
+            gridArea: renderGridPlacement(zip[1].position),
+          }}
         >
           <StatsDisplay Stats={zip[0]} Player={zip[1]} />
         </div>
@@ -47,19 +42,21 @@ const TeamBuilder = () => {
     <div>
       <Searchbar />
 
-      <Container>
+      <Container style={{ display: "flex", flexDirection: "column" }}>
         <div
           style={{
             display: "grid",
-            width: "auto",
-            gridTemplateColumns: "250px 250px 250px 250px",
+            width: "100%",
+            justifyContent: "flex-start",
+            gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
             overflow: "hidden",
-            gridTemplateRows: "auto auto auto",
+            margin: "20px 0",
+            //gridTemplateRows: "auto auto auto",
           }}
         >
-          {Guard.length > 0 ? RenderDisplay(Guard) : null}
-          {Center.length > 0 ? RenderDisplay(Center) : null}
-          {Forward.length > 0 ? RenderDisplay(Forward) : null}
+          {Guard.length > 0 && RenderDisplay(Guard)}
+          {Center.length > 0 && RenderDisplay(Center)}
+          {Forward.length > 0 && RenderDisplay(Forward)}
         </div>
       </Container>
     </div>

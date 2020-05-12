@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Container, Button } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchPlayer } from "../../actions/TeamBuilderAction";
-import TeamBuilder from "./TeamBuilder";
+import { Link } from "react-router-dom";
 
 const Searchbar = () => {
   const { loading } = useSelector((state) => state.Team);
@@ -38,6 +38,9 @@ const Searchbar = () => {
             }}
           />
           <Button className="btn btn-primary">Submit</Button>
+          <Link to="/">
+            <Button>Home</Button>
+          </Link>
         </FormGroup>
       </Form>
     </Container>

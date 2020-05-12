@@ -5,3 +5,7 @@ export const TEAM_FETCH = "TEAM_FETCH";
 export const FORWARD_FETCH = "FORWARD_FETCH";
 export const CENTER_FETCH = "CENTER_FETCH";
 export const GUARD_FETCH = "GUARD_FETCH";
+export const REMOVE_STATE = "REMOVE_STATE";
+export const REMOVE_CENTER = "REMOVE_CENTER";
+export const REMOVE_FORWARD = "REMOVE_FORWARD";
+export const REMOVE_GUARD = "REMOVE_GUARD";

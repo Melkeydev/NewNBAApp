@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Container, Button } from "reactstrap";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { FetchPlayer } from "../../actions/SingleSearchActions";
 import LoadPlayerStats from "./LoadPlayerStats";
@@ -37,8 +38,12 @@ const Searchbar = () => {
             }}
           />
           <Button className="btn btn-primary">Submit</Button>
+          <Link to="/">
+            <Button>Home</Button>
+          </Link>
         </FormGroup>
       </Form>
+
       <div>{Flag ? <LoadPlayerStats /> : null}</div>
     </Container>
   );
