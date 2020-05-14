@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./StatsDisplay.css";
 import { Button } from "reactstrap";
 import { removeState } from "../../actions/TeamBuilderAction";
 
-export const StatsDisplay = ({ Stats, Player }) => {
+//Put Render functions
+
+export const StatsDisplay = ({ Stats, Player, flag }) => {
+  const [positionState, setPositionState] = useState({
+    guard: [],
+    center: [],
+    forward: [],
+  });
+
   const dispatch = useDispatch();
 
+  const Players = useSelector((state) => state.Team.players);
   const Guard = useSelector((state) => state.Team.guard);
   const Forward = useSelector((state) => state.Team.forward);
   const Center = useSelector((state) => state.Team.center);
@@ -27,9 +36,8 @@ export const StatsDisplay = ({ Stats, Player }) => {
   const {
     first_name,
     last_name,
-    id,
     position,
-    team: { full_name, conference },
+    team: { full_name, conference, id },
   } = Player;
 
   const {
@@ -46,17 +54,33 @@ export const StatsDisplay = ({ Stats, Player }) => {
   } = Stats;
 
   const renderStats = (position) => {
-    return position === "F"
-      ? Forward
-      : position === "F-C"
-      ? Center
-      : position === "C"
-      ? Center
-      : position === "G"
-      ? Guard
-      : position === "F-G"
-      ? Guard
-      : null;
+    switch (position) {
+      case "F":
+        return Forward;
+      case "F-C":
+      case "C":
+        return Center;
+      case "G":
+      case "F-G":
+        return Guard;
+      default:
+        return null;
+    }
+  };
+
+  const translatePosition = (position) => {
+    switch (position) {
+      case "F":
+        return "forward";
+      case "F-C":
+      case "C":
+        return "center";
+      case "G":
+      case "F-G":
+        return "guard";
+      default:
+        return null;
+    }
   };
 
   const renderBarColor = (acc, cur, key) => {
@@ -69,16 +93,26 @@ export const StatsDisplay = ({ Stats, Player }) => {
     }
   };
 
-  console.log(Center[0][1]);
-
-  const shit = (Center) => {
-    console.log("123");
-    dispatch(removeState(Center[0][1]));
+  const removePosition = (state, teamId) => {
+    dispatch(removeState(state[0][1], teamId));
   };
 
+  useEffect(() => {
+    const positionStats = {
+      center: renderStatsComparison(flag === true ? Players : Center),
+      guard: renderStatsComparison(flag === true ? Players : Guard),
+      forward: renderStatsComparison(flag === true ? Players : Forward),
+    };
+    setPositionState(positionStats);
+  }, [Center, Guard, Forward, Players, flag]);
+
   return (
+    /* View Layer*/
+
     <div>
-      <Button onClick={() => shit(Center)}>Remove</Button>
+      <Button onClick={() => removePosition(renderStats(position), id)}>
+        Remove
+      </Button>
       <div>
         <h2>
           {first_name} {last_name}
@@ -94,7 +128,7 @@ export const StatsDisplay = ({ Stats, Player }) => {
       <h5>Playing Minutes: {min}</h5> <br />
       <div
         className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
+          positionState[translatePosition(position)],
           pts,
           "pts"
         )}Bar`}
@@ -103,7 +137,7 @@ export const StatsDisplay = ({ Stats, Player }) => {
       </div>
       <div
         className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
+          positionState[translatePosition(position)],
           ast,
           "ast"
         )}Bar`}
@@ -112,7 +146,7 @@ export const StatsDisplay = ({ Stats, Player }) => {
       </div>
       <div
         className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
+          positionState[translatePosition(position)],
           reb,
           "reb"
         )}Bar`}
@@ -121,7 +155,7 @@ export const StatsDisplay = ({ Stats, Player }) => {
       </div>
       <div
         className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
+          positionState[translatePosition(position)],
           stl,
           "stl"
         )}Bar`}
@@ -130,7 +164,7 @@ export const StatsDisplay = ({ Stats, Player }) => {
       </div>
       <div
         className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
+          positionState[translatePosition(position)],
           blk,
           "blk"
         )}Bar`}
@@ -139,7 +173,7 @@ export const StatsDisplay = ({ Stats, Player }) => {
       </div>
       <div
         className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
+          positionState[translatePosition(position)],
           fg_pct,
           "fg_pct"
         )}Bar`}
@@ -148,7 +182,7 @@ export const StatsDisplay = ({ Stats, Player }) => {
       </div>
       <div
         className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
+          positionState[translatePosition(position)],
           fg3_pct,
           "fg3_pct"
         )}Bar`}
@@ -157,7 +191,7 @@ export const StatsDisplay = ({ Stats, Player }) => {
       </div>
       <div
         className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
+          positionState[translatePosition(position)],
           ft_pct,
           "ft_pct"
         )}Bar`}

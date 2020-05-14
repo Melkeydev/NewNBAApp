@@ -1,6 +1,5 @@
 import axios from "axios";
 import { FETCH_STATS, FETCH_SEASONS, FETCH_LAST_TEN } from "./types";
-import moment from "moment";
 
 const base_url = "https://www.balldontlie.io/api/v1/";
 

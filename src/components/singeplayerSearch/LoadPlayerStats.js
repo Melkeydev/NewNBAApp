@@ -8,7 +8,7 @@ import { LoadLastTenTable } from "./LoadLastTenTable";
 
 const LoadPlayerStats = () => {
   const { loading, player, team, stats } = useSelector((state) => state.Player);
-  const { first_name, id, last_name, position } = player;
+  const { first_name, id, last_name } = player;
   const {
     ast,
     blk,
@@ -28,7 +28,7 @@ const LoadPlayerStats = () => {
 
   useEffect(() => {
     dispatch(FetchLastTenGames(id));
-  }, [dispatch, FetchLastTenGames, id]);
+  }, [dispatch, id]);
 
   return (
     <div>

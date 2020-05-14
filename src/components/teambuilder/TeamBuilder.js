@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Searchbar from "./Searchbar";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { StatsDisplay } from "./StatsDisplay";
 import { Container } from "reactstrap";
+import { Button } from "reactstrap";
 
 const TeamBuilder = () => {
+  const [flag, setFlag] = useState(false);
+
   const Forward = useSelector((state) => state.Team.forward);
   const Center = useSelector((state) => state.Team.center);
   const Guard = useSelector((state) => state.Team.guard);
@@ -32,7 +35,7 @@ const TeamBuilder = () => {
             gridArea: renderGridPlacement(zip[1].position),
           }}
         >
-          <StatsDisplay Stats={zip[0]} Player={zip[1]} />
+          <StatsDisplay Stats={zip[0]} Player={zip[1]} flag={flag} />
         </div>
       );
     });
@@ -41,6 +44,8 @@ const TeamBuilder = () => {
   return (
     <div>
       <Searchbar />
+
+      <Button onClick={() => setFlag(!flag)}>Check all Stats</Button>
 
       <Container style={{ display: "flex", flexDirection: "column" }}>
         <div

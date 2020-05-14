@@ -1,10 +1,4 @@
-import {
-  TEAM_FETCH,
-  CENTER_FETCH,
-  GUARD_FETCH,
-  FORWARD_FETCH,
-  REMOVE_STATE,
-} from "./types";
+import { TEAM_FETCH, CENTER_FETCH, GUARD_FETCH, FORWARD_FETCH } from "./types";
 import axios from "axios";
 
 const base_url = "https://www.balldontlie.io/api/v1/";
@@ -61,11 +55,11 @@ const RemovalType = (position) => {
     : null;
 };
 
-export const removeState = (player) => (dispatch) => {
+export const removeState = (player, teamId) => (dispatch) => {
   const { id, position } = player;
 
   dispatch({
     type: RemovalType(position),
-    payload: id,
+    payload: { id, teamId },
   });
 };
