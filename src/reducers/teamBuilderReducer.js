@@ -48,7 +48,7 @@ export default function (state = initialState, action) {
           (player) => player[1].id !== action.payload.id
         ),
         players: state.players.filter(
-          (player) => player.id !== action.payload.id
+          (player) => player[1].id !== action.payload.id
         ),
 
         team: state.team.filter((team) => team.id !== action.payload.teamId),
@@ -60,7 +60,7 @@ export default function (state = initialState, action) {
           (player) => player[1].id !== action.payload.id
         ),
         players: state.players.filter(
-          (player) => player.id !== action.payload.id
+          (player) => player[1].id !== action.payload.id
         ),
 
         team: state.team.filter((team) => team.id !== action.payload.teamId),
@@ -72,7 +72,7 @@ export default function (state = initialState, action) {
           (player) => player[1].id !== action.payload.id
         ),
         players: state.players.filter(
-          (player) => player.id !== action.payload.id
+          (player) => player[1].id !== action.payload.id
         ),
 
         team: state.team.filter((team) => team.id !== action.payload.teamId),

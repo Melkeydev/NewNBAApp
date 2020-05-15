@@ -3,7 +3,7 @@ import { FetchPlayerSeason } from "../../actions/SingleSearchActions";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "reactstrap";
 
-export const LoadPlayerSeasons = () => {
+export const PlayerSeasons = () => {
   const { id } = useSelector((state) => state.Player.player);
   const dispatch = useDispatch();
 

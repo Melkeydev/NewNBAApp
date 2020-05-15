@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { FetchPlayer } from "../../actions/SingleSearchActions";
-import LoadPlayerStats from "./LoadPlayerStats";
+import PlayerStats from "./PlayerStats";
 
 const Searchbar = () => {
   const [formData, setFormData] = useState({
@@ -44,7 +44,7 @@ const Searchbar = () => {
         </FormGroup>
       </Form>
 
-      <div>{Flag ? <LoadPlayerStats /> : null}</div>
+      <div>{Flag ? <PlayerStats /> : null}</div>
     </Container>
   );
 };
