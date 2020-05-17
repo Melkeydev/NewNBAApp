@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Searchbar from "./components/singeplayerSearch/Searchbar";
 import TeamBuilder from "./components/teambuilder/TeamBuilder";
 import { Homepage } from "./components/layout/Homepage";
@@ -13,9 +13,9 @@ function App() {
     <Provider store={store}>
       <Router>
         {/*NavBar*/}
-        <Route exact path="/" component={Homepage}></Route>
-        <Route exact path="/single-player" component={Searchbar}></Route>
-        <Route exact path="/teambuilder" component={TeamBuilder}></Route>
+        <Route exact path="/" component={Homepage} />
+        <Route exact path="/single-player" component={Searchbar} />
+        <Route exact path="/teambuilder" component={TeamBuilder} />
       </Router>
     </Provider>
   );

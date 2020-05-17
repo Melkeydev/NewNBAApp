@@ -10,21 +10,21 @@ import {
 } from "recharts";
 import { useSelector } from "react-redux";
 
-export const LoadPlayerStatChart = ({ statChoice }) => {
+export const PlayerStatChart = ({ statChoice, count }) => {
   const { lastTen } = useSelector((state) => state.Player);
 
   const setData = () => {
     var data_list = [];
-    lastTen.map((stat, index) => {
+    lastTen.slice(0, count).map((stat, index) => {
       const statChartObject = {
-        pts: { x: index, y: stat.pts },
-        reb: { x: index, y: stat.reb },
-        ast: { x: index, y: stat.ast },
-        blk: { x: index, y: stat.blk },
-        fgm: { x: index, y: stat.fgm },
-        fg3m: { x: index, y: stat.fg3m },
-        ftm: { x: index, y: stat.ftm },
-        stl: { x: index, y: stat.stl },
+        pts: { x: index, Games: stat.pts },
+        reb: { x: index, Games: stat.reb },
+        ast: { x: index, Games: stat.ast },
+        blk: { x: index, Games: stat.blk },
+        fgm: { x: index, Games: stat.fgm },
+        fg3m: { x: index, Games: stat.fg3m },
+        ftm: { x: index, Games: stat.ftm },
+        stl: { x: index, Games: stat.stl },
       };
       var display_stat = statChartObject[statChoice];
 
@@ -35,7 +35,15 @@ export const LoadPlayerStatChart = ({ statChoice }) => {
 
   return (
     <div>
-      {" "}
+      <h3
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+        }}
+      >
+        Last {count} games
+      </h3>
       <LineChart
         width={1000}
         height={450}
@@ -48,13 +56,13 @@ export const LoadPlayerStatChart = ({ statChoice }) => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="x" />
+        <XAxis dataKey="x" tick={false} />
         <YAxis />
         <Tooltip />
         <Legend />
         <Line
           type="monotone"
-          dataKey="y"
+          dataKey="Games"
           stroke="#8884d8"
           activeDot={{ r: 8 }}
         />

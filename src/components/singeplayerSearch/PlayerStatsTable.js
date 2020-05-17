@@ -1,41 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { teamNames } from "./variables";
 
-export const LoadLastTenTable = () => {
-  var teamNames = [
-    "Buffer",
-    "Atlanta Hawks",
-    "Boston Celtics",
-    "Brooklyn Nets",
-    "Charlotte Hornets",
-    "Chicago Bulls",
-    "Clebeland Cavaliers",
-    "Dallas Mavericks",
-    "Denver Nuggets",
-    "Detroit Pistons",
-    "Golden State",
-    "Houston Rockets",
-    "Indianna Pacers",
-    "La Clippers",
-    "La Lakers",
-    "Memphis Grizzlies",
-    "Miami Heat",
-    "Milwaukee Bucks",
-    "Minnesota timberwolves",
-    "New Orleans Pelicans",
-    "NY Knicks",
-    "OKC",
-    "Orlando Magic",
-    "76",
-    "Suns",
-    "Blazers",
-    "Kings",
-    "spurs",
-    "raptors",
-    "Jazz",
-    "Wizards",
-  ];
-
+export const PlayerStatsTable = ({ count }) => {
   const { lastTen } = useSelector((state) => state.Player);
 
   const versusTeam = (team) => {
@@ -61,7 +28,7 @@ export const LoadLastTenTable = () => {
           </tr>
         </thead>
         <tbody>
-          {lastTen.map((stat) => {
+          {lastTen.slice(0, count).map((stat) => {
             return (
               <tr key={stat.id}>
                 <td>

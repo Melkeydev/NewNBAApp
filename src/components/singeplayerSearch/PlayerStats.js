@@ -1,14 +1,17 @@
-import React, { Fragment, useEffect } from "react";
-import { Spinner } from "reactstrap";
+import React, { Fragment, useEffect, useState } from "react";
+import { Spinner, Button } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { LoadPlayerSeasons } from "./LoadPlayerSeasons";
-import { LoadStatDropdown } from "./LoadStatDropdown";
+import { PlayerSeasons } from "./PlayerSeasons";
+import { StatDropdown } from "./StatDropdown";
 import { FetchLastTenGames } from "../../actions/SingleSearchActions";
-import { LoadLastTenTable } from "./LoadLastTenTable";
+import { PlayerStatsTable } from "./PlayerStatsTable";
+import { set } from "mongoose";
 
-const LoadPlayerStats = () => {
+const PlayerStats = () => {
+  const [count, setCount] = useState(10);
+
   const { loading, player, team, stats } = useSelector((state) => state.Player);
-  const { first_name, id, last_name, position } = player;
+  const { first_name, id, last_name } = player;
   const {
     ast,
     blk,
@@ -28,7 +31,7 @@ const LoadPlayerStats = () => {
 
   useEffect(() => {
     dispatch(FetchLastTenGames(id));
-  }, [dispatch, FetchLastTenGames, id]);
+  }, [dispatch, id]);
 
   return (
     <div>
@@ -59,13 +62,43 @@ const LoadPlayerStats = () => {
             Three Point %: {fg3_pct} <br />
             Free Throw %: {ft_pct} <br />
           </div>
-          <LoadPlayerSeasons />
-          <LoadStatDropdown />
-          <LoadLastTenTable />
+          <PlayerSeasons />
+          <StatDropdown count={count} />
+          <div
+            style={{
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button
+              onClick={() => {
+                setCount(10);
+              }}
+            >
+              10
+            </Button>
+            <Button
+              onClick={() => {
+                setCount(15);
+              }}
+            >
+              15
+            </Button>
+            <Button
+              onClick={() => {
+                setCount(20);
+              }}
+            >
+              20
+            </Button>
+          </div>
+
+          <PlayerStatsTable count={count} />
         </Fragment>
       )}
     </div>
   );
 };
 
-export default LoadPlayerStats;
+export default PlayerStats;

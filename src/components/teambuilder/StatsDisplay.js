@@ -1,15 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "./StatsDisplay.css";
 import { Button } from "reactstrap";
 import { removeState } from "../../actions/TeamBuilderAction";
+import { addPlayer } from "../../actions/TeamAction";
+import { RenderSpecificStatDisplay } from "./RenderSpecificStatDisplay";
 
-export const StatsDisplay = ({ Stats, Player }) => {
+//Put Render functions
+
+export const StatsDisplay = ({ Stats, Player, flag }) => {
   const dispatch = useDispatch();
 
-  const Guard = useSelector((state) => state.Team.guard);
-  const Forward = useSelector((state) => state.Team.forward);
-  const Center = useSelector((state) => state.Team.center);
+  const { Players, Guard, Forward, Center } = useSelector((state) => {
+    return {
+      Players: state.TeamReducer.players,
+      Guard: state.TeamReducer.guard,
+      Forward: state.TeamReducer.forward,
+      Center: state.TeamReducer.center,
+    };
+  });
+
+  const [positionState, setPositionState] = useState({
+    guard: [],
+    center: [],
+    forward: [],
+  });
+
+  useEffect(() => {
+    const positionStats = {
+      center: renderStatsComparison(flag === true ? Players : Center),
+      guard: renderStatsComparison(flag === true ? Players : Guard),
+      forward: renderStatsComparison(flag === true ? Players : Forward),
+    };
+    setPositionState(positionStats);
+  }, [Center, Guard, Forward, Players, flag]);
 
   const renderStatsComparison = (stats) => {
     return stats
@@ -27,58 +50,42 @@ export const StatsDisplay = ({ Stats, Player }) => {
   const {
     first_name,
     last_name,
-    id,
     position,
-    team: { full_name, conference },
+    team: { full_name, conference, id },
   } = Player;
 
-  const {
-    ast,
-    blk,
-    fg3_pct,
-    fg_pct,
-    ft_pct,
-    min,
-    pts,
-    reb,
-    season,
-    stl,
-  } = Stats;
+  const { min, season } = Stats;
 
   const renderStats = (position) => {
-    return position === "F"
-      ? Forward
-      : position === "F-C"
-      ? Center
-      : position === "C"
-      ? Center
-      : position === "G"
-      ? Guard
-      : position === "F-G"
-      ? Guard
-      : null;
-  };
-
-  const renderBarColor = (acc, cur, key) => {
-    if (acc[key] > cur) {
-      return "red";
-    } else if (acc[key] === cur) {
-      return "green";
-    } else {
-      return "white";
+    switch (position) {
+      case "F":
+        return Forward;
+      case "F-C":
+      case "C":
+        return Center;
+      case "G":
+      case "F-G":
+        return Guard;
+      default:
+        return null;
     }
   };
 
-  console.log(Center[0][1]);
-
-  const shit = (Center) => {
-    console.log("123");
-    dispatch(removeState(Center[0][1]));
-  };
-
   return (
+    /* View Layer*/
     <div>
-      <Button onClick={() => shit(Center)}>Remove</Button>
+      <Button
+        className="btn btn-danger"
+        onClick={() => dispatch(removeState(renderStats(position)[0][1], id))}
+      >
+        Remove
+      </Button>
+      <Button
+        onClick={() => dispatch(addPlayer(renderStats(position)))}
+        className="btn btn-success"
+      >
+        Add
+      </Button>
       <div>
         <h2>
           {first_name} {last_name}
@@ -92,78 +99,11 @@ export const StatsDisplay = ({ Stats, Player }) => {
       </div>
       <h5>Season: {season}</h5>
       <h5>Playing Minutes: {min}</h5> <br />
-      <div
-        className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
-          pts,
-          "pts"
-        )}Bar`}
-      >
-        Points: {pts}
-      </div>
-      <div
-        className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
-          ast,
-          "ast"
-        )}Bar`}
-      >
-        Assists: {ast}
-      </div>
-      <div
-        className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
-          reb,
-          "reb"
-        )}Bar`}
-      >
-        Rebounds: {reb}
-      </div>
-      <div
-        className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
-          stl,
-          "stl"
-        )}Bar`}
-      >
-        Steals: {stl}
-      </div>
-      <div
-        className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
-          blk,
-          "blk"
-        )}Bar`}
-      >
-        Blocks: {blk}
-      </div>
-      <div
-        className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
-          fg_pct,
-          "fg_pct"
-        )}Bar`}
-      >
-        Field Goal %: {fg_pct}
-      </div>
-      <div
-        className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
-          fg3_pct,
-          "fg3_pct"
-        )}Bar`}
-      >
-        Three point %: {fg3_pct}
-      </div>
-      <div
-        className={`${renderBarColor(
-          renderStatsComparison(renderStats(position)),
-          ft_pct,
-          "ft_pct"
-        )}Bar`}
-      >
-        Free Throw %: {ft_pct}
-      </div>
+      <RenderSpecificStatDisplay
+        positionState={positionState}
+        Stats={Stats}
+        position={position}
+      />
     </div>
   );
 };

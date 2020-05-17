@@ -1,6 +1,5 @@
 import axios from "axios";
 import { FETCH_STATS, FETCH_SEASONS, FETCH_LAST_TEN } from "./types";
-import moment from "moment";
 
 const base_url = "https://www.balldontlie.io/api/v1/";
 
@@ -37,9 +36,8 @@ export const FetchLastTenGames = (id, season = "2019") => async (dispatch) => {
     `${base_url}stats?seasons[]=${season}&player_ids[]=${id}&per_page=50&page=0&`
   );
 
-  const reqSortedGames = response.data.data
-    .sort((a, b) => b.id - a.id)
-    .slice(0, 10);
+  const reqSortedGames = response.data.data.sort((a, b) => b.id - a.id);
+  //.slice(0, 10);
 
   dispatch({
     type: FETCH_LAST_TEN,

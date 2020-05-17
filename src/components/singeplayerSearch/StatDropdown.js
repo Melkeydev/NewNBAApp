@@ -5,14 +5,10 @@ import {
   UncontrolledDropdown,
   DropdownMenu,
 } from "reactstrap";
-import { LoadPlayerStatChart } from "./LoadPlayerStatChart";
+import { PlayerStatChart } from "./PlayerStatChart";
 
-export const LoadStatDropdown = () => {
+export const StatDropdown = ({ count }) => {
   const [stat, setStat] = useState("pts");
-
-  const onClick = (e) => {
-    setStat(e.target.value);
-  };
 
   return (
     <div>
@@ -25,30 +21,30 @@ export const LoadStatDropdown = () => {
           >
             Points
           </DropdownItem>
-          <DropdownItem value="reb" onClick={(e) => onClick(e)}>
+          <DropdownItem value="reb" onClick={(e) => setStat(e.target.value)}>
             Rebounds
           </DropdownItem>
-          <DropdownItem value="ast" onClick={(e) => onClick(e)}>
+          <DropdownItem value="ast" onClick={(e) => setStat(e.target.value)}>
             Assists
           </DropdownItem>
-          <DropdownItem value="stl" onClick={(e) => onClick(e)}>
+          <DropdownItem value="stl" onClick={(e) => setStat(e.target.value)}>
             Steals
           </DropdownItem>
-          <DropdownItem value="blk" onClick={(e) => onClick(e)}>
+          <DropdownItem value="blk" onClick={(e) => setStat(e.target.value)}>
             Blocks
           </DropdownItem>
-          <DropdownItem value="fgm" onClick={(e) => onClick(e)}>
+          <DropdownItem value="fgm" onClick={(e) => setStat(e.target.value)}>
             field goals made
           </DropdownItem>
-          <DropdownItem value="fg3m" onClick={(e) => onClick(e)}>
+          <DropdownItem value="fg3m" onClick={(e) => setStat(e.target.value)}>
             Three points made
           </DropdownItem>
-          <DropdownItem value="ftm" onClick={(e) => onClick(e)}>
+          <DropdownItem value="ftm" onClick={(e) => setStat(e.target.value)}>
             free throw made
           </DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
-      <LoadPlayerStatChart statChoice={stat} />
+      <PlayerStatChart statChoice={stat} count={count} />
     </div>
   );
 };

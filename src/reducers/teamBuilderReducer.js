@@ -3,20 +3,18 @@ import {
   CENTER_FETCH,
   GUARD_FETCH,
   FORWARD_FETCH,
-  REMOVE_STATE,
   REMOVE_CENTER,
   REMOVE_FORWARD,
   REMOVE_GUARD,
 } from "../actions/types";
 
 const initialState = {
-  player: "",
-  stats: "",
   loading: true,
   team: "",
-  forward: "",
-  guard: "",
-  center: "",
+  forward: [],
+  guard: [],
+  center: [],
+  players: [],
 };
 
 export default function (state = initialState, action) {
@@ -24,10 +22,9 @@ export default function (state = initialState, action) {
     case TEAM_FETCH:
       return {
         ...state,
-        player: [action.payload[1], ...state.player],
-        stats: [action.payload[0], ...state.stats],
         loading: false,
         team: [action.payload[1].team, ...state.team],
+        players: [action.payload, ...state.players],
       };
     case CENTER_FETCH:
       return {
@@ -48,9 +45,39 @@ export default function (state = initialState, action) {
       return {
         ...state,
         center: state.center.filter(
-          (player) => player[1].id !== action.payload
+          (player) => player[1].id !== action.payload.id
         ),
+        players: state.players.filter(
+          (player) => player[1].id !== action.payload.id
+        ),
+
+        team: state.team.filter((team) => team.id !== action.payload.teamId),
       };
+    case REMOVE_FORWARD:
+      return {
+        ...state,
+        forward: state.forward.filter(
+          (player) => player[1].id !== action.payload.id
+        ),
+        players: state.players.filter(
+          (player) => player[1].id !== action.payload.id
+        ),
+
+        team: state.team.filter((team) => team.id !== action.payload.teamId),
+      };
+    case REMOVE_GUARD:
+      return {
+        ...state,
+        guard: state.guard.filter(
+          (player) => player[1].id !== action.payload.id
+        ),
+        players: state.players.filter(
+          (player) => player[1].id !== action.payload.id
+        ),
+
+        team: state.team.filter((team) => team.id !== action.payload.teamId),
+      };
+
     default:
       return state;
   }
