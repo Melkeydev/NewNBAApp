@@ -22,9 +22,10 @@ export default function (state = initialState, action) {
       return {
         ...state,
         stats: action.payload,
+        loading: false,
       };
     case FETCH_LAST_TEN:
-      return { ...state, lastTen: action.payload };
+      return { ...state, lastTen: action.payload, loading: false };
     default:
       return state;
   }

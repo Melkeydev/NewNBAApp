@@ -1,24 +1,28 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Table } from "semantic-ui-react";
+import { PlayerRow } from "./PlayerRow";
 
-export const RenderCount = ({ position, teamPlayers }) => {
-  let count = 0;
-  const renderCount = (teamPlayers) => {
-    return teamPlayers.map((player) => {
-      console.log(player[1]);
-      if (player[1].position === position) {
-        console.log("Test");
-        console.log(position);
-        count += 1;
-      }
-      return count;
-    });
-  };
+export const RenderCount = () => {
+  const TeamPlayers = useSelector((state) => state.Team.teamPlayers);
 
   return (
     <div>
-      {position}
-      <br />
-      {renderCount(teamPlayers)}
+      <Table size="small">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          {TeamPlayers.map((player, i) => (
+            <PlayerRow player={player[1]} teamPlayers={player[0]} key={i} />
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 };

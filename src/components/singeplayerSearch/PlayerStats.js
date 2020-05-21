@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Spinner, Button } from "reactstrap";
+import { Loader, Button } from "semantic-ui-react";
 import { useSelector, useDispatch } from "react-redux";
 import { PlayerSeasons } from "./PlayerSeasons";
 import { StatDropdown } from "./StatDropdown";
@@ -36,7 +36,7 @@ const PlayerStats = () => {
   return (
     <div>
       {loading ? (
-        <Spinner animation="grow" />
+        <Loader animation="grow" />
       ) : (
         <Fragment>
           <div>

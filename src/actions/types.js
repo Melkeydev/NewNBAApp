@@ -8,5 +8,13 @@ export const GUARD_FETCH = "GUARD_FETCH";
 export const REMOVE_CENTER = "REMOVE_CENTER";
 export const REMOVE_FORWARD = "REMOVE_FORWARD";
 export const REMOVE_GUARD = "REMOVE_GUARD";
-export const ADD_PLAYER = "ADD_PLAYER";
+
 export const REMOVE_PLAYER = "REMOVE_PLAYER";
+
+export const ADD_GUARD_POSITION = "ADD_GUARD_POSITION";
+export const ADD_CENTER_POSITION = "ADD_CENTER_POSITION";
+export const ADD_FORWARD_POSITION = "ADD_FORWARD_POSITION";
+
+//Error Handling
+export const SET_ERROR = "SET_ERROR";
+export const REMOVE_ERROR = "REMOVE_ERROR";

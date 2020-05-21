@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Container, Button } from "reactstrap";
+import { Form, Input, Container, Button } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -26,8 +26,8 @@ const Searchbar = () => {
           dispatch(FetchPlayer(Player));
         }}
       >
-        <FormGroup>
-          <Label for="Player">Type Player Name</Label>
+        <Form.Field>
+          <label for="Player">Type Player Name</label>
           <Input
             type="text"
             name="Player"
@@ -41,7 +41,7 @@ const Searchbar = () => {
           <Link to="/">
             <Button>Home</Button>
           </Link>
-        </FormGroup>
+        </Form.Field>
       </Form>
 
       <div>{Flag ? <PlayerStats /> : null}</div>

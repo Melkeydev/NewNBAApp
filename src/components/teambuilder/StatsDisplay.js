@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Button } from "reactstrap";
+import { Button } from "semantic-ui-react";
 import { removeState } from "../../actions/TeamBuilderAction";
 import { addPlayer } from "../../actions/TeamAction";
 import { RenderSpecificStatDisplay } from "./RenderSpecificStatDisplay";
@@ -51,7 +51,8 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
     first_name,
     last_name,
     position,
-    team: { full_name, conference, id },
+    id,
+    team: { full_name, conference },
   } = Player;
 
   const { min, season } = Stats;
@@ -81,7 +82,7 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
         Remove
       </Button>
       <Button
-        onClick={() => dispatch(addPlayer(renderStats(position)))}
+        onClick={() => dispatch(addPlayer(renderStats(position), id, position))}
         className="btn btn-success"
       >
         Add
