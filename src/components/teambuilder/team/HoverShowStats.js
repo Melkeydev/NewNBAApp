@@ -49,6 +49,9 @@ export const HoverShowStats = ({ isOpen, player, teamPlayer }) => {
             <tr>
               <td>Turnover : {turnover}</td>
             </tr>
+            <tr>
+              <td>Free Throws Made : {ftm}</td>
+            </tr>
           </table>
         </PopoverBody>
       </UncontrolledPopover>

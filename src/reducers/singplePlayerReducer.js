@@ -1,4 +1,9 @@
-import { FETCH_STATS, FETCH_SEASONS, FETCH_LAST_TEN } from "../actions/types";
+import {
+  FETCH_STATS,
+  FETCH_SEASONS,
+  FETCH_LAST_TEN,
+  REMOVE_STATES_SINGLE,
+} from "../actions/types";
 
 const initialState = {
   player: "",
@@ -6,6 +11,7 @@ const initialState = {
   loading: true,
   team: "",
   lastTen: "",
+  error: "",
 };
 
 export default function (state = initialState, action) {
@@ -26,6 +32,16 @@ export default function (state = initialState, action) {
       };
     case FETCH_LAST_TEN:
       return { ...state, lastTen: action.payload, loading: false };
+    case REMOVE_STATES_SINGLE:
+      return {
+        player: "",
+        stats: "",
+        loading: true,
+        team: "",
+        lastTen: "",
+        error: "",
+      };
+
     default:
       return state;
   }

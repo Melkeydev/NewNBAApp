@@ -1,23 +1,39 @@
 import axios from "axios";
-import { FETCH_STATS, FETCH_SEASONS, FETCH_LAST_TEN } from "./types";
+import {
+  FETCH_STATS,
+  FETCH_SEASONS,
+  FETCH_LAST_TEN,
+  SET_ERROR,
+  REMOVE_STATES_SINGLE,
+  REMOVE_ERROR,
+} from "./types";
 
 const base_url = "https://www.balldontlie.io/api/v1/";
 
 export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
-  const reqPlayers = await axios.get(
-    `${base_url}players?search=${Player}&per_page=75`
-  );
+  try {
+    const reqPlayers = await axios.get(
+      `${base_url}players?search=${Player}&per_page=75`
+    );
 
-  const { id } = reqPlayers.data.data[0];
+    const { id } = reqPlayers.data.data[0];
 
-  const reqStats = await axios.get(
-    `${base_url}season_averages?season=${season}&player_ids[]=${id}`
-  );
+    const reqStats = await axios.get(
+      `${base_url}season_averages?season=${season}&player_ids[]=${id}`
+    );
 
-  dispatch({
-    type: FETCH_STATS,
-    payload: [reqStats.data.data[0], reqPlayers.data.data[0]],
-  });
+    dispatch({
+      type: FETCH_STATS,
+      payload: [reqStats.data.data[0], reqPlayers.data.data[0]],
+    });
+  } catch (error) {
+    dispatch({
+      type: SET_ERROR,
+      payload: Player,
+    });
+
+    setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
+  }
 };
 
 export const FetchPlayerSeason = (id, season) => async (dispatch) => {
@@ -42,5 +58,19 @@ export const FetchLastTenGames = (id, season = "2019") => async (dispatch) => {
   dispatch({
     type: FETCH_LAST_TEN,
     payload: reqSortedGames,
+  });
+};
+
+export const setError = () => (dispatch) => {
+  dispatch({
+    type: SET_ERROR,
+    payload: "",
+  });
+  setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
+};
+
+export const removeStatesSingle = () => (dispatch) => {
+  dispatch({
+    type: REMOVE_STATES_SINGLE,
   });
 };

@@ -5,7 +5,6 @@ import { PlayerSeasons } from "./PlayerSeasons";
 import { StatDropdown } from "./StatDropdown";
 import { FetchLastTenGames } from "../../actions/SingleSearchActions";
 import { PlayerStatsTable } from "./PlayerStatsTable";
-import { set } from "mongoose";
 
 const PlayerStats = () => {
   const [count, setCount] = useState(10);

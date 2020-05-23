@@ -8,6 +8,7 @@ import {
   REMOVE_GUARD,
   SET_ERROR,
   REMOVE_ERROR,
+  REMOVE_STATES,
 } from "../actions/types";
 
 const initialState = {
@@ -122,6 +123,17 @@ export default function (state = initialState, action) {
     case REMOVE_ERROR:
       return {
         ...state,
+        error: "",
+      };
+
+    case REMOVE_STATES:
+      return {
+        loading: true,
+        team: "",
+        forward: [],
+        guard: [],
+        center: [],
+        players: [],
         error: "",
       };
 

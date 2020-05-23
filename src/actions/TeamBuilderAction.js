@@ -5,6 +5,7 @@ import {
   FORWARD_FETCH,
   SET_ERROR,
   REMOVE_ERROR,
+  REMOVE_STATES,
 } from "./types";
 import axios from "axios";
 
@@ -86,5 +87,18 @@ export const removeState = (player, teamId) => (dispatch) => {
   dispatch({
     type: RemovalType(position),
     payload: { id, teamId },
+  });
+};
+
+export const removeStates = () => (dispatch) => {
+  dispatch({
+    type: REMOVE_STATES,
+  });
+};
+
+export const setError = () => (dispatch) => {
+  dispatch({
+    type: SET_ERROR,
+    payload: "",
   });
 };
