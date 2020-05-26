@@ -9,3 +9,7 @@ export const mode = {
   ft_pct: "Free Throw %",
   to: "turnovers",
 };
+
+export const NBAAverages = {
+  pts: 30,
+};

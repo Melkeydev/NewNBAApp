@@ -6,8 +6,6 @@ import {
   REMOVE_CENTER,
   REMOVE_FORWARD,
   REMOVE_GUARD,
-  SET_ERROR,
-  REMOVE_ERROR,
   REMOVE_STATES,
 } from "../actions/types";
 
@@ -32,7 +30,6 @@ export default function (state = initialState, action) {
 
       return {
         ...state,
-        loading: false,
         team: [action.payload[1].team, ...state.team],
 
         players: [action.payload, ...state.players],
@@ -114,18 +111,6 @@ export default function (state = initialState, action) {
         loading: false,
       };
 
-    case SET_ERROR:
-      return {
-        ...state,
-        error: `${action.payload} is not a basketball player - please check spelling`,
-      };
-
-    case REMOVE_ERROR:
-      return {
-        ...state,
-        error: "",
-      };
-
     case REMOVE_STATES:
       return {
         loading: true,
@@ -134,7 +119,6 @@ export default function (state = initialState, action) {
         guard: [],
         center: [],
         players: [],
-        error: "",
       };
 
     default:

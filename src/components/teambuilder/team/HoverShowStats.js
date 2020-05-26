@@ -25,33 +25,35 @@ export const HoverShowStats = ({ isOpen, player, teamPlayer }) => {
         <PopoverHeader>{player}</PopoverHeader>
         <PopoverBody>
           <table>
-            <tr>
-              <td>Points : {pts}</td>
-            </tr>
-            <tr>
-              <td>Rebound : {reb}</td>
-            </tr>
-            <tr>
-              <td>Steal : {stl}</td>
-            </tr>
-            <tr>
-              <td>Assists : {ast}</td>
-            </tr>
-            <tr>
-              <td>Block : {blk}</td>
-            </tr>
-            <tr>
-              <td>Field Goal % : {fg3_pct}</td>
-            </tr>
-            <tr>
-              <td>Free throw % : {ft_pct}</td>
-            </tr>
-            <tr>
-              <td>Turnover : {turnover}</td>
-            </tr>
-            <tr>
-              <td>Free Throws Made : {ftm}</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Points : {pts}</td>
+              </tr>
+              <tr>
+                <td>Rebound : {reb}</td>
+              </tr>
+              <tr>
+                <td>Steal : {stl}</td>
+              </tr>
+              <tr>
+                <td>Assists : {ast}</td>
+              </tr>
+              <tr>
+                <td>Block : {blk}</td>
+              </tr>
+              <tr>
+                <td>Field Goal % : {fg3_pct}</td>
+              </tr>
+              <tr>
+                <td>Free throw % : {ft_pct}</td>
+              </tr>
+              <tr>
+                <td>Turnover : {turnover}</td>
+              </tr>
+              <tr>
+                <td>Free Throws Made : {ftm}</td>
+              </tr>
+            </tbody>
           </table>
         </PopoverBody>
       </UncontrolledPopover>

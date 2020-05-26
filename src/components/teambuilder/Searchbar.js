@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Form, Input, Container, Button } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
-import {
-  FetchPlayer,
-  removeStates,
-  setError,
-} from "../../actions/TeamBuilderAction";
+import { FetchPlayer, removeStates } from "../../actions/TeamBuilderAction";
+import { setError } from "../../actions/ErrorActions";
 import { Link } from "react-router-dom";
 
 const Searchbar = () => {
@@ -32,7 +29,7 @@ const Searchbar = () => {
         }}
       >
         <Form.Field>
-          <label for="Player">Type Player Name</label>
+          <label>Type Player Name</label>
           <Input
             type="text"
             name="Player"
@@ -42,7 +39,7 @@ const Searchbar = () => {
               setFormData({ ...formData, [e.target.name]: e.target.value });
             }}
           />
-          <Button className="btn btn-primary">Submit</Button>
+          <Button type="submit">Submit</Button>
           <Link to="/">
             <Button onClick={() => dispatch(removeStates())}>Home</Button>
           </Link>

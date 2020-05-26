@@ -39,7 +39,6 @@ export default function (state = initialState, action) {
         loading: true,
         team: "",
         lastTen: "",
-        error: "",
       };
 
     default:

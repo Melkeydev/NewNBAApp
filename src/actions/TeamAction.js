@@ -24,14 +24,16 @@ const addType = (position) => {
     case "C":
     case "F-C":
       return ADD_CENTER_POSITION;
+    default:
+      return null;
   }
 };
 
 export const removePlayer = (player) => async (dispatch) => {
-  const { id } = player[0][1];
+  const { player_id } = player;
 
   dispatch({
     type: REMOVE_PLAYER,
-    payload: id,
+    payload: player_id,
   });
 };

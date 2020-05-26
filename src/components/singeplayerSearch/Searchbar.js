@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Form, Input, Container, Button } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
 import {
   FetchPlayer,
-  setError,
   removeStatesSingle,
 } from "../../actions/SingleSearchActions";
+import { setError } from "../../actions/ErrorActions";
+
 import PlayerStats from "./PlayerStats";
 
 const Searchbar = () => {
@@ -31,7 +31,7 @@ const Searchbar = () => {
           if (Player.length > 1) {
             dispatch(FetchPlayer(Player));
           } else {
-            dispatch(setError());
+            dispatch(setError()); //Have its own section
             dispatch(removeStatesSingle());
           }
         }}

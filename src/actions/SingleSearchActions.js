@@ -53,20 +53,11 @@ export const FetchLastTenGames = (id, season = "2019") => async (dispatch) => {
   );
 
   const reqSortedGames = response.data.data.sort((a, b) => b.id - a.id);
-  //.slice(0, 10);
 
   dispatch({
     type: FETCH_LAST_TEN,
     payload: reqSortedGames,
   });
-};
-
-export const setError = () => (dispatch) => {
-  dispatch({
-    type: SET_ERROR,
-    payload: "",
-  });
-  setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
 };
 
 export const removeStatesSingle = () => (dispatch) => {

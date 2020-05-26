@@ -64,7 +64,16 @@ export default function (state = initialState, action) {
       return {
         ...state,
         teamPlayers: state.teamPlayers.filter(
-          (player) => player[1].id != action.payload
+          (player) => player[1].id !== action.payload
+        ),
+        forwards: state.forwards.filter(
+          (player) => player[1].id !== action.payload
+        ),
+        guards: state.guards.filter(
+          (player) => player[1].id !== action.payload
+        ),
+        centers: state.centers.filter(
+          (player) => player[1].id !== action.payload
         ),
         loading: false,
       };

@@ -95,10 +95,3 @@ export const removeStates = () => (dispatch) => {
     type: REMOVE_STATES,
   });
 };
-
-export const setError = () => (dispatch) => {
-  dispatch({
-    type: SET_ERROR,
-    payload: "",
-  });
-};

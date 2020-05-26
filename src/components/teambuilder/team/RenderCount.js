@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Table } from "semantic-ui-react";
 import { PlayerRow } from "./PlayerRow";
+import { LeagueAverage } from "./LeagueAverage";
+import { CalculateAverages } from "./CalculateAverages";
 
 export const RenderCount = () => {
   const TeamPlayers = useSelector((state) => state.Team.teamPlayers);
@@ -23,6 +25,7 @@ export const RenderCount = () => {
           ))}
         </tbody>
       </Table>
+      <CalculateAverages />
     </div>
   );
 };
