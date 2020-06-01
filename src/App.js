@@ -1,9 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Searchbar from "./components/singeplayerSearch/Searchbar";
 import TeamBuilder from "./components/teambuilder/TeamBuilder";
 import { Error } from "./components/layout/Error";
+import { Navbar } from "./components/layout/Navbar";
 import { Homepage } from "./components/layout/Homepage";
+import { RegisterForm } from "./components/Auth/RegisterForm";
+import { LoginForm } from "./components/Auth/LoginForm";
+import { PrivateRoute } from "./components/Auth/PrivateRoute";
 
 //redux
 import { Provider } from "react-redux";
@@ -14,10 +18,15 @@ function App() {
     <Provider store={store}>
       <Error />
       <Router>
-        {/*NavBar*/}
+        <Navbar />
         <Route exact path="/" component={Homepage} />
-        <Route exact path="/single-player" component={Searchbar} />
-        <Route exact path="/teambuilder" component={TeamBuilder} />
+        <Switch>
+          <PrivateRoute exact path="/single-player" component={Searchbar} />
+          <PrivateRoute exact path="/teambuilder" component={TeamBuilder} />
+
+          <Route exact path="/register" component={RegisterForm} />
+          <Route exact path="/login" component={LoginForm} />
+        </Switch>
       </Router>
     </Provider>
   );
