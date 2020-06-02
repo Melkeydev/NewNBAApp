@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "reactstrap";
+import { Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 export const Homepage = () => {

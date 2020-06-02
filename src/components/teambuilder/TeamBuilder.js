@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Searchbar from "./Searchbar";
 import { useSelector } from "react-redux";
 import { StatsDisplay } from "./StatsDisplay";
-import { Container, Button } from "reactstrap";
+import { Container, Button } from "semantic-ui-react";
 import { Team } from "./team/Team";
 
 const TeamBuilder = () => {
@@ -46,31 +46,34 @@ const TeamBuilder = () => {
       <Searchbar />
 
       <Button onClick={() => setFlag(!flag)}>Check all Stats</Button>
-      <Team style={{ overflowY: "auto", backgroundColor: "green" }} />
 
-      <Container
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "fuschia",
-        }}
-      >
-        <div
+      <div style={{ display: "flex" }}>
+        <Container
           style={{
-            display: "grid",
-            width: "100%",
-            justifyContent: "flex-start",
-            gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-            overflow: "hidden",
-            margin: "20px 0",
-            //gridTemplateRows: "auto auto auto",
+            display: "flex",
+            flexDirection: "column",
+            backgroundColor: "fuschia",
           }}
         >
-          {Guard.length > 0 && RenderDisplay(Guard)}
-          {Center.length > 0 && RenderDisplay(Center)}
-          {Forward.length > 0 && RenderDisplay(Forward)}
-        </div>
-      </Container>
+          <div
+            style={{
+              display: "grid",
+              width: "100%",
+              justifyContent: "flex-start",
+              gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+              overflow: "hidden",
+              margin: "20px 0",
+              //gridTemplateRows: "auto auto auto",
+            }}
+          >
+            {Guard.length > 0 && RenderDisplay(Guard)}
+            {Center.length > 0 && RenderDisplay(Center)}
+            {Forward.length > 0 && RenderDisplay(Forward)}
+          </div>
+        </Container>
+
+        <Team />
+      </div>
     </div>
   );
 };

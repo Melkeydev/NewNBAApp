@@ -1,7 +1,7 @@
 import React from "react";
 import { FetchPlayerSeason } from "../../actions/SingleSearchActions";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "reactstrap";
+import { Button } from "semantic-ui-react";
 
 export const PlayerSeasons = () => {
   const { id } = useSelector((state) => state.Player.player);

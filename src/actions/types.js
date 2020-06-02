@@ -8,5 +8,23 @@ export const GUARD_FETCH = "GUARD_FETCH";
 export const REMOVE_CENTER = "REMOVE_CENTER";
 export const REMOVE_FORWARD = "REMOVE_FORWARD";
 export const REMOVE_GUARD = "REMOVE_GUARD";
-export const ADD_PLAYER = "ADD_PLAYER";
+export const REMOVE_STATES = "REMOVE_STATES";
+export const REMOVE_STATES_SINGLE = "REMOVE_STATES_SINGLE";
+
 export const REMOVE_PLAYER = "REMOVE_PLAYER";
+
+export const ADD_GUARD_POSITION = "ADD_GUARD_POSITION";
+export const ADD_CENTER_POSITION = "ADD_CENTER_POSITION";
+export const ADD_FORWARD_POSITION = "ADD_FORWARD_POSITION";
+
+//BackendAPI
+export const REGISTER_USER = "REGISTER_USER";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGOUT = "LOGOUT";
+
+//Error Handling
+export const SET_ERROR = "SET_ERROR";
+export const REMOVE_ERROR = "REMOVE_ERROR";

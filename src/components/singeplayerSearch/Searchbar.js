@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Container, Button } from "reactstrap";
+import { Form, Input, Container, Button } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  FetchPlayer,
+  removeStatesSingle,
+} from "../../actions/SingleSearchActions";
+import { setError } from "../../actions/ErrorActions";
 
-import { FetchPlayer } from "../../actions/SingleSearchActions";
 import PlayerStats from "./PlayerStats";
 
 const Searchbar = () => {
@@ -23,11 +27,17 @@ const Searchbar = () => {
           e.preventDefault();
           setFormData({ ...formData, Flag: true });
           const { Player } = formData;
-          dispatch(FetchPlayer(Player));
+
+          if (Player.length > 1) {
+            dispatch(FetchPlayer(Player));
+          } else {
+            dispatch(setError()); //Have its own section
+            dispatch(removeStatesSingle());
+          }
         }}
       >
-        <FormGroup>
-          <Label for="Player">Type Player Name</Label>
+        <Form.Field>
+          <label for="Player">Type Player Name</label>
           <Input
             type="text"
             name="Player"
@@ -39,9 +49,9 @@ const Searchbar = () => {
           />
           <Button className="btn btn-primary">Submit</Button>
           <Link to="/">
-            <Button>Home</Button>
+            <Button onClick={() => dispatch(removeStatesSingle())}>Home</Button>
           </Link>
-        </FormGroup>
+        </Form.Field>
       </Form>
 
       <div>{Flag ? <PlayerStats /> : null}</div>
