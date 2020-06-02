@@ -29,7 +29,7 @@ export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: SET_ERROR,
-      payload: Player,
+      payload: `${Player} is not a player - please check spelling`,
     });
 
     setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);

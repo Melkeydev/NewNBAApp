@@ -1,8 +1,8 @@
-function modeData(playersData, mode) {
+export const modeData = (playersData, mode) => {
   return playersData
     .map((player) => player[0][mode])
     .filter((value) => typeof value !== "undefined");
-}
+};
 
 function getSum(values) {
   return values.reduce((acc, sum) => acc + sum, 0);
@@ -18,4 +18,12 @@ export const all = (players, modes) =>
     var avg = getAverage(data);
 
     return { mode, avg };
+  });
+
+export const sumAll = (players, modes) =>
+  Object.keys(modes).map((mode) => {
+    var data = modeData(players, mode);
+    var sum = getSum(data);
+
+    return { mode, sum };
   });

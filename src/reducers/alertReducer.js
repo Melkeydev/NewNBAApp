@@ -1,10 +1,10 @@
-import { SET_ERROR, REMOVE_ERROR } from "../actions/types";
+import { LOGIN_ALERT, REMOVE_ERROR } from "../actions/types";
 
 const initialState = [];
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case SET_ERROR:
+    case LOGIN_ALERT:
       return [...state, action.payload];
 
     case REMOVE_ERROR:

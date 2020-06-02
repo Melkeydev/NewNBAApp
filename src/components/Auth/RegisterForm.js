@@ -22,7 +22,6 @@ export const RegisterForm = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (password !== password2) {
-      console.log("Fail");
     } else {
       dispatch(register(formData));
     }

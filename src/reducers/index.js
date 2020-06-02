@@ -4,6 +4,7 @@ import teamBuilderReducer from "./teamBuilderReducer";
 import teamReducer from "./teamReducer";
 import errorReducer from "./errorReducer";
 import authReducer from "./authReducer";
+import alertReducer from "./alertReducer";
 
 export default combineReducers({
   Player: singlePlayerReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   Team: teamReducer,
   Error: errorReducer,
   Auth: authReducer,
+  Alert: alertReducer,
 });

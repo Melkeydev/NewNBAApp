@@ -4,9 +4,11 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  SET_ERROR,
+  REMOVE_ERROR,
+  LOGIN_ALERT,
 } from "./types";
 import axios from "axios";
-import { setError } from "./ErrorActions";
 
 const base_url = "http://localhost:5001/";
 
@@ -23,11 +25,29 @@ export const register = ({ first_name, last_name, email, password }) => async (
   const body = JSON.stringify({ first_name, last_name, email, password });
 
   try {
-    const response = await axios.post(`${base_url}api/users`, body, config);
+    const response = await axios
+      .post(`${base_url}api/users`, body, config)
+      .catch((err) => {
+        err.response.data.errors.map((error) =>
+          dispatch({
+            type: SET_ERROR,
+            payload: error.msg,
+          })
+        );
+
+        setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
+      });
     dispatch({
       type: REGISTER_SUCCESS,
       payload: response.data,
     });
+
+    dispatch({
+      type: LOGIN_ALERT,
+      payload: "Successfull Register",
+    });
+
+    setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
   } catch (error) {
     const errors = error;
     dispatch({
@@ -50,12 +70,25 @@ export const login = ({ email, password }) => async (dispatch) => {
   try {
     const response = await axios
       .post(`${base_url}api/users/login`, body, config)
-      .catch((err) => console.log(err.response));
+      .catch((err) => {
+        dispatch({
+          type: SET_ERROR,
+          payload: err.response.data.errors[0].msg,
+        });
+        setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
+      });
 
     dispatch({
       type: LOGIN_SUCCESS,
       payload: response.data,
     });
+
+    dispatch({
+      type: LOGIN_ALERT,
+      payload: "Successfull Login!",
+    });
+
+    setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
   } catch (errors) {
     dispatch({
       type: LOGIN_FAIL,

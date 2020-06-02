@@ -31,7 +31,7 @@ const Searchbar = () => {
           if (Player.length > 1) {
             dispatch(FetchPlayer(Player));
           } else {
-            dispatch(setError()); //Have its own section
+            dispatch(setError("Please type a player name to get stats")); //Have its own section
             dispatch(removeStatesSingle());
           }
         }}
