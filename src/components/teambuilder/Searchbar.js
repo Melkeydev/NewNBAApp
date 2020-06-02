@@ -24,7 +24,7 @@ const Searchbar = () => {
           if (Player.length > 1) {
             dispatch(FetchPlayer(Player));
           } else {
-            dispatch(setError());
+            dispatch(setError("Please type a player name to get stats"));
           }
         }}
       >

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { mode } from "../variables";
-import { all } from "./helpers";
+import { all, sumAll } from "./helpers";
 import { Table } from "semantic-ui-react";
 
 export const CalculateAverages = () => {
@@ -12,6 +12,12 @@ export const CalculateAverages = () => {
   });
 
   const averages = all(players, mode);
+
+  console.log(averages);
+
+  const sums = sumAll(players, mode);
+
+  console.log(sums);
 
   return (
     <div>
