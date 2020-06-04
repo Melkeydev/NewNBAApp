@@ -34,13 +34,21 @@ export const CalculateAverages = () => {
           {averages.map((average) => {
             return (
               <tr>
-                <td>"points": 30</td>
                 <td>
                   {mode[average.mode]} {average.avg}
                 </td>
               </tr>
             );
           })}
+          {/* {sums.map((sum) => {
+            return (
+              <tr>
+                <td>
+                  {mode[sum.mode]} {sum.sum}
+                </td>
+              </tr>
+            );
+          })} */}
         </tbody>
       </Table>
     </div>
