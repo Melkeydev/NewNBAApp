@@ -12,18 +12,20 @@ function getAverage(values) {
   return getSum(values) / values.length;
 }
 
-export const all = (players, modes) =>
+export const all = (players, modes, sumModes) =>
   Object.keys(modes).map((mode) => {
     var data = modeData(players, mode);
-    var avg = getAverage(data);
+    if (mode in sumModes) {
+      var sum = getSum(data).toFixed(2);
+    }
+    var avg = getAverage(data).toFixed(2);
 
-    return { mode, avg };
+    return { mode, avg, sum };
   });
 
-export const sumAll = (players, modes) =>
+export const normalStats = (players, modes) =>
   Object.keys(modes).map((mode) => {
     var data = modeData(players, mode);
-    var sum = getSum(data);
 
-    return { mode, sum };
+    return { mode, data };
   });

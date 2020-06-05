@@ -8,6 +8,7 @@ import { Homepage } from "./components/layout/Homepage";
 import { RegisterForm } from "./components/Auth/RegisterForm";
 import { LoginForm } from "./components/Auth/LoginForm";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
+import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
 
 //redux
 import { Provider } from "react-redux";
@@ -23,6 +24,7 @@ function App() {
         <Switch>
           <PrivateRoute exact path="/single-player" component={Searchbar} />
           <PrivateRoute exact path="/teambuilder" component={TeamBuilder} />
+          <PrivateRoute exact path="/teamdisplay" component={TeamDisplay} />
 
           <Route exact path="/register" component={RegisterForm} />
           <Route exact path="/login" component={LoginForm} />
