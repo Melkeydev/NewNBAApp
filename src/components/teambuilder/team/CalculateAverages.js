@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { mode } from "../variables";
+import { mode, average_mode, sum_mode } from "../variables";
 import { all, sumAll } from "./helpers";
-import { Table } from "semantic-ui-react";
+import { Table, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 export const CalculateAverages = () => {
   const { players } = useSelector((state) => {
@@ -11,44 +12,33 @@ export const CalculateAverages = () => {
     };
   });
 
-  const averages = all(players, mode);
-
-  console.log(averages);
-
-  const sums = sumAll(players, mode);
-
-  console.log(sums);
+  const averages = all(players, mode, sum_mode);
 
   return (
     <div>
       <Table size="small">
         <thead>
           <tr>
-            <th>League Average</th>
+            <th>Stats</th>
             <th>Team Average</th>
-            <th>Status</th>
+            <th>Team Totals</th>
           </tr>
         </thead>
         <tbody>
-          <tr> </tr>
-          {averages.map((average) => {
+          {averages.map((average, i) => {
             return (
-              <tr>
-                <td>"points": 30</td>
-                <td>
-                  {mode[average.mode]} {average.avg}
-                </td>
+              <tr key={i}>
+                <td>{mode[average.mode]}</td>
+                <td>{average.avg}</td>
+                <td>{average.sum}</td>
               </tr>
             );
           })}
         </tbody>
       </Table>
+      <Link to="/teamdisplay">
+        <Button>View Team</Button>
+      </Link>
     </div>
   );
 };
-
-// {
-//   TeamPlayers.map((player, i) => (
-//     <PlayerRow player={player[1]} teamPlayers={player[0]} key={i} />
-//   ));
-// }
