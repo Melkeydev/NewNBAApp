@@ -3,6 +3,7 @@ import {
   FETCH_SEASONS,
   FETCH_LAST_TEN,
   REMOVE_STATES_SINGLE,
+  TEAM_FETCH_LAST_TEN,
 } from "../actions/types";
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   loading: true,
   team: "",
   lastTen: "",
+  teamLastTen: "",
   error: "",
 };
 
@@ -32,6 +34,8 @@ export default function (state = initialState, action) {
       };
     case FETCH_LAST_TEN:
       return { ...state, lastTen: action.payload, loading: false };
+    case TEAM_FETCH_LAST_TEN:
+      return { ...state, teamLastTen: [...state.teamLastTen, action.payload] };
     case REMOVE_STATES_SINGLE:
       return {
         player: "",

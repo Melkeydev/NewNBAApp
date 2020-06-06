@@ -6,6 +6,7 @@ import {
   SET_ERROR,
   REMOVE_STATES_SINGLE,
   REMOVE_ERROR,
+  TEAM_FETCH_LAST_TEN,
 } from "./types";
 
 const base_url = "https://www.balldontlie.io/api/v1/";
@@ -47,17 +48,26 @@ export const FetchPlayerSeason = (id, season) => async (dispatch) => {
   });
 };
 
-export const FetchLastTenGames = (id, season = "2019") => async (dispatch) => {
+export const FetchLastTenGames = (id, team = false, season = "2019") => async (
+  dispatch
+) => {
   const response = await axios.get(
     `${base_url}stats?seasons[]=${season}&player_ids[]=${id}&per_page=50&page=0&`
   );
 
   const reqSortedGames = response.data.data.sort((a, b) => b.id - a.id);
 
-  dispatch({
-    type: FETCH_LAST_TEN,
-    payload: reqSortedGames,
-  });
+  if (!team) {
+    dispatch({
+      type: FETCH_LAST_TEN,
+      payload: reqSortedGames,
+    });
+  } else {
+    dispatch({
+      type: TEAM_FETCH_LAST_TEN,
+      payload: reqSortedGames.slice(0, 10),
+    });
+  }
 };
 
 export const removeStatesSingle = () => (dispatch) => {
