@@ -11,58 +11,92 @@ import {
 } from "recharts";
 
 export const TeamChartDisplay = () => {
-  const { teamLastTen } = useSelector((state) => state.Player);
-
-  //data = {X: 'games', LukaRebs 4000, LebronRebos: 2400, OtherPlayerRebs: 2400},
-
-  //console.log(teamLastTen);
+  const { teamLastTen, ids } = useSelector((state) => state.Player);
+  const { players } = useSelector((state) => {
+    return {
+      players: state.Team.teamPlayers,
+    };
+  });
 
   //data is an array of arrays
-  // const datas = teamLastTen.map((lastTen) => {
-  //   return lastTen.map((obj, index) => {
-  //     return { ...obj, index: index };
-  //   });
-  // });
+  const datas = teamLastTen.map((lastTen) => {
+    return lastTen.map((obj, index) => {
+      return { ...obj, index: index };
+    });
+  });
 
-  //const mergedData = data.flat();
+  const objMapping = (state) => {
+    return Object.values(
+      [].concat(...datas).reduce((a, v) => {
+        const {
+          pts,
+          ast,
+          stl,
+          blk,
+          index,
+          player: { id },
+        } = v;
+        const last = a[index];
+        return {
+          ...a,
+          [index]: {
+            ...last,
+            [id]: {
+              pts,
+              ast,
+              stl,
+              blk,
+              index,
+            },
+          },
+        };
+      }, {})
+    );
+  };
 
-  // const testData = [
-  //   { index: 0, reb: 77 },
-  //   { index: 1, reb: 22 },
-  //   { index: 2, reb: 44 },
-  //   { index: 3, reb: 17 },
-  //   { index: 4, reb: 99 },
-  //   { index: 5, reb: 30 },
-  //   { index: 6, reb: 11 },
-  // ];
+  console.log(players);
+  const generateLine = () => {
+    return ids.map((id) => {
+      var randomColor = "#000000".replace(/0/g, function () {
+        return (~~(Math.random() * 16)).toString(16);
+      });
+      return (
+        <Line
+          name={""}
+          type="monotone"
+          dataKey={`${id}.pts`}
+          stroke={randomColor}
+        />
+      );
+    });
+  };
 
-  var data = [
-    {
-      items: [
-        { index: 0, reb: 77 },
-        { index: 1, reb: 22 },
-        { index: 2, reb: 44 },
-        { index: 3, reb: 17 },
-        { index: 4, reb: 99 },
-        { index: 5, reb: 30 },
-        { index: 6, reb: 11 },
-      ],
-      items2: [
-        { index: 0, reb: 77 },
-        { index: 1, reb: 22 },
-        { index: 2, reb: 44 },
-        { index: 3, reb: 17 },
-        { index: 4, reb: 99 },
-        { index: 5, reb: 30 },
-        { index: 6, reb: 11 },
-      ],
-    },
-  ];
+  const mapPlayers = () => {
+    return players.map((player) => {
+      const { first_name, last_name, id } = player[1];
+      var randomColor = "#000000".replace(/0/g, function () {
+        return (~~(Math.random() * 16)).toString(16);
+      });
+      return (
+        <Line
+          name={`${first_name} ${last_name}`}
+          type="monotone"
+          dataKey={`${id}.pts`}
+          stroke={randomColor}
+        />
+      );
+    });
+  };
+
+  console.log(mapPlayers());
+
+  //console.log(objMapping());
+  const test = objMapping();
 
   return (
     <div>
       <LineChart
-        data={data[0].items}
+        data={test}
         width={1000}
         height={450}
         margin={{
@@ -74,19 +108,21 @@ export const TeamChartDisplay = () => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
+          allowDataOverflow={false}
           dataKey={"index"}
           tick={false}
-          allowDuplicatedCategories={false}
+          allowDuplicatedCategories={true}
         />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="reb" data={data[0].items} />
-        <Line type="monotone" dataKey="reb" data={data[0].items2} />
+        {mapPlayers()}
       </LineChart>
     </div>
   );
 };
+
+//Line dataKey="id.value" => this is how i need to set my points but still..
 
 // const data = [
 //   {

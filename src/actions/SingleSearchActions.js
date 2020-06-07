@@ -65,7 +65,7 @@ export const FetchLastTenGames = (id, team = false, season = "2019") => async (
   } else {
     dispatch({
       type: TEAM_FETCH_LAST_TEN,
-      payload: reqSortedGames.slice(0, 10),
+      payload: [reqSortedGames.slice(0, 10), id],
     });
   }
 };
