@@ -8,6 +8,12 @@ import {
 export const addPlayer = (player, id, position) => async (dispatch) => {
   let testPlayer = player.filter((_player) => _player[0].player_id === id);
 
+  var randomColor = "#000000".replace(/0/g, function () {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+
+  testPlayer[0].push(randomColor);
+
   dispatch({
     type: addType(position),
     payload: testPlayer[0],

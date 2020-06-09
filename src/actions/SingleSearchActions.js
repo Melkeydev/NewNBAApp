@@ -57,6 +57,10 @@ export const FetchLastTenGames = (id, team = false, season = "2019") => async (
 
   const reqSortedGames = response.data.data.sort((a, b) => b.id - a.id);
 
+  var randomColor = "#000000".replace(/0/g, function () {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+
   if (!team) {
     dispatch({
       type: FETCH_LAST_TEN,
@@ -65,7 +69,7 @@ export const FetchLastTenGames = (id, team = false, season = "2019") => async (
   } else {
     dispatch({
       type: TEAM_FETCH_LAST_TEN,
-      payload: [reqSortedGames.slice(0, 10), id],
+      payload: [reqSortedGames.slice(0, 10), randomColor],
     });
   }
 };

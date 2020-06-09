@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "semantic-ui-react";
 import { useSelector } from "react-redux";
 import { mode } from "../variables";
-import { TeamChartDisplay } from "./TeamChartDisplay";
+import { TeamStatDropDown } from "./TeamStatDropDown";
 
 export const TeamDisplay = () => {
   const { players } = useSelector((state) => {
@@ -13,7 +13,7 @@ export const TeamDisplay = () => {
 
   return (
     <div>
-      <TeamChartDisplay />
+      <TeamStatDropDown></TeamStatDropDown>
       <div style={{ paddingTop: "5%" }}>
         {players.map((player) => {
           const {

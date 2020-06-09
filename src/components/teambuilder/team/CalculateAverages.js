@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { mode, sum_mode } from "../variables";
-import { all } from "./helpers";
+import { all, normalStats } from "./helpers";
 import { Table, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
@@ -13,6 +13,21 @@ export const CalculateAverages = () => {
   });
 
   const averages = all(players, mode, sum_mode);
+  const normalStats_ = normalStats(players, mode);
+
+  const tester = (players, normalStats) => {
+    return players.map((player) => {
+      console.log(player[0].pts);
+      console.log(normalStats[0].pts);
+      console.log(player[0].pts - normalStats[0].pts.lowestValues);
+      const normalValue =
+        (player[0].pts - normalStats[0].pts.lowestValues) /
+        (normalStats[0].pts.highestValues - normalStats[0].pts.lowestValues);
+      return { [player[1].last_name]: { normalValue } };
+    });
+  };
+
+  console.log(tester(players, normalStats_));
 
   return (
     <div>

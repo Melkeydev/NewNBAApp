@@ -14,7 +14,6 @@ const initialState = {
   lastTen: "",
   teamLastTen: "",
   error: "",
-  ids: "",
 };
 
 export default function (state = initialState, action) {
@@ -39,7 +38,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         teamLastTen: [...state.teamLastTen, action.payload[0]],
-        ids: [...state.ids, action.payload[1].toString()],
       };
     case REMOVE_STATES_SINGLE:
       return {
