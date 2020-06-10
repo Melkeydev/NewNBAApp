@@ -3,6 +3,7 @@ import { Table } from "semantic-ui-react";
 import { useSelector } from "react-redux";
 import { mode } from "../variables";
 import { TeamStatDropDown } from "./TeamStatDropDown";
+import { RadarCharts } from "./RadarCharts";
 
 export const TeamDisplay = () => {
   const { players } = useSelector((state) => {
@@ -26,13 +27,21 @@ export const TeamDisplay = () => {
 
           return (
             <div>
-              <h2>
-                {first_name} {last_name}
-              </h2>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <h2>
+                  {first_name} {last_name}
+                </h2>
 
-              <h5>
-                Position: {position} | Team: {abbreviation}
-              </h5>
+                <h5>
+                  Position: {position} | Team: {abbreviation}
+                </h5>
+                <RadarCharts></RadarCharts>
+              </div>
 
               <Table>
                 <thead>

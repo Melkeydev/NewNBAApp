@@ -7,7 +7,6 @@ export const mode = {
   fg3_pct: "Three Point %",
   fg_pct: "Field Goal %",
   ft_pct: "Free Throw %",
-  to: "turnovers",
 };
 
 export const average_mode = {

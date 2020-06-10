@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Dropdown } from "semantic-ui-react";
-import { TeamChartDisplay } from "./TeamChartDisplay";
+import { DisplayBar } from "./DisplayBar";
 
 export const TeamStatDropDown = () => {
   const [statState, setStatState] = useState("pts");
@@ -23,7 +23,8 @@ export const TeamStatDropDown = () => {
         placeholder="points"
         onChange={(_, { value }) => setStatState(value)}
       ></Dropdown>
-      <TeamChartDisplay stat={statState}></TeamChartDisplay>
+
+      <DisplayBar stat_={statState} />
     </div>
   );
 };
