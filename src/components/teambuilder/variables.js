@@ -7,7 +7,6 @@ export const mode = {
   fg3_pct: "Three Point %",
   fg_pct: "Field Goal %",
   ft_pct: "Free Throw %",
-  to: "turnovers",
 };
 
 export const average_mode = {
@@ -22,4 +21,12 @@ export const sum_mode = {
   reb: "Rebounds",
   stl: "Steals",
   blk: "Blocks",
+};
+
+export const leagueLeaders = {
+  pts: 34.4,
+  reb: 15.2,
+  ast: 10.6,
+  blk: 3.1,
+  stl: 2.1,
 };

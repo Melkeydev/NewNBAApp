@@ -4,6 +4,7 @@ import { Button } from "semantic-ui-react";
 import { removeState } from "../../actions/TeamBuilderAction";
 import { addPlayer } from "../../actions/TeamAction";
 import { RenderSpecificStatDisplay } from "./RenderSpecificStatDisplay";
+import { FetchLastTenGames } from "../../actions/SingleSearchActions";
 
 //Put Render functions
 
@@ -82,7 +83,10 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
         Remove
       </Button>
       <Button
-        onClick={() => dispatch(addPlayer(renderStats(position), id, position))}
+        onClick={() => {
+          dispatch(addPlayer(renderStats(position), id, position));
+          dispatch(FetchLastTenGames(id, true));
+        }}
         className="btn btn-success"
       >
         Add

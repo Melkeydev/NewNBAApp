@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { mode, average_mode, sum_mode } from "../variables";
-import { all, sumAll } from "./helpers";
+import { mode, sum_mode } from "../variables";
+import { all } from "./helpers";
 import { Table, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
