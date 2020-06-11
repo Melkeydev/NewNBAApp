@@ -1,7 +1,16 @@
 export const modeData = (playersData, mode) => {
-  return playersData
-    .map((player) => player[0][mode])
-    .filter((value) => typeof value !== "undefined");
+  return playersData.map((player) => {
+    return player[0][mode];
+  });
+};
+
+export const testData = (player, mode, id, leagueLeaders) => {
+  return Object.keys(mode).map((mode_) => {
+    if (player[1].id === id) {
+      const data = player[0][mode_];
+      return { mode_, data };
+    }
+  });
 };
 
 function getSum(values) {
@@ -40,4 +49,14 @@ export const normalStats = (players, modes) => {
     highestStatList.push({ [mode]: { highestValues, lowestValues } });
   });
   return highestStatList;
+};
+
+export const createNormalData = (mode, players, league, id) => {
+  return Object.keys(mode).map((mode_) => {
+    let data = modeData(players, mode_, id);
+    data = data[0];
+    const normalData = (data - 0) / (league[mode_] - 0);
+
+    return { mode_, normalData };
+  });
 };

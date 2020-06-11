@@ -48,8 +48,6 @@ export const NormalizedStatsChart = ({ stat }) => {
     });
   };
 
-  //data = {} needs to be in the same format => {player, value}
-
   return (
     <div>
       Hi

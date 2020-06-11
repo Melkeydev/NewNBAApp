@@ -22,3 +22,11 @@ export const sum_mode = {
   stl: "Steals",
   blk: "Blocks",
 };
+
+export const leagueLeaders = {
+  pts: 34.4,
+  reb: 15.2,
+  ast: 10.6,
+  blk: 3.1,
+  stl: 2.1,
+};

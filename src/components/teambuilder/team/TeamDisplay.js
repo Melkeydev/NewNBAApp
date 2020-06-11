@@ -1,9 +1,10 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
 import { useSelector } from "react-redux";
-import { mode } from "../variables";
+import { mode, sum_mode } from "../variables";
 import { TeamStatDropDown } from "./TeamStatDropDown";
 import { RadarCharts } from "./RadarCharts";
+import { testData } from "./helpers";
 
 export const TeamDisplay = () => {
   const { players } = useSelector((state) => {
@@ -21,8 +22,12 @@ export const TeamDisplay = () => {
             first_name,
             last_name,
             position,
+            id,
             team: { abbreviation },
           } = player[1];
+
+          const stats = testData(player, sum_mode, id);
+
           //Cant put function call here :(
 
           return (
@@ -40,7 +45,12 @@ export const TeamDisplay = () => {
                 <h5>
                   Position: {position} | Team: {abbreviation}
                 </h5>
-                <RadarCharts></RadarCharts>
+                <RadarCharts
+                  style={{ marginLeft: "auto" }}
+                  id={id}
+                  stats={stats}
+                  color={player[2]}
+                ></RadarCharts>
               </div>
 
               <Table>

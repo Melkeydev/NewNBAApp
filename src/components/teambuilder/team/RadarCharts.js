@@ -1,48 +1,21 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { sum_mode } from "../variables";
-import { modeData } from "./helpers";
-import {
-  Radar,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-} from "recharts";
+import { leagueLeaders } from "../variables";
 
-export const RadarCharts = () => {
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
+
+export const RadarCharts = ({ stats, color }) => {
   const { players } = useSelector((state) => {
     return {
       players: state.Team.teamPlayers,
     };
   });
 
-  const createData = (mode, players) => {
-    return Object.keys(mode).map((mode_) => {
-      let data = modeData(players, mode_);
-      data = data[0].toFixed(0);
-
-      return { mode_, data };
+  const normalData = (stats, leagueLeaders) => {
+    return stats.map((stat) => {
+      const normalValue = stat.data / leagueLeaders[stat.mode_];
+      return { ...stat, data: normalValue };
     });
-  };
-
-  const createNormalData = (mode, players, sum, low) => {
-    return Object.keys(mode).map((mode_) => {
-      let data = modeData(players, mode_);
-      data = data[0];
-
-      const normalData = (data - low) / (sum - low);
-
-      return { mode_, normalData };
-    });
-  };
-
-  const getSum = (createData) => {
-    return createData.reduce((acc, sum) => parseFloat(sum.data) + acc, 0);
-  };
-
-  const getLowest = (data_) => {
-    return Math.min(...data_.map((o) => parseInt(o.data)));
   };
 
   const generateRadar = () => {
@@ -51,9 +24,9 @@ export const RadarCharts = () => {
       return (
         <Radar
           name={`${first_name} ${last_name}`}
-          dataKey="normalData"
-          stroke="#8884d8"
-          fill="#8884d8"
+          dataKey={"data"}
+          stroke={color}
+          fill={color}
           fillOpacity={0.6}
         />
       );
@@ -63,21 +36,16 @@ export const RadarCharts = () => {
   return (
     <div>
       <RadarChart
-        cx={300}
-        cy={250}
-        outerRadius={150}
-        width={500}
-        height={500}
-        data={createNormalData(
-          sum_mode,
-          players,
-          getSum(createData(sum_mode, players)),
-          getLowest(createData(sum_mode, players))
-        )}
+        cx={150}
+        cy={150}
+        outerRadius={100}
+        width={300}
+        height={300}
+        data={normalData(stats, leagueLeaders)}
       >
         <PolarGrid />
-        <PolarAngleAxis dataKey="mode_" />
-        <PolarRadiusAxis />
+        <PolarAngleAxis dataKey={"mode_"} />
+
         {generateRadar()}
       </RadarChart>
     </div>
