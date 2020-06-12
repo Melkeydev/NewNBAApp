@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { mode, sum_mode } from "../variables";
 import { TeamStatDropDown } from "./TeamStatDropDown";
 import { RadarCharts } from "./RadarCharts";
+import { TeamRadarChart } from "./TeamRadarChart";
 import { testData } from "./helpers";
 
 export const TeamDisplay = () => {
@@ -15,7 +16,16 @@ export const TeamDisplay = () => {
 
   return (
     <div>
-      <TeamStatDropDown></TeamStatDropDown>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        <TeamStatDropDown></TeamStatDropDown>
+        <TeamRadarChart />
+      </div>
+
       <div style={{ paddingTop: "5%" }}>
         {players.map((player) => {
           const {

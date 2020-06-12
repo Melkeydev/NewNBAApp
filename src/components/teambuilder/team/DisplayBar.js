@@ -18,8 +18,19 @@ export const DisplayBar = ({ stat_ }) => {
       ) : (
         <TeamChartDisplay stat={stat_}></TeamChartDisplay>
       )}
-      <div>
-        <Button onClick={() => setChartState(true)}>Normalized Stats </Button>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Button
+          onClick={() => setChartState(!chartState)}
+          style={{ marginTop: "5%" }}
+        >
+          Normalized Stats{" "}
+        </Button>
+        <Button
+          onClick={() => setChartState(!chartState)}
+          style={{ marginTop: "5%" }}
+        >
+          Normalized Stats{" "}
+        </Button>
       </div>
     </div>
   );
