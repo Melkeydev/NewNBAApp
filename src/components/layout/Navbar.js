@@ -1,83 +1,90 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Menu, Button } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { logout } from "../../actions/AuthAction";
 import { useDispatch, useSelector } from "react-redux";
 
 export const Navbar = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
 
-  const [ active, setActive ] = useState("home");
+  const [ checkedCurrent, setCheckedCurrent] = useState(false);
+  const [ active, setActive ] = useState();
   const { isLoggedIn } = useSelector((state) => state.Auth);
+
+  /*
+    runs once after page reload,
+    sets active nav link to current route
+  */
+  useEffect(() => {
+    if (checkedCurrent) return;
+
+    const currentRoute = location.pathname.replace("/", "");
+
+    setActive(currentRoute || "home");
+    setCheckedCurrent(true);
+  }, [checkedCurrent, location.pathname]);
 
   const handleClick = useCallback((_, { name }) => setActive(name), []);
 
   return (
-    <div>
-      <Menu stackable>
-        <Menu.Item
-          name="home"
-          onClick={handleClick}
-          active={active === "home"}
-        >
-          <Link to="/">
-            <Button>Home</Button>
-          </Link>
-        </Menu.Item>
-        <Menu.Item
-          name="singlePlayer"
-          onClick={handleClick}
-          active={active === "singlePlayer"}
-        >
-          <Link to="/single-player">
-            <Button>Detailed Search</Button>
-          </Link>
-        </Menu.Item>
-        <Menu.Item
-            name="teamBuilder"
-            onClick={handleClick}
-            active={active === "teamBuilder"}
-          >
-          <Link to="/teambuilder">
-            <Button>Build a Team</Button>
-          </Link>
-        </Menu.Item>
+    <Menu stackable>
+      <Menu.Item
+        as={Link} to="/"
+        name="home"
+        onClick={handleClick}
+        active={active === "home"}
+      >
+        Home
+      </Menu.Item>
+      <Menu.Item
+        as={Link} to="single-player"
+        name="single-player"
+        onClick={handleClick}
+        active={active === "single-player"}
+      >
+        Detailed Search
+      </Menu.Item>
+      <Menu.Item
+        as={Link} to="/teambuilder"
+        name="teambuilder"
+        onClick={handleClick}
+        active={active === "teambuilder"}
+      >
+        Build a Team
+      </Menu.Item>
 
-        <Menu.Menu position="right">
-          {isLoggedIn && (
-            <Menu.Item
-                name="home"
-                onClick={handleClick}
-              >
-              <Link to="/">
-                <Button onClick={() => dispatch(logout())}>Logout</Button>
-              </Link>
-            </Menu.Item>
-          )}
-          {!isLoggedIn && (
-            <Menu.Item
-                name="login"
-                onClick={handleClick}
-                active={active === "login"}
-              >
-              <Link to="/login">
-                <Button>Login</Button>
-              </Link>
-            </Menu.Item>
-          )}
-          {!isLoggedIn && (
-            <Menu.Item
-                name="register"
-                onClick={handleClick}
-                active={active === "register"}
-              >
-              <Link to="/register">
-                <Button primary>Register</Button>
-              </Link>
-            </Menu.Item>
-          )}
-        </Menu.Menu>
-      </Menu>
-    </div>
+      <Menu.Menu position="right">
+        {isLoggedIn && (
+          <Menu.Item
+            as={Link} to="/"
+            name=""
+            onClick={handleClick}
+          >
+            <Button onClick={() => dispatch(logout())}>Logout</Button>
+          </Menu.Item>
+        )}
+        {!isLoggedIn && (
+          <Menu.Item
+            as={Link} to="/login"
+            name="login"
+            onClick={handleClick}
+            active={active === "login"}
+          >
+            <Button>Login</Button>
+          </Menu.Item>
+        )}
+        {!isLoggedIn && (
+          <Menu.Item
+            as={Link} to="/register"
+            name="register"
+            onClick={handleClick}
+            active={active === "register"}
+          >
+            <Button primary>Register</Button>
+          </Menu.Item>
+        )}
+      </Menu.Menu>
+    </Menu>
   );
 };
