@@ -37,22 +37,26 @@ export const Navbar = () => {
       >
         Home
       </Menu.Item>
-      <Menu.Item
-        as={Link} to="single-player"
-        name="single-player"
-        onClick={handleClick}
-        active={active === "single-player"}
-      >
-        Detailed Search
-      </Menu.Item>
-      <Menu.Item
-        as={Link} to="/teambuilder"
-        name="teambuilder"
-        onClick={handleClick}
-        active={active === "teambuilder"}
-      >
-        Build a Team
-      </Menu.Item>
+      {isLoggedIn && (
+        <Menu.Item
+          as={Link} to="single-player"
+          name="single-player"
+          onClick={handleClick}
+          active={active === "single-player"}
+        >
+          Detailed Search
+        </Menu.Item>
+      )}
+      {isLoggedIn && (
+        <Menu.Item
+          as={Link} to="/teambuilder"
+          name="teambuilder"
+          onClick={handleClick}
+          active={active === "teambuilder"}
+        >
+          Build a Team
+        </Menu.Item>
+      )}
 
       <Menu.Menu position="right">
         {isLoggedIn && (
