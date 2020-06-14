@@ -30,3 +30,19 @@ export const leagueLeaders = {
   blk: 3.1,
   stl: 2.1,
 };
+
+export const weights = {
+  fgm: 85.91,
+  stl: 53.897,
+  fg3m: 51.757,
+  ftm: 46.845,
+  blk: 39.19,
+  oreb: 39.19,
+  ast: 34.677,
+  dreb: 14.707,
+  pf: -17.174,
+  ft_missW: -1 * 20.091,
+  fg_missW: -1 * 39.19,
+  turnover: -1 * 53.897,
+  min: "",
+};

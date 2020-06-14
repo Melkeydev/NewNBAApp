@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { normalStats } from "./helpers";
-import { mode } from "../variables";
+import { normalStats, createMissStats } from "./helpers";
+import { mode, weights } from "../variables";
 import {
   BarChart,
   Bar,
@@ -12,12 +12,15 @@ import {
   Legend,
 } from "recharts";
 
-export const PlayerEffiencyChart = () => {
+export const PlayerEfficiencyChart = () => {
   const { players } = useSelector((state) => {
     return {
       players: state.Team.teamPlayers,
     };
   });
 
-  return <div></div>;
+  const playerStats = createMissStats(players, weights);
+  console.log(playerStats.flat());
+
+  return <div>Hi</div>;
 };
