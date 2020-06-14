@@ -1,59 +1,56 @@
-import React, { useState } from "react";
-import { Button, Form } from "semantic-ui-react";
+import React, { useState, useCallback } from "react";
+import { Container, Header, Form, Button } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/AuthAction";
 import { Redirect } from "react-router-dom";
 
 export const LoginForm = () => {
-  const { isLoggedIn } = useSelector((state) => state.Auth);
+  const { isLoggedIn } = useSelector(state =>  state.Auth);
 
-  const [formData, setFormData] = useState({
-    email: "minsin45@twitch.com",
-    password: "peninie",
-  });
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ loggingIn, setLoggingIn ] = useState(false);
 
   const dispatch = useDispatch();
 
-  const onSubmit = (e) => {
+  const onSubmit = useCallback(async e => {
+    if (loggingIn) return;
+
+    setLoggingIn(true);
+
     e.preventDefault();
-    dispatch(login(formData));
-  };
 
-  const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    const formData = {
+      email,
+      password
+    };
 
-  const { email, password } = formData;
+    await dispatch(login(formData));
 
-  //Redirect if Logged in
-  if (isLoggedIn) {
-    return <Redirect to="/" />;
-  }
+    setLoggingIn(false);
+  }, [dispatch, email, loggingIn, password]);
+
+  if (isLoggedIn) return <Redirect to="/"/>;
 
   return (
-    <div>
-      <Form onSubmit={(e) => onSubmit(e)}>
+    <Container>
+      <Header as="h2">
+        Login Form
+        <Header.Subheader>
+          Sign into your account
+        </Header.Subheader>
+      </Header>
+      <Form loading={loggingIn} onSubmit={onSubmit}>
         <Form.Field>
           <label>Email</label>
-          <input
-            placeholder="Email"
-            name="email"
-            value={email}
-            onChange={onChange}
-          />
+          <input name="email" value={email} onChange={e => setEmail(e.target.value)}/>
         </Form.Field>
         <Form.Field>
           <label>Password</label>
-          <input
-            placeholder="Password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={onChange}
-          />
+          <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)}/>
         </Form.Field>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Login</Button>
       </Form>
-    </div>
+    </Container>
   );
 };

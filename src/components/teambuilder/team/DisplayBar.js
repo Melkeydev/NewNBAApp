@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NormalizedStatsChart } from "./NormalizedStatsChart";
 import { TeamChartDisplay } from "./TeamChartDisplay";
+import { PlayerEfficiencyChart } from "./PlayerEfficiencyChart";
 import { Button } from "semantic-ui-react";
 
 export const DisplayBar = ({ stat_ }) => {
@@ -13,13 +14,25 @@ export const DisplayBar = ({ stat_ }) => {
         flexDirection: "row",
       }}
     >
+      <PlayerEfficiencyChart />
       {chartState ? (
         <NormalizedStatsChart stat={stat_}></NormalizedStatsChart>
       ) : (
         <TeamChartDisplay stat={stat_}></TeamChartDisplay>
       )}
-      <div>
-        <Button onClick={() => setChartState(true)}>Normalized Stats </Button>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Button
+          onClick={() => setChartState(!chartState)}
+          style={{ marginTop: "5%" }}
+        >
+          Normalized Stats{" "}
+        </Button>
+        <Button
+          onClick={() => setChartState(!chartState)}
+          style={{ marginTop: "5%" }}
+        >
+          Player Efficiency
+        </Button>
       </div>
     </div>
   );

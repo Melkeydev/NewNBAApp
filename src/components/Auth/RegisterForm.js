@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Checkbox, Form } from "semantic-ui-react";
+import { Container, Header, Form, Button, Checkbox } from "semantic-ui-react";
 import { register } from "../../actions/AuthAction";
 import { Redirect } from "react-router-dom";
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state) => state.Auth);
 
-  const dispatch = useDispatch();
+  const [ registering, setRegistering ] = useState(false);
 
   const [formData, setFormData] = useState({
     first_name: "",
@@ -19,30 +20,38 @@ export const RegisterForm = () => {
 
   const { first_name, last_name, email, password, password2 } = formData;
 
-  const onSubmit = (e) => {
+  const onSubmit = useCallback(async e => {
     e.preventDefault();
-    if (password !== password2) {
-    } else {
-      dispatch(register(formData));
+
+    if (registering) return;
+
+    setRegistering(true);
+
+    if (password === password2) {
+      await dispatch(register(formData));
+
+      setRegistering(false);
     }
-  };
+  }, [dispatch, formData, password, password2, registering]);
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //Redirect if Logged in
-  if (isLoggedIn) {
-    return <Redirect to="/" />;
-  }
+  if (isLoggedIn) return <Redirect to="/"/>;
 
   return (
-    <div>
-      <Form onSubmit={(e) => onSubmit(e)}>
+    <Container>
+      <Header as="h2">
+        Register Form
+        <Header.Subheader>
+          Create your account
+        </Header.Subheader>
+      </Header>
+      <Form onSubmit={onSubmit} loading={registering}>
         <Form.Field>
           <label>First Name</label>
           <input
-            placeholder="First Name"
             name="first_name"
             value={first_name}
             onChange={onChange}
@@ -51,7 +60,6 @@ export const RegisterForm = () => {
         <Form.Field>
           <label>Last Name</label>
           <input
-            placeholder="Last Name"
             name="last_name"
             value={last_name}
             onChange={onChange}
@@ -60,7 +68,6 @@ export const RegisterForm = () => {
         <Form.Field>
           <label>Email</label>
           <input
-            placeholder="Email"
             name="email"
             value={email}
             onChange={onChange}
@@ -69,7 +76,6 @@ export const RegisterForm = () => {
         <Form.Field>
           <label>Password</label>
           <input
-            placeholder="Password"
             type="password"
             name="password"
             value={password}
@@ -79,7 +85,6 @@ export const RegisterForm = () => {
         <Form.Field>
           <label>Repeat Password</label>
           <input
-            placeholder="Password"
             type="password"
             name="password2"
             value={password2}
@@ -89,8 +94,8 @@ export const RegisterForm = () => {
         <Form.Field>
           <Checkbox label="I agree to the Terms and Conditions" />
         </Form.Field>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Register</Button>
       </Form>
-    </div>
+    </Container>
   );
 };

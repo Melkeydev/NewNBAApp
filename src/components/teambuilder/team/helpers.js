@@ -60,3 +60,18 @@ export const createNormalData = (mode, players, league, id) => {
     return { mode_, normalData };
   });
 };
+
+export const calculatePER = (players, weights) => {};
+
+export const createMissStats = (players, weights) => {
+  return players.map((player) => {
+    const FG_Miss = (player[0].fga - player[0].fgm).toFixed(2);
+    const FT_Miss = player[0].fta - player[0].ftm;
+    weights["FG_Miss"] = FG_Miss;
+    weights["FT_Miss"] = FT_Miss;
+    return Object.keys(weights).map((key) => {
+      const value = weights[key];
+      return { [key]: value };
+    });
+  });
+};
