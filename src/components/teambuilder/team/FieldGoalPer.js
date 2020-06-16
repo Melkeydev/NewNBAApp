@@ -1,7 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { normalStats } from "./helpers";
-import { mode } from "../variables";
 import {
   BarChart,
   Bar,
@@ -12,26 +10,19 @@ import {
   Legend,
 } from "recharts";
 
-export const NormalizedStatsChart = ({ stat }) => {
+export const FieldGoalPer = ({ Made, Attempted }) => {
   const { players } = useSelector((state) => {
     return {
       players: state.Team.teamPlayers,
     };
   });
 
-  const normalStats_ = normalStats(players, mode);
-
-  const object = normalStats_.reduce((obj, item) => {
-    Object.assign(obj, item);
-    return obj;
-  }, {});
-
-  const tester = (players, normalStats, stat = "pts") => {
+  const calculateFGP = (players, Made, Attempted) => {
     return players.map((player) => {
-      const normalValue =
-        (player[0][stat] - normalStats[stat].lowestValues) /
-        (normalStats[stat].highestValues - normalStats[stat].lowestValues);
-      return { [player[1].id]: { normalValue } };
+      const FieldRatio = Number(
+        (player[0][Made] / player[0][Attempted]).toFixed(2)
+      );
+      return { [player[1].id]: { FieldRatio } };
     });
   };
 
@@ -41,8 +32,8 @@ export const NormalizedStatsChart = ({ stat }) => {
       return (
         <Bar
           name={`${first_name} ${last_name}`}
-          dataKey={`${id}.normalValue`}
-          fill="#8884d8"
+          dataKey={`${id}.FieldRatio`}
+          fill={player[2]}
         />
       );
     });
@@ -53,7 +44,7 @@ export const NormalizedStatsChart = ({ stat }) => {
       <BarChart
         width={1000}
         height={450}
-        data={tester(players, object, stat)}
+        data={calculateFGP(players, Made, Attempted)}
         margin={{
           top: 5,
           right: 30,

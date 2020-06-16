@@ -67,11 +67,12 @@ export const createMissStats = (players, weights) => {
   return players.map((player) => {
     const FG_Miss = (player[0].fga - player[0].fgm).toFixed(2);
     const FT_Miss = player[0].fta - player[0].ftm;
-    weights["FG_Miss"] = FG_Miss;
+    weights["FG_Miss"] = Number(FG_Miss);
     weights["FT_Miss"] = FT_Miss;
-    return Object.keys(weights).map((key) => {
+    Object.keys(weights).map((key) => {
       const value = weights[key];
-      return { [key]: value };
+      Object.assign(weights, { [key]: value });
     });
+    return weights;
   });
 };

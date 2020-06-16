@@ -1,7 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { normalStats } from "./helpers";
-import { mode } from "../variables";
 import {
   BarChart,
   Bar,
@@ -12,26 +10,20 @@ import {
   Legend,
 } from "recharts";
 
-export const NormalizedStatsChart = ({ stat }) => {
+export const TrueShooting = () => {
   const { players } = useSelector((state) => {
     return {
       players: state.Team.teamPlayers,
     };
   });
 
-  const normalStats_ = normalStats(players, mode);
-
-  const object = normalStats_.reduce((obj, item) => {
-    Object.assign(obj, item);
-    return obj;
-  }, {});
-
-  const tester = (players, normalStats, stat = "pts") => {
+  const calculateTSA = (players) => {
     return players.map((player) => {
-      const normalValue =
-        (player[0][stat] - normalStats[stat].lowestValues) /
-        (normalStats[stat].highestValues - normalStats[stat].lowestValues);
-      return { [player[1].id]: { normalValue } };
+      const TSA = (player[0].fga + 0.44 * player[0].fta).toFixed(2);
+      const TS = player[0].pts / (2 * Number(TSA));
+
+      Object.assign(player[0], { ["TS"]: Number(TS) });
+      return { [player[1].id]: { TS } };
     });
   };
 
@@ -41,8 +33,8 @@ export const NormalizedStatsChart = ({ stat }) => {
       return (
         <Bar
           name={`${first_name} ${last_name}`}
-          dataKey={`${id}.normalValue`}
-          fill="#8884d8"
+          dataKey={`${id}.TS`}
+          fill={player[2]}
         />
       );
     });
@@ -53,7 +45,7 @@ export const NormalizedStatsChart = ({ stat }) => {
       <BarChart
         width={1000}
         height={450}
-        data={tester(players, object, stat)}
+        data={calculateTSA(players)}
         margin={{
           top: 5,
           right: 30,

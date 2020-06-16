@@ -41,8 +41,8 @@ export const weights = {
   ast: 34.677,
   dreb: 14.707,
   pf: -17.174,
-  ft_missW: -1 * 20.091,
-  fg_missW: -1 * 39.19,
+  FT_Miss: -1 * 20.091,
+  FG_Miss: -1 * 39.19,
   turnover: -1 * 53.897,
   min: "",
 };
