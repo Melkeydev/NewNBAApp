@@ -77,7 +77,6 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
     /* View Layer*/
     <div>
       <Button
-        className="btn btn-danger"
         onClick={() => dispatch(removeState(renderStats(position)[0][1], id))}
       >
         Remove
@@ -87,7 +86,6 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
           dispatch(addPlayer(renderStats(position), id, position));
           dispatch(FetchLastTenGames(id, true));
         }}
-        className="btn btn-success"
       >
         Add
       </Button>

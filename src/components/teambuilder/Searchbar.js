@@ -14,7 +14,7 @@ const Searchbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <Container>
+    <div>
       <Form
         onSubmit={(e) => {
           e.preventDefault();
@@ -39,13 +39,20 @@ const Searchbar = () => {
               setFormData({ ...formData, [e.target.name]: e.target.value });
             }}
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit" style={{ marginTop: "10px" }}>
+            Submit
+          </Button>
           <Link to="/">
-            <Button onClick={() => dispatch(removeStates())}>Home</Button>
+            <Button
+              style={{ marginTop: "10px" }}
+              onClick={() => dispatch(removeStates())}
+            >
+              Home
+            </Button>
           </Link>
         </Form.Field>
       </Form>
-    </Container>
+    </div>
   );
 };
 
