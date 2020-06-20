@@ -38,6 +38,9 @@ export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
 };
 
 export const FetchPlayerSeason = (id, season) => async (dispatch) => {
+  console.log("id", id);
+  console.log("season", season);
+
   const reqSeasons = await axios.get(
     `${base_url}season_averages?season=${season}&player_ids[]=${id}`
   );

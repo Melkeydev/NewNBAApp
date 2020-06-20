@@ -17,7 +17,7 @@ export const StatDropdown = ({ count }) => {
   ];
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Dropdown
         options={options}
         placeholder="Points"

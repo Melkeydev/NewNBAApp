@@ -1,7 +1,7 @@
 import React from "react";
 import { FetchPlayerSeason } from "../../actions/SingleSearchActions";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "semantic-ui-react";
+import { Button } from "antd";
 
 export const PlayerSeasons = () => {
   const { id } = useSelector((state) => state.Player.player);
@@ -10,23 +10,20 @@ export const PlayerSeasons = () => {
   return (
     <div>
       <Button
-        className="btn btn-primary"
-        id="2019"
-        onClick={(e) => dispatch(FetchPlayerSeason(id, e.target.id))}
+        type="primary"
+        onClick={() => dispatch(FetchPlayerSeason(id, "2019"))}
       >
         2019
       </Button>
       <Button
-        className="btn btn-primary"
-        id="2018"
-        onClick={(e) => dispatch(FetchPlayerSeason(id, e.target.id))}
+        type="primary"
+        onClick={() => dispatch(FetchPlayerSeason(id, "2018"))}
       >
         2018
       </Button>
       <Button
-        className="btn btn-primary"
-        id="2017"
-        onClick={(e) => dispatch(FetchPlayerSeason(id, e.target.id))}
+        type="primary"
+        onClick={() => dispatch(FetchPlayerSeason(id, "2017"))}
       >
         2017
       </Button>

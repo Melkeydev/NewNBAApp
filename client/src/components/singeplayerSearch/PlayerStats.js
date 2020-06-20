@@ -1,10 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Loader, Button } from "semantic-ui-react";
+import { Button, Spin } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { PlayerSeasons } from "./PlayerSeasons";
 import { StatDropdown } from "./StatDropdown";
 import { FetchLastTenGames } from "../../actions/SingleSearchActions";
 import { PlayerStatsTable } from "./PlayerStatsTable";
+
+//
+import { Row, Col } from "antd";
 
 const PlayerStats = () => {
   const [count, setCount] = useState(10);
@@ -33,9 +36,9 @@ const PlayerStats = () => {
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       {loading ? (
-        <Loader animation="grow" />
+        <Spin />
       ) : (
         <Fragment>
           <div>
@@ -71,6 +74,7 @@ const PlayerStats = () => {
             }}
           >
             <Button
+              type="dashed"
               onClick={() => {
                 setCount(10);
               }}
@@ -78,6 +82,7 @@ const PlayerStats = () => {
               10
             </Button>
             <Button
+              type="dashed"
               onClick={() => {
                 setCount(15);
               }}
@@ -85,6 +90,7 @@ const PlayerStats = () => {
               15
             </Button>
             <Button
+              type="dashed"
               onClick={() => {
                 setCount(20);
               }}

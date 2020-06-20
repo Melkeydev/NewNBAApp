@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-// import { Menu, Button } from "semantic-ui-react";
+
 import { Link, useLocation } from "react-router-dom";
 import { logout } from "../../actions/AuthAction";
 import { useDispatch, useSelector } from "react-redux";

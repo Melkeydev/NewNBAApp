@@ -6,6 +6,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  ResponsiveContainer,
   Legend,
 } from "recharts";
 import { useSelector } from "react-redux";
@@ -34,7 +35,7 @@ export const PlayerStatChart = ({ statChoice, count }) => {
   };
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <h3
         style={{
           alignItems: "center",
@@ -44,29 +45,29 @@ export const PlayerStatChart = ({ statChoice, count }) => {
       >
         Last {count} games
       </h3>
-      <LineChart
-        width={1000}
-        height={450}
-        data={setData()}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="x" tick={false} />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line
-          type="monotone"
-          dataKey="Games"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
-        />
-      </LineChart>
+      <ResponsiveContainer width={"99%"} height={400}>
+        <LineChart
+          data={setData()}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="x" tick={false} />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="Games"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 };

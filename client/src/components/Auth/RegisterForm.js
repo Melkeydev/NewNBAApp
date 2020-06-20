@@ -1,14 +1,28 @@
 import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Header, Form, Button, Checkbox } from "semantic-ui-react";
 import { register } from "../../actions/AuthAction";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+//AntD
+import {
+  Form,
+  Input,
+  Checkbox,
+  Button,
+  AutoComplete,
+  Row,
+  Col,
+  PageHeader,
+} from "antd";
+
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state) => state.Auth);
 
-  const [ registering, setRegistering ] = useState(false);
+  const [registering, setRegistering] = useState(false);
 
   const [formData, setFormData] = useState({
     first_name: "",
@@ -20,82 +34,177 @@ export const RegisterForm = () => {
 
   const { first_name, last_name, email, password, password2 } = formData;
 
-  const onSubmit = useCallback(async e => {
-    e.preventDefault();
+  const onSubmit = useCallback(
+    async (e) => {
+      if (registering) return;
 
-    if (registering) return;
+      setRegistering(true);
 
-    setRegistering(true);
+      if (password === password2) {
+        await dispatch(register(formData));
 
-    if (password === password2) {
-      await dispatch(register(formData));
-
-      setRegistering(false);
-    }
-  }, [dispatch, formData, password, password2, registering]);
+        setRegistering(false);
+      }
+    },
+    [dispatch, formData, password, password2, registering]
+  );
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  if (isLoggedIn) return <Redirect to="/"/>;
+  if (isLoggedIn) return <Redirect to="/" />;
 
   return (
-    <Container>
-      <Header as="h2">
-        Register Form
-        <Header.Subheader>
-          Create your account
-        </Header.Subheader>
-      </Header>
-      <Form onSubmit={onSubmit} loading={registering}>
-        <Form.Field>
-          <label>First Name</label>
-          <input
+    <Row
+      type="flex"
+      justify="center"
+      style={{ minHeight: "100vh", paddingTop: "5%" }}
+    >
+      <Col span={12}>
+        <PageHeader title="Register" subTitle="Create your account" />
+        <Form
+          style={{ maxWidth: "600px" }}
+          name="normal_login"
+          className="login-form"
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onSubmit}
+        >
+          <Form.Item
             name="first_name"
-            value={first_name}
-            onChange={onChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Last Name</label>
-          <input
+            initialValue={first_name}
+            rules={[
+              {
+                required: true,
+                message: "Please input your first name!",
+              },
+            ]}
+            onChange={(e) => onChange(e)}
+          >
+            <Input
+              prefix={<UserOutlined />}
+              placeholder="First Name"
+              value={first_name}
+              id="first_name"
+            />
+          </Form.Item>
+          <Form.Item
             name="last_name"
-            value={last_name}
-            onChange={onChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Email</label>
-          <input
+            initialValue={last_name}
+            rules={[
+              {
+                required: true,
+                message: "Please input your last name!",
+              },
+            ]}
+            onChange={(e) => onChange(e)}
+          >
+            <Input
+              prefix={<UserOutlined />}
+              placeholder="Last Name"
+              value={last_name}
+              id="last_name"
+            />
+          </Form.Item>
+          <Form.Item
             name="email"
-            value={email}
-            onChange={onChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-          <input
-            type="password"
+            initialValue={email}
+            rules={[
+              {
+                required: true,
+                message: "Please input your email address!",
+              },
+            ]}
+            onChange={(e) => onChange(e)}
+          >
+            <Input
+              prefix={<UserOutlined />}
+              placeholder="Email"
+              value={email}
+              id="email"
+            />
+          </Form.Item>
+          <Form.Item
             name="password"
-            value={password}
-            onChange={onChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Repeat Password</label>
-          <input
-            type="password"
+            initialValue={password}
+            rules={[
+              {
+                required: true,
+                message: "Type in a password!",
+              },
+            ]}
+            onChange={(e) => onChange(e)}
+          >
+            <Input.Password
+              placeholder="Password"
+              value={password}
+              id="password"
+            />
+          </Form.Item>
+
+          <Form.Item
             name="password2"
-            value={password2}
-            onChange={onChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <Checkbox label="I agree to the Terms and Conditions" />
-        </Form.Field>
-        <Button type="submit">Register</Button>
-      </Form>
-    </Container>
+            initialValue={password2}
+            rules={[
+              {
+                required: true,
+                message: "Confirm password",
+              },
+            ]}
+            onChange={(e) => onChange(e)}
+          >
+            <Input.Password
+              prefix={<UserOutlined />}
+              placeholder="Confirm password"
+              value={password2}
+              id="password2"
+            />
+          </Form.Item>
+
+          <Checkbox>
+            I have read the <a href="">agreement</a>
+          </Checkbox>
+
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ width: "50%", display: "block" }}
+            >
+              Register
+            </Button>
+          </Form.Item>
+        </Form>
+      </Col>
+    </Row>
+    // <Container>
+    //   <Form onSubmit={onSubmit} loading={registering}>
+
+    //     <Form.Field>
+    //       <label>Password</label>
+    //       <input
+    //         type="password"
+    //         name="password"
+    //         value={password}
+    //         onChange={onChange}
+    //       />
+    //     </Form.Field>
+    //     <Form.Field>
+    //       <label>Repeat Password</label>
+    //       <input
+    //         type="password"
+    //         name="password2"
+    //         value={password2}
+    //         onChange={onChange}
+    //       />
+    //     </Form.Field>
+    //     <Form.Field>
+    //       <Checkbox label="I agree to the Terms and Conditions" />
+    //     </Form.Field>
+    //     <Button type="submit">Register</Button>
+    //   </Form>
+    // </Container>
   );
 };

@@ -1,26 +1,24 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
-import { Message } from "semantic-ui-react";
+
+//AntD
+import { Alert } from "antd";
 
 export const Error = () => {
   // /const ErrorMSG = useSelector((state) => state.Error.error);
   const ErrorMSG = useSelector((state) => state.Error);
   const AlertMSG = useSelector((state) => state.Alert);
 
-  let renderComponent = <Fragment/>;
+  let renderComponent = <Fragment />;
 
   if (AlertMSG.length > 0) {
-    renderComponent = (
-      <Message positive>{AlertMSG}</Message>
-    );
+    renderComponent = <Alert message={AlertMSG} type="success" />;
   } else {
-    renderComponent = (
-      ErrorMSG.map((Error, index) => (
-        <div key={index}>
-          <Message negative>{Error}</Message>
-        </div>
-      ))
-    );
+    renderComponent = ErrorMSG.map((Error, index) => (
+      <div key={index}>
+        <Alert message={Error} type="error" />
+      </div>
+    ));
   }
 
   return renderComponent;
