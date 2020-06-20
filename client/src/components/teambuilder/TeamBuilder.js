@@ -14,9 +14,9 @@ const TeamBuilder = () => {
   const Guard = useSelector((state) => state.TeamReducer.guard);
 
   const RenderDisplay = (Zip) => {
-    return Zip.map((zip) => {
+    return Zip.map((zip, i) => {
       return (
-        <Col xs={24} sm={12} md={6} lg={6} xl={10}>
+        <Col xs={24} sm={12} md={6} lg={6} xl={10} key={i}>
           <StatsDisplay Stats={zip[0]} Player={zip[1]} flag={flag} />
         </Col>
       );

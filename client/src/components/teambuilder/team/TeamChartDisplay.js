@@ -13,11 +13,14 @@ import {
 
 export const TeamChartDisplay = ({ stat }) => {
   const { teamLastTen } = useSelector((state) => state.Player);
+
   const { players } = useSelector((state) => {
     return {
       players: state.Team.teamPlayers,
     };
   });
+
+  if (!teamLastTen) return;
 
   //data is an array of arrays
   const datas = teamLastTen.map((lastTen) => {
@@ -64,10 +67,11 @@ export const TeamChartDisplay = ({ stat }) => {
   };
 
   const mapPlayers = (stat = "pts") => {
-    return players.map((player) => {
+    return players.map((player, i) => {
       const { first_name, last_name, id } = player[1];
       return (
         <Line
+          key={i}
           name={`${first_name} ${last_name}`}
           type="monotone"
           dataKey={`${id}.${stat}`}

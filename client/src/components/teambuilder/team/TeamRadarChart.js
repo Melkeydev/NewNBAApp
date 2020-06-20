@@ -33,12 +33,13 @@ export const TeamRadarChart = () => {
   };
 
   const generateRadar = () => {
-    return players.map((player) => {
+    return players.map((player, i) => {
       const { first_name, last_name, id } = player[1];
 
       const color = player[2];
       return (
         <Radar
+          key={i}
           name={`${first_name} ${last_name}`}
           dataKey={id}
           stroke={color}

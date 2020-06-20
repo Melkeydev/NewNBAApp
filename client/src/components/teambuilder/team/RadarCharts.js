@@ -19,10 +19,11 @@ export const RadarCharts = ({ stats, color }) => {
   };
 
   const generateRadar = () => {
-    return players.map((player) => {
+    return players.map((player, i) => {
       const { first_name, last_name } = player[1];
       return (
         <Radar
+          key={i}
           name={`${first_name} ${last_name}`}
           dataKey={"data"}
           stroke={color}

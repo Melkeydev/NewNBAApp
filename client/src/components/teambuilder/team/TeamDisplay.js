@@ -27,7 +27,7 @@ export const TeamDisplay = () => {
       </div>
 
       <div style={{ paddingTop: "5%" }}>
-        {players.map((player) => {
+        {players.map((player, i) => {
           const {
             first_name,
             last_name,
@@ -41,7 +41,7 @@ export const TeamDisplay = () => {
           //Cant put function call here :(
 
           return (
-            <div>
+            <div key={i}>
               <div
                 style={{
                   display: "flex",
@@ -66,8 +66,8 @@ export const TeamDisplay = () => {
               <Table>
                 <thead>
                   <tr>
-                    {Object.keys(mode).filter(key => key in player[0]).map(key => (
-                      <th style={{ textAlign: "center" }}>
+                    {Object.keys(mode).filter(key => key in player[0]).map((key, i) => (
+                      <th style={{ textAlign: "center" }} key={i}>
                         {mode[key]}
                       </th>
                     ))}
@@ -75,8 +75,8 @@ export const TeamDisplay = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    {Object.keys(mode).filter(key => key in player[0]).map(key => (
-                      <td style={{ textAlign: "center" }}>
+                    {Object.keys(mode).filter(key => key in player[0]).map((key, i) => (
+                      <td style={{ textAlign: "center" }} key={i}>
                         {player[0][key]}
                       </td>
                     ))}
