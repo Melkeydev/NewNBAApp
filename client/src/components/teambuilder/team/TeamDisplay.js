@@ -66,26 +66,20 @@ export const TeamDisplay = () => {
               <Table>
                 <thead>
                   <tr>
-                    {Object.keys(mode).map((key) => {
-                      if (key in player[0]) {
-                        return (
-                          <th style={{ textAlign: "center" }}>{mode[key]}</th>
-                        );
-                      }
-                    })}
+                    {Object.keys(mode).filter(key => key in player[0]).map(key => (
+                      <th style={{ textAlign: "center" }}>
+                        {mode[key]}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    {Object.keys(mode).map((key) => {
-                      if (key in player[0]) {
-                        return (
-                          <td style={{ textAlign: "center" }}>
-                            {player[0][key]}
-                          </td>
-                        );
-                      }
-                    })}
+                    {Object.keys(mode).filter(key => key in player[0]).map(key => (
+                      <td style={{ textAlign: "center" }}>
+                        {player[0][key]}
+                      </td>
+                    ))}
                   </tr>
                 </tbody>
               </Table>

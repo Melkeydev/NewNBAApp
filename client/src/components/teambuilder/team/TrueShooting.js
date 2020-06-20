@@ -22,7 +22,7 @@ export const TrueShooting = () => {
       const TSA = (player[0].fga + 0.44 * player[0].fta).toFixed(2);
       const TS = player[0].pts / (2 * Number(TSA));
 
-      Object.assign(player[0], { ["TS"]: Number(TS) });
+      Object.assign(player[0], { "TS": Number(TS) });
       return { [player[1].id]: { TS } };
     });
   };

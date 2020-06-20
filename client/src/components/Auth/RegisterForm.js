@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/AuthAction";
-import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 //AntD
 import {
@@ -10,13 +9,12 @@ import {
   Input,
   Checkbox,
   Button,
-  AutoComplete,
   Row,
   Col,
   PageHeader,
 } from "antd";
 
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -164,7 +162,7 @@ export const RegisterForm = () => {
           </Form.Item>
 
           <Checkbox>
-            I have read the <a href="">agreement</a>
+            I have read the <Link to="/agreement">agreement</Link>
           </Checkbox>
 
           <Form.Item>

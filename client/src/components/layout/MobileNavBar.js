@@ -1,12 +1,7 @@
 import React from "react";
 import { Popover, Button } from "antd";
 
-import {
-  MailOutlined,
-  MenuOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 
 export const MobileNavBar = () => {
   return (

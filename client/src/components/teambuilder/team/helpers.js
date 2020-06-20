@@ -4,12 +4,14 @@ export const modeData = (playersData, mode) => {
   });
 };
 
-export const testData = (player, mode, id, leagueLeaders) => {
-  return Object.keys(mode).map((mode_) => {
-    if (player[1].id === id) {
-      const data = player[0][mode_];
-      return { mode_, data };
-    }
+export const testData = (player, mode, id) => {
+  return Object.keys(mode).filter(() => player[1].id === id).map(mode_ => {
+    const data = player[0][mode_];
+
+    return {
+      mode_,
+      data
+    };
   });
 };
 
@@ -42,12 +44,20 @@ export const all = (players, modes, sumModes) =>
 
 export const normalStats = (players, modes) => {
   const highestStatList = [];
-  Object.keys(modes).map((mode) => {
+
+  Object.keys(modes).forEach((mode) => {
     var data = modeData(players, mode);
     var highestValues = getHighest(data);
     var lowestValues = getLowest(data);
-    highestStatList.push({ [mode]: { highestValues, lowestValues } });
+
+    highestStatList.push({
+      [mode]: {
+        highestValues,
+        lowestValues
+      }
+    });
   });
+
   return highestStatList;
 };
 
@@ -67,12 +77,18 @@ export const createMissStats = (players, weights) => {
   return players.map((player) => {
     const FG_Miss = (player[0].fga - player[0].fgm).toFixed(2);
     const FT_Miss = player[0].fta - player[0].ftm;
+
     weights["FG_Miss"] = Number(FG_Miss);
     weights["FT_Miss"] = FT_Miss;
-    Object.keys(weights).map((key) => {
+
+    Object.keys(weights).forEach((key) => {
       const value = weights[key];
-      Object.assign(weights, { [key]: value });
+
+      Object.assign(weights, {
+        [key]: value
+      });
     });
+
     return weights;
   });
 };

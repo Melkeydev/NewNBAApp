@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 import { logout } from "../../actions/AuthAction";
@@ -6,24 +6,19 @@ import { useDispatch, useSelector } from "react-redux";
 
 //ant.d re-design
 import { MobileNavBar } from "./MobileNavBar";
-import { Row, Col, Menu, Button } from "antd";
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-const { SubMenu } = Menu;
+import { Row, Col, Menu } from "antd";
+import { MailOutlined } from "@ant-design/icons";
 
 export const Navbar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const [checkedCurrent, setCheckedCurrent] = useState(false);
-  const [active, setActive] = useState();
+  const [ checkedCurrent, setCheckedCurrent ] = useState(false);
+  // const [ active, setActive ] = useState();
   const { isLoggedIn } = useSelector((state) => state.Auth);
 
   const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
+  // const [height, setHeight] = useState(window.innerHeight);
 
   /*
     runs once after page reload,
@@ -31,15 +26,15 @@ export const Navbar = () => {
   */
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
+    // setHeight(window.innerHeight);
   };
 
   useEffect(() => {
     if (checkedCurrent) return;
 
-    const currentRoute = location.pathname.replace("/", "");
+    // const currentRoute = location.pathname.replace("/", "");
 
-    setActive(currentRoute || "home");
+    // setActive(currentRoute || "home");
     setCheckedCurrent(true);
   }, [checkedCurrent, location.pathname]);
 

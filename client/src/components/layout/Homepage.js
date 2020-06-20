@@ -1,8 +1,8 @@
 import React from "react";
 import LandingBackground from "../../assets/Images/LandingBackground.jpg";
-import { Row, Col, Layout } from "antd";
+import { Layout } from "antd";
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Footer, Content } = Layout;
 
 export const Homepage = () => (
   <div>
@@ -11,6 +11,7 @@ export const Homepage = () => (
         <img
           style={{ height: "auto", width: "100%" }}
           src={LandingBackground}
+          alt="Landing background"
         />
       </Content>
       <Footer>Footer</Footer>

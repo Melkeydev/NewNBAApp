@@ -45,8 +45,8 @@ export const PlayerEfficiencyChart = () => {
       const FT_Miss = player[0].fta - player[0].ftm;
       Object.assign(
         player[0],
-        { ["FG_Miss"]: Number(FG_Miss) },
-        { ["FT_Miss"]: FT_Miss }
+        { "FG_Miss": Number(FG_Miss) },
+        { "FT_Miss": FT_Miss }
       );
       const PER = PERCalc(player[0], weights);
       return { [player[1].id]: { PER } };

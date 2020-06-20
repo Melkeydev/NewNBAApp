@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Container, Button } from "semantic-ui-react";
+import { Form, Input, Button } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import { FetchPlayer, removeStates } from "../../actions/TeamBuilderAction";
 import { setError } from "../../actions/ErrorActions";

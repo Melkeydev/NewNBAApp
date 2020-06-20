@@ -6,8 +6,7 @@ import { StatDropdown } from "./StatDropdown";
 import { FetchLastTenGames } from "../../actions/SingleSearchActions";
 import { PlayerStatsTable } from "./PlayerStatsTable";
 
-//
-import { Row, Col } from "antd";
+// import { Row, Col } from "antd";
 
 const PlayerStats = () => {
   const [count, setCount] = useState(10);
