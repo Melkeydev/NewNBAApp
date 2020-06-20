@@ -1,6 +1,6 @@
 {
-  "short_name": "NBA App",
-  "name": "NBA Application",
+  "short_name": "Bucket",
+  "name": "Bucket",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

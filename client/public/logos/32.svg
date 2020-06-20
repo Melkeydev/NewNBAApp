@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#303e69"/>
+      <stop offset="1" stop-color="#b0285c"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_46" data-name="Group 46" transform="translate(-348 -2148)">
+    <g id="Group_42" data-name="Group 42" transform="translate(-2 44)">
+      <g id="Rectangle_33" data-name="Rectangle 33" transform="translate(350 2104)" fill="#fff" stroke="#707070" stroke-width="1" opacity="0">
+        <rect width="32" height="32" stroke="none"/>
+        <rect x="0.5" y="0.5" width="31" height="31" fill="none"/>
+      </g>
+      <g id="Group_36" data-name="Group 36" transform="translate(310 2082)">
+        <rect id="Rectangle_13" data-name="Rectangle 13" width="32" height="32" rx="5" transform="translate(72 22) rotate(90)" fill="url(#linear-gradient)"/>
+        <g id="Group_3" data-name="Group 3" transform="translate(46.631 27.732)">
+          <rect id="Rectangle_14" data-name="Rectangle 14" width="6" height="6" rx="3" transform="translate(0 14)" fill="#fff"/>
+          <rect id="Rectangle_16" data-name="Rectangle 16" width="6" height="20" rx="3" transform="translate(18.598 17.321) rotate(150)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
