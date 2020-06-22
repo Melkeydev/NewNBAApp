@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { Form, Input, Container, Button } from "semantic-ui-react";
+
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -83,34 +83,11 @@ const Searchbar = () => {
         </Col>
       </Row>
       <Row>
-        <Col span={24}>
+        <Col span={16} offset={4}>
           <div style={{ width: "100%" }}>{Flag ? <PlayerStats /> : null}</div>
         </Col>
       </Row>
     </div>
-
-    // <Form
-
-    // >
-    //   <Form.Field>
-    //     <label for="Player">Type Player Name</label>
-    //     <Input
-    //       type="text"
-    //       name="Player"
-    //       id="Player"
-    //       placeholder="Player Name"
-    // onChange={(e) => {
-    //   setFormData({ ...formData, [e.target.name]: e.target.value });
-    // }}
-    //     />
-    //     <Button className="btn btn-primary">Submit</Button>
-    // <Link to="/">
-    //   <Button onClick={() => dispatch(removeStatesSingle())}>Home</Button>
-    // </Link>
-    //   </Form.Field>
-    // </Form>
-
-    // <div>{Flag ? <PlayerStats /> : null}</div>
   );
 };
 

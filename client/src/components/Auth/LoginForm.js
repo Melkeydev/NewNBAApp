@@ -12,7 +12,7 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 export const LoginForm = () => {
   const { isLoggedIn } = useSelector((state) => state.Auth);
   const [email, setEmail] = useState("minsin45@twitch.com");
-  const [password, setPassword] = useState("peninie");
+  const [password, setPassword] = useState("peninie");  
   const [loggingIn, setLoggingIn] = useState(false);
 
   const dispatch = useDispatch();
