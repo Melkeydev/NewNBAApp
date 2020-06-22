@@ -45,7 +45,7 @@ export const PlayerStatChart = ({ statChoice, count }) => {
       >
         Last {count} games
       </h3>
-      <ResponsiveContainer width={"99%"} height={400}>
+      <ResponsiveContainer width={"100%"} height={400}>
         <LineChart
           data={setData()}
           margin={{
