@@ -9,6 +9,7 @@
 }
 
 .greenBar,
+.whiteBar,
 .redBar {
   border-radius: 10px;
   margin: 20px 0;
@@ -22,4 +23,9 @@
   background-color: yellow;
   border-radius: 10px;
   margin: 20px 0;
+}
+
+.whiteBar {
+  color: black;
+  background-color: #b6e1f6;
 }
