@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Searchbar from "./Searchbar";
 import { useSelector } from "react-redux";
 import { StatsDisplay } from "./StatsDisplay";
-import { Container, Button } from "semantic-ui-react";
-import { Row, Col } from "antd";
+import { Row, Col, Button } from "antd";
 import { Team } from "./team/Team";
 
 const TeamBuilder = () => {
@@ -16,38 +15,46 @@ const TeamBuilder = () => {
   const RenderDisplay = (Zip) => {
     return Zip.map((zip) => {
       return (
-        <Col span={5}>
+        <Col span={6}>
           <StatsDisplay Stats={zip[0]} Player={zip[1]} flag={flag} />
         </Col>
       );
     });
   };
 
+  // <Team style={{ position: "absolute" }} />
+
   return (
-    <Container>
-      <Row type="flex" justify="center">
+    <div>
+      <Row justify="center">
         <Col span={12}>
           <Searchbar />
         </Col>
       </Row>
 
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} justify="center">
         <Col xs={24} sm={12} md={6} lg={6} xl={10}>
           <Button onClick={() => setFlag(!flag)}>Check all Stats</Button>
         </Col>
       </Row>
 
-      <Row gutter={[16, 16]} justify="center">
-        {Guard.length > 0 && RenderDisplay(Guard)}
+      <Row>
+        <Col offset={6} span={12}>
+          <Row gutter={[16, 16]} justify="center">
+            {Guard.length > 0 && RenderDisplay(Guard)}
+          </Row>
+          <Row gutter={[16, 16]} justify="center">
+            {Center.length > 0 && RenderDisplay(Center)}
+          </Row>
+          <Row gutter={[16, 16]} justify="center">
+            {Forward.length > 0 && RenderDisplay(Forward)}
+          </Row>
+        </Col>
+        <Col span={5} offset={1}>
+          <Team />
+        </Col>
       </Row>
-      <Row gutter={[16, 16]} justify="center">
-        {Center.length > 0 && RenderDisplay(Center)}
-      </Row>
-      <Row gutter={[16, 16]} justify="center">
-        {Forward.length > 0 && RenderDisplay(Forward)}
-      </Row>
-      <Team />
-    </Container>
+    </div>
   );
 };
 

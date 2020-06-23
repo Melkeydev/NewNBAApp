@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-// import { Form, Input, Container, Button } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import { FetchPlayer, removeStates } from "../../actions/TeamBuilderAction";
 import { setError } from "../../actions/ErrorActions";
 import { Link } from "react-router-dom";
 
 //antD
-import { Row, Col, Form, Button, Input } from "antd";
+import { Form, Button, Input } from "antd";
 
 const Searchbar = () => {
   const [formData, setFormData] = useState({
