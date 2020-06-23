@@ -1,0 +1,26 @@
+.AveragesTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  margin: 15px 0;
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px #303e69;
+  width: 90%;
+}
+
+.AveragesTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.AveragesTable tr:hover {
+  background-color: #ddd;
+}
+
+.AveragesTable th {
+  text-align: center;
+  padding: 12px;
+  background-color: #303e69;
+  color: white;
+}

@@ -2,8 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { mode, sum_mode } from "../variables";
 import { all } from "./helpers";
-import { Table, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+
+//css
+import "../css/CalculateAverages.css";
+
+//AntD
+import { Button } from "antd";
 
 export const CalculateAverages = () => {
   const { players } = useSelector((state) => {
@@ -16,7 +21,7 @@ export const CalculateAverages = () => {
 
   return (
     <div>
-      <Table size="small">
+      <table className="AveragesTable">
         <thead>
           <tr>
             <th>Stats</th>
@@ -35,7 +40,7 @@ export const CalculateAverages = () => {
             );
           })}
         </tbody>
-      </Table>
+      </table>
       <Link to="/teamdisplay">
         <Button>View Team</Button>
       </Link>

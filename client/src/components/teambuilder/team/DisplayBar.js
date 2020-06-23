@@ -4,7 +4,7 @@ import { TeamChartDisplay } from "./TeamChartDisplay";
 import { PlayerEfficiencyChart } from "./PlayerEfficiencyChart";
 import { TrueShooting } from "./TrueShooting";
 import { FieldGoalPer } from "./FieldGoalPer";
-import { Button } from "semantic-ui-react";
+import { Button } from "antd";
 
 export const DisplayBar = ({ stat_ }) => {
   const [chartState, setChartState] = useState("Team");
