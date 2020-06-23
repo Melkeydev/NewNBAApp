@@ -22,9 +22,14 @@ function App() {
         <Navbar />
         <Route exact path="/" component={Homepage} />
         <Switch>
-          <PrivateRoute exact path="/single-player" component={Searchbar} />
+          {/* <PrivateRoute exact path="/single-player" component={Searchbar} />
           <PrivateRoute exact path="/teambuilder" component={TeamBuilder} />
-          <PrivateRoute exact path="/teamdisplay" component={TeamDisplay} />
+          <PrivateRoute exact path="/teamdisplay" component={TeamDisplay} /> */}
+
+
+          <Route exact path="/single-player" component={Searchbar} />
+          <Route exact path="/teambuilder" component={TeamBuilder} />
+          <Route exact path="/teamdisplay" component={TeamDisplay} />
 
           <Route exact path="/register" component={RegisterForm} />
           <Route exact path="/login" component={LoginForm} />

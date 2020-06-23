@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Button } from "semantic-ui-react";
 import { removeState } from "../../actions/TeamBuilderAction";
 import { addPlayer } from "../../actions/TeamAction";
 import { RenderSpecificStatDisplay } from "./RenderSpecificStatDisplay";
 import { FetchLastTenGames } from "../../actions/SingleSearchActions";
+import { Button } from "antd";
 
 //Put Render functions
 

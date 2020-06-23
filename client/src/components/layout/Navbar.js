@@ -63,19 +63,19 @@ export const Navbar = () => {
             style={{ float: "right" }}
             onClick={handleClick}
           >
-            {isLoggedIn && (
+            {!isLoggedIn && (
               <Menu.Item key="singlesearch">
                 <Link to="single-player">Single Search</Link>
               </Menu.Item>
             )}
 
-            {isLoggedIn && (
+            {!isLoggedIn && (
               <Menu.Item key="teambuilding">
                 <Link to="/teambuilder">Team Building</Link>
               </Menu.Item>
             )}
 
-            {isLoggedIn && (
+            {!isLoggedIn && (
               <Menu.Item key="alipay">
                 <Link to="/" onClick={() => dispatch(logout())}>
                   Logout
