@@ -1,11 +1,13 @@
 import React from "react";
-import { Table } from "semantic-ui-react";
 import { useSelector } from "react-redux";
 import { mode, sum_mode } from "../variables";
 import { TeamStatDropDown } from "./TeamStatDropDown";
 import { RadarCharts } from "./RadarCharts";
 import { TeamRadarChart } from "./TeamRadarChart";
 import { testData } from "./helpers";
+
+//css
+import "../css/TeamDisplay.css";
 
 export const TeamDisplay = () => {
   const { players } = useSelector((state) => {
@@ -63,7 +65,7 @@ export const TeamDisplay = () => {
                 ></RadarCharts>
               </div>
 
-              <Table>
+              <table className="TeamDisplayTable">
                 <thead>
                   <tr>
                     {Object.keys(mode).map((key) => {
@@ -88,7 +90,7 @@ export const TeamDisplay = () => {
                     })}
                   </tr>
                 </tbody>
-              </Table>
+              </table>
             </div>
           );
         })}

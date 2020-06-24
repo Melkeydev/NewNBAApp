@@ -5,16 +5,26 @@ import { Row, Col, Layout } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 
 export const Homepage = () => (
-  <div>
-    <Layout>
-      <Content>
-        <img
-          style={{ height: "auto", width: "100%" }}
-          src={LandingBackground}
-        />
-      </Content>
-      <Footer>Footer</Footer>
-    </Layout>
-    <h2>Test</h2>
-  </div>
+  <Row>
+    <Col span={24}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundImage: `url(${LandingBackground})`,
+          backgroundSize: "cover",
+          height: "100vh",
+          width: "100vw",
+        }}
+      >
+        <Col span={12}>
+          <div style={{ textAlign: "center", margin: "auto" }}>
+            <h1>CREATIVENOBU</h1>
+          </div>
+        </Col>
+      </div>
+    </Col>
+    {/* <Footer>Footer</Footer> */}
+  </Row>
 );

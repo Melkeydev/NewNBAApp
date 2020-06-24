@@ -1,28 +1,52 @@
 import React, { useState } from "react";
-import { Dropdown } from "semantic-ui-react";
 import { DisplayBar } from "./DisplayBar";
+
+//antD
+import { Menu, Dropdown, Button } from "antd";
 
 export const TeamStatDropDown = () => {
   const [statState, setStatState] = useState("pts");
+  const [text, setText] = useState("Stats");
 
-  const options = [
-    { key: 1, text: "Points", value: "pts" },
-    { key: 2, text: "Rebounds", value: "reb" },
-    { key: 3, text: "Assists", value: "ast" },
-    { key: 4, text: "Steals", value: "stl" },
-    { key: 5, text: "Blocks", value: "blk" },
-    { key: 6, text: "Fiel Goals Made", value: "fgm" },
-    { key: 7, text: "Three Points Made", value: "fg3m" },
-    { key: 8, text: "Free Throws Made", value: "ftm" },
-  ];
+  const menu = (
+    <Menu
+      onClick={(e) => {
+        setStatState(e.key);
+        setText(e.item.props.text);
+      }}
+    >
+      <Menu.Item key="pts" text="Points">
+        Points
+      </Menu.Item>
+      <Menu.Item key="reb" text="Rebounds">
+        Rebounds
+      </Menu.Item>
+      <Menu.Item key="ast" text="Assist">
+        Assists
+      </Menu.Item>
+      <Menu.Item key="stl" text="Steals">
+        Steals
+      </Menu.Item>
+      <Menu.Item key="blk" text="Blocks">
+        Blocks
+      </Menu.Item>
+      <Menu.Item key="fgm" text="Field Goals Made">
+        Field Goals Made
+      </Menu.Item>
+      <Menu.Item key="fg3m" text="Three Points Made">
+        Three Points Made
+      </Menu.Item>
+      <Menu.Item key="ftm" text="Free Throws Made">
+        Free Throws Made
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <div>
-      <Dropdown
-        options={options}
-        placeholder="points"
-        onChange={(_, { value }) => setStatState(value)}
-      ></Dropdown>
+      <Dropdown overlay={menu}>
+        <Button>{text}</Button>
+      </Dropdown>
 
       <DisplayBar stat_={statState} />
     </div>
