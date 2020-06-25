@@ -39,7 +39,7 @@ const TeamBuilder = () => {
       </Row>
 
       <Row>
-        <Col offset={6} span={12}>
+        <Col offset={4} span={14}>
           <Row gutter={[16, 16]} justify="center">
             {Guard.length > 0 && RenderDisplay(Guard)}
           </Row>
