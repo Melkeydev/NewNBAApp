@@ -14,7 +14,7 @@ export const GetTechnicalPage = () => {
       </Row>
       <Row justify="center">
         <Col span={24}>
-          <img src={PlayerCards} style={{ height: "75vh" }} />
+          <img src={PlayerCards} style={{ height: "75vh" }} alt="Player Cards Illustration"/>
         </Col>
       </Row>
     </div>

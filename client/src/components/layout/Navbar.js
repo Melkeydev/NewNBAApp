@@ -60,7 +60,7 @@ export const Navbar = () => {
         <Menu mode="horizontal" style={{ float: "left" }} onClick={handleClick}>
           <Menu.Item key="logo" name="home">
             <Link to="/">
-              <img src={TextLogo} height="25px" />
+              <img src={TextLogo} height="25px" alt="Buckets Text Logo"/>
             </Link>
           </Menu.Item>
         </Menu>
