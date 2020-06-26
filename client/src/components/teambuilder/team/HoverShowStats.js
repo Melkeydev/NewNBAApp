@@ -23,7 +23,7 @@ export const HoverShowStats = ({ isOpen, player, teamPlayer }) => {
         isOpen={isOpen}
       >
         <PopoverHeader>{player}</PopoverHeader>
-        <PopoverBody>
+        <PopoverBody style={{ marginRight: "15px" }}>
           <table>
             <tbody>
               <tr>

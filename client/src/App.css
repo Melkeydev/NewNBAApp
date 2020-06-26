@@ -1,7 +1,22 @@
+@font-face {
+  font-family: "Staatliches";
+  src: url("./assets/fonts/Staatliches-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Regular.ttf") format("truetype");
+}
+
 html,
 body,
 #root,
 .App {
+  font-family: "Staatliches" !important;
   height: 100%;
   width: 100%;
+}
+
+svg {
+  font-family: "Roboto" !important;
 }
