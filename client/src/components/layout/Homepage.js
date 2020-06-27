@@ -3,11 +3,13 @@ import LandingBackground from "../../assets/Images/LandingBackground.jpg";
 import { Row, Col, Card, Button } from "antd";
 import { Link } from "react-router-dom";
 import { GetTechnicalPage } from "./GetTechnicalPage";
+import { VisualGraphs } from "./VisualGraphs";
+import { Footer } from "./Footer";
 
 export const Homepage = () => (
   <div>
     <Row>
-      <Col span={24}>
+      <Col span={24} xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
         <div
           style={{
             display: "flex",
@@ -16,7 +18,7 @@ export const Homepage = () => (
             backgroundImage: `url(${LandingBackground})`,
             backgroundSize: "cover",
             height: "75vh",
-            width: "100vw",
+            width: "100%",
           }}
         >
           <Col span={12}>
@@ -48,6 +50,12 @@ export const Homepage = () => (
         </div>
       </Col>
     </Row>
-    <GetTechnicalPage />
+    <Row>
+      <Col span={24}>
+        <GetTechnicalPage />
+        <VisualGraphs />
+        <Footer />
+      </Col>
+    </Row>
   </div>
 );

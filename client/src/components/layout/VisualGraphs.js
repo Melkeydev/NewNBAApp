@@ -1,26 +1,31 @@
 import React from "react";
 import { Row, Col } from "antd";
-import PlayerCards from "../../assets/Images/player_cards.svg";
+import GraphsPic from "../../assets/Images/Graphs.png";
 
-export const GetTechnicalPage = () => {
+export const VisualGraphs = () => {
   return (
     <div>
       <Row justify="center">
         <Col>
-          <div style={{ paddingTop: "5%", fontSize: "5rem" }}>
-            GET TECHNICAL
+          <div
+            style={{
+              paddingTop: "5%",
+              fontSize: "5rem",
+            }}
+          >
+            VISUAL COMPARISON GRAPHS
           </div>
         </Col>
       </Row>
       <Row justify="center">
         <Col>
           <img
-            src={PlayerCards}
+            src={GraphsPic}
             style={{
-              height: "75vh",
+              height: "50vh",
               maxWidth: "100%",
-              margin: "auto",
               display: "block",
+              margin: "auto",
             }}
           />
         </Col>
