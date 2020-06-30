@@ -4,10 +4,16 @@ import PlayerCards from "../../assets/Images/player_cards.svg";
 
 export const GetTechnicalPage = () => {
   return (
-    <div>
+    <div style={{ marginTop: "15vh" }}>
       <Row justify="center">
         <Col>
-          <div style={{ paddingTop: "5%", fontSize: "5rem" }}>
+          <div
+            style={{
+              paddingTop: "5%",
+              fontSize:
+                "calc(36px + (80 - 36) * ((100vw - 300px) / (1900 - 700)))",
+            }}
+          >
             GET TECHNICAL
           </div>
         </Col>
@@ -17,7 +23,6 @@ export const GetTechnicalPage = () => {
           <img
             src={PlayerCards}
             style={{
-              height: "75vh",
               maxWidth: "100%",
               margin: "auto",
               display: "block",

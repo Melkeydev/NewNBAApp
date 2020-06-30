@@ -17,23 +17,25 @@ export const Footer = () => {
       style={{
         backgroundColor: "#e0d5ce",
         padding: "30px 0",
-        marginTop: "150px",
+        marginTop: "15vh",
       }}
     >
-      <Col offset={4} span={2} sm={24} xs={24}>
-        <div style={{ fontWeight: "bold" }}>SITEMAP</div>
-        <div>Home</div>
-        <div>Contact</div>
+      <Col sm={24} xs={{ span: 20, offset: 2 }} md={4}>
+        <div style={{ fontWeight: "bold", fontSize: "0.80rem" }}>SITEMAP</div>
+        <div style={{ fontSize: "0.80rem" }}>Home</div>
+        <div style={{ fontSize: "0.80rem" }}>Contact</div>
       </Col>
-      <Col span={8} sm={24} xs={{ span: 24, offset: 4 }}>
-        <div style={{ fontWeight: "bold" }}>WANT TO CONTRIBUTE?</div>
-        <p style={{ wordWrap: "break-word" }}>
+      <Col sm={24} xs={{ span: 20, offset: 2 }} md={{ span: 8, offset: 1 }}>
+        <div style={{ fontWeight: "bold", fontSize: "0.80rem" }}>
+          WANT TO CONTRIBUTE?
+        </div>
+        <p style={{ wordBreak: "break-word", fontSize: "0.80rem" }}>
           This project is fully open source, if you wish to contribute, visit
           our site on GitHub
         </p>
       </Col>
-      <Col offset={4} span={4} sm={24} xs={24}>
-        <div style={{ fontWeight: "bold" }}>FOLLOW ME</div>
+      <Col sm={24} xs={{ span: 20, offset: 2 }} md={{ span: 4, offset: 4 }}>
+        <div style={{ fontWeight: "bold", fontSize: "0.80rem" }}>FOLLOW ME</div>
         <div style={{ margin: "5px" }}>
           <GithubFilled />
           <InstagramFilled />

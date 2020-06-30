@@ -77,6 +77,7 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
     /* View Layer*/
     <div
       style={{
+        minWidth: "200px",
         width: "100%",
         padding: "20px",
         borderRadius: "10px",

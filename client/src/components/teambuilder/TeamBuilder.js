@@ -15,7 +15,7 @@ const TeamBuilder = () => {
   const RenderDisplay = (Zip) => {
     return Zip.map((zip) => {
       return (
-        <Col span={6}>
+        <Col span={6} xs={24} md={6}>
           <StatsDisplay Stats={zip[0]} Player={zip[1]} flag={flag} />
         </Col>
       );
@@ -38,8 +38,8 @@ const TeamBuilder = () => {
         </Col>
       </Row>
 
-      <Row>
-        <Col offset={4} span={14}>
+      <Row justify="space-between">
+        <Col span={14}>
           <Row gutter={[16, 16]} justify="center">
             {Guard.length > 0 && RenderDisplay(Guard)}
           </Row>
@@ -50,7 +50,7 @@ const TeamBuilder = () => {
             {Forward.length > 0 && RenderDisplay(Forward)}
           </Row>
         </Col>
-        <Col span={5} offset={1}>
+        <Col span={5} xs={24}>
           <Team />
         </Col>
       </Row>
