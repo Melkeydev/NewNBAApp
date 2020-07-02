@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NormalizedStatsChart } from "./NormalizedStatsChart";
 import {
   LineChart,
   Line,

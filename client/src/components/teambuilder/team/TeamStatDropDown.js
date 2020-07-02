@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DisplayBar } from "./DisplayBar";
+import { Row, Col } from "antd";
 
 //antD
 import { Menu, Dropdown, Button } from "antd";
@@ -43,11 +44,10 @@ export const TeamStatDropDown = () => {
   );
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Dropdown overlay={menu}>
         <Button>{text}</Button>
       </Dropdown>
-
       <DisplayBar stat_={statState} />
     </div>
   );

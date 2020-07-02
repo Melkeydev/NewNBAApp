@@ -10,6 +10,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 export const NormalizedStatsChart = ({ stat }) => {
@@ -49,25 +50,24 @@ export const NormalizedStatsChart = ({ stat }) => {
   };
 
   return (
-    <div>
-      <BarChart
-        width={1000}
-        height={450}
-        data={tester(players, object, stat)}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        {generateBar()}
-      </BarChart>
+    <div style={{ width: "100%" }}>
+        <BarChart
+          data={tester(players, object, stat)}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" tick={false} />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          {generateBar()}
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };

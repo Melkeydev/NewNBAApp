@@ -5,7 +5,7 @@ import { TeamStatDropDown } from "./TeamStatDropDown";
 import { RadarCharts } from "./RadarCharts";
 import { TeamRadarChart } from "./TeamRadarChart";
 import { testData } from "./helpers";
-
+import { Row, Col } from "antd";
 //css
 import "../css/TeamDisplay.css";
 
@@ -18,14 +18,28 @@ export const TeamDisplay = () => {
 
   return (
     <div>
-      <div
+      <Row>
+        <Col xs={16}>
+          <div style={{ width: "100" }}>
+            <TeamStatDropDown />
+          </div>
+        </Col>
+      </Row>
+      {/* <div
         style={{
+          width: "100%",
           display: "flex",
           flexDirection: "row",
         }}
       >
-        <TeamStatDropDown></TeamStatDropDown>
-        <TeamRadarChart />
+        <Row>
+          <Col xs={16}>
+            <div style={{ width: "100%" }}>
+              <TeamStatDropDown />
+            </div>
+            <TeamRadarChart />
+          </Col>
+        </Row>
       </div>
 
       <div style={{ paddingTop: "5%" }}>
@@ -94,7 +108,7 @@ export const TeamDisplay = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
