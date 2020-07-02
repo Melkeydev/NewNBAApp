@@ -11,6 +11,7 @@ const TeamBuilder = () => {
   const Forward = useSelector((state) => state.TeamReducer.forward);
   const Center = useSelector((state) => state.TeamReducer.center);
   const Guard = useSelector((state) => state.TeamReducer.guard);
+  const TeamPlayers = useSelector((state) => state.Team.teamPlayers);
 
   const RenderDisplay = (Zip) => {
     return Zip.map((zip) => {
@@ -32,14 +33,14 @@ const TeamBuilder = () => {
         </Col>
       </Row>
 
-      <Row gutter={[16, 16]} justify="center">
+      <Row gutter={[10, 10]} justify="center">
         <Col xs={24} sm={12} md={6} lg={6} xl={10}>
           <Button onClick={() => setFlag(!flag)}>Check all Stats</Button>
         </Col>
       </Row>
 
-      <Row justify="space-between">
-        <Col span={14}>
+      <Row justify="center">
+        <Col md={14}>
           <Row gutter={[16, 16]} justify="center">
             {Guard.length > 0 && RenderDisplay(Guard)}
           </Row>
@@ -50,9 +51,11 @@ const TeamBuilder = () => {
             {Forward.length > 0 && RenderDisplay(Forward)}
           </Row>
         </Col>
-        <Col span={5} xs={24}>
-          <Team />
-        </Col>
+        {TeamPlayers.length > 0 && (
+          <Col md={{ offset: 2, span: 3 }} xs={20}>
+            <Team />
+          </Col>
+        )}
       </Row>
     </div>
   );
