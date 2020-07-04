@@ -31,44 +31,48 @@ export const DisplayBar = ({ stat_ }) => {
   return (
     <div>
       <Row>
-        <Col>
+        <Col xs={20} md={20}>
           <div>{switchComponent(chartState)}</div>
         </Col>
-        <Col>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+        <Col xs={2}>
+          <div>
             <Button
               onClick={() => setChartState("Normalized")}
-              style={{ marginTop: "5%" }}
+              style={{
+                marginTop: "10px",
+                wordWrap: "break-word",
+                width: "9rem",
+              }}
             >
               Normalized Stats
             </Button>
             <Button
               onClick={() => setChartState("PER")}
-              style={{ marginTop: "5%" }}
+              style={{ marginTop: "10px", width: "9rem" }}
             >
               Player Efficiency
             </Button>
             <Button
               onClick={() => setChartState("Team")}
-              style={{ marginTop: "5%" }}
+              style={{ marginTop: "10px", width: "9rem" }}
             >
               Line Chart
             </Button>
             <Button
               onClick={() => setChartState("True Shooting")}
-              style={{ marginTop: "5%" }}
+              style={{ marginTop: "10px", width: "9rem" }}
             >
               True Shooting
             </Button>
             <Button
               onClick={() => setChartState("Field Goal Percentage")}
-              style={{ marginTop: "5%" }}
+              style={{ marginTop: "10px", width: "9rem" }}
             >
               Field Goal Percentage
             </Button>
             <Button
               onClick={() => setChartState("Field Throw Percentage")}
-              style={{ marginTop: "5%" }}
+              style={{ marginTop: "10px", width: "9rem" }}
             >
               Free Throw Percentage
             </Button>
