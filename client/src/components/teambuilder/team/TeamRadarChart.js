@@ -2,7 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { leagueLeaders } from "../variables";
 import { sum_mode } from "../variables";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Legend } from "recharts";
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 export const TeamRadarChart = () => {
   const { players } = useSelector((state) => {
@@ -49,21 +56,21 @@ export const TeamRadarChart = () => {
     });
   };
   return (
-    <div>
-      <RadarChart
-        cx={200}
-        cy={200}
-        outerRadius={150}
-        width={400}
-        height={400}
-        data={andrewData(data)}
-      >
-        <PolarGrid />
-        <PolarAngleAxis dataKey={"mode_"} />
+    <div style={{ width: "100%" }}>
+      <ResponsiveContainer width={"100%"} height={400}>
+        <RadarChart
+          //cx={200}
+          //cy={200}
+          //outerRadius={"100%"}
+          data={andrewData(data)}
+        >
+          <PolarGrid />
+          <PolarAngleAxis dataKey={"mode_"} />
 
-        {generateRadar()}
-        <Legend />
-      </RadarChart>
+          {generateRadar()}
+          <Legend />
+        </RadarChart>
+      </ResponsiveContainer>
     </div>
   );
 };
