@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1320" height="933" viewBox="0 0 1320 933">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.478" y1="-0.226" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b0285c" stop-opacity="0.259"/>
+      <stop offset="1" stop-color="#303e69" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_80" data-name="Group 80" transform="translate(-300 -1600)">
+    <path id="Path_4" data-name="Path 4" d="M579,770s9-126,79.5-113.5c70.08,12.42,62,76,98,68s38.93-93.79,53-196c12.21-88.69,60.82-61.53,69.88-32.93C887,519.55,890,595,919,600s39-52,41-80,12-142,48.5-143.5C1043,375.08,1058,426,1058,523s4,160,20,186,37,19,43.5,15.5c8.09-4.36,32.5-45.5,38.5-147.5s46-87,55-72,33.5,97.5,63.5,95.5S1317,579,1322,533s12.41-159.9,50.5-158.5c39.46,1.45,55.32,181.62,54.65,235.78-.85,68.33,50.35,149.22,82.35,149.22" transform="translate(-94.225 1593.378)" stroke="#d182ac" stroke-miterlimit="10" stroke-width="5" fill="url(#linear-gradient)"/>
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="13" cy="13" r="13" transform="translate(646.775 2304.378)" fill="#bac6f2"/>
+    <circle id="Ellipse_2" data-name="Ellipse 2" cx="13" cy="13" r="13" transform="translate(470.805 2349.138)" fill="#bac6f2"/>
+    <circle id="Ellipse_3" data-name="Ellipse 3" cx="13" cy="13" r="13" transform="translate(819.775 2178.378)" fill="#b0285c"/>
+    <circle id="Ellipse_4" data-name="Ellipse 4" cx="13" cy="13" r="13" transform="translate(739.834 2049.479)" fill="#bac6f2"/>
+    <circle id="Ellipse_5" data-name="Ellipse 5" cx="13" cy="13" r="13" transform="translate(905.965 1958.248)" fill="#b0285c"/>
+    <circle id="Ellipse_6" data-name="Ellipse 6" cx="13" cy="13" r="13" transform="translate(1090.775 2077.378)" fill="#b0285c"/>
+    <circle id="Ellipse_7" data-name="Ellipse 7" cx="13" cy="13" r="13" transform="translate(1179.575 2180.598)" fill="#bac6f2"/>
+    <circle id="Ellipse_8" data-name="Ellipse 8" cx="13" cy="13" r="13" transform="translate(1262.965 1956.838)" fill="#bac6f2"/>
+    <circle id="Ellipse_9" data-name="Ellipse 9" cx="13" cy="13" r="13" transform="translate(1401.875 2340.958)" fill="#bac6f2"/>
+    <circle id="Ellipse_10" data-name="Ellipse 10" cx="13" cy="13" r="13" transform="translate(999.775 2305.378)" fill="#b0285c"/>
+    <circle id="Ellipse_11" data-name="Ellipse 11" cx="47.87" cy="47.87" r="47.87" transform="translate(583.705 1872.938)" fill="#fff"/>
+    <circle id="Ellipse_12" data-name="Ellipse 12" cx="34.58" cy="34.58" r="34.58" transform="translate(644.815 1889.718)" fill="#fff"/>
+    <circle id="Ellipse_13" data-name="Ellipse 13" cx="47.87" cy="47.87" r="47.87" transform="translate(1152.465 1806.778)" fill="#fff"/>
+    <circle id="Ellipse_14" data-name="Ellipse 14" cx="34.58" cy="34.58" r="34.58" transform="translate(1213.575 1823.558)" fill="#fff"/>
+    <path id="Path_5" data-name="Path 5" d="M1456.23,481.77l23.77-34c2.61-4.59,9.86-4.19,13.39-.26l23.37,32c4.82,5.36,2.27,15.35-4.93,15.47l-47.26.79a9.42,9.42,0,0,1-8.34-14Z" transform="translate(-94.225 1593.378)" fill="#bac6f2"/>
+    <path id="Path_6" data-name="Path 6" d="M608.19,505.44l-23.81,33.93c-2.62,4.59-9.87,4.18-13.39.25l-23.33-32.06c-4.81-5.37-2.25-15.36,5-15.47l47.26-.73a9.42,9.42,0,0,1,8.27,14.08Z" transform="translate(-94.225 1593.378)" fill="#bac6f2"/>
+    <g id="Rectangle_18" data-name="Rectangle 18" transform="translate(300 1600)" fill="#fff" stroke="#303e69" stroke-width="3">
+      <rect width="500" height="933" rx="20" stroke="none"/>
+      <rect x="1.5" y="1.5" width="497" height="930" rx="18.5" fill="none"/>
+    </g>
+    <g id="Group_4" data-name="Group 4" transform="translate(-191 994.02)">
+      <text id="Toronto_Raptors" data-name="Toronto Raptors" transform="translate(527 715)" font-size="24" font-family="Roboto, Roboto"><tspan x="0" y="0">Toronto Raptors</tspan></text>
+      <text id="KYLE_LOWRY" data-name="KYLE LOWRY" transform="translate(527 673)" font-size="36" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">KYLE LOWRY</tspan></text>
+      <text id="East" transform="translate(527 748)" font-size="18" font-family="Roboto, Roboto" font-weight="300"><tspan x="0" y="0">East</tspan></text>
+    </g>
+    <g id="Group_8" data-name="Group 8" transform="translate(-182 1021.02)">
+      <g id="Rectangle_20" data-name="Rectangle 20" transform="translate(518 746)" fill="#fff" stroke="#303e69" stroke-width="1">
+        <rect width="200" height="83" rx="10" stroke="none"/>
+        <rect x="0.5" y="0.5" width="199" height="82" rx="9.5" fill="none"/>
+      </g>
+      <g id="Group_5" data-name="Group 5" transform="translate(0 -5)">
+        <text id="_36:33" data-name="36:33" transform="translate(588 790)" font-size="24" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">36:33</tspan></text>
+        <text id="Playing_Minutes" data-name="Playing Minutes" transform="translate(555 814)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Playing Minutes</tspan></text>
+      </g>
+    </g>
+    <g id="Group_7" data-name="Group 7" transform="translate(-182 1021.02)">
+      <g id="Rectangle_20-2" data-name="Rectangle 20" transform="translate(748 746)" fill="#fff" stroke="#303e69" stroke-width="1">
+        <rect width="200" height="83" rx="10" stroke="none"/>
+        <rect x="0.5" y="0.5" width="199" height="82" rx="9.5" fill="none"/>
+      </g>
+      <g id="Group_6" data-name="Group 6" transform="translate(-2 -1)">
+        <text id="_2019" data-name="2019" transform="translate(823 786)" font-size="24" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">2019</tspan></text>
+        <text id="Season" transform="translate(821 810)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Season</tspan></text>
+      </g>
+    </g>
+    <g id="Group_14" data-name="Group 14" transform="translate(-25 1018.02)">
+      <rect id="Rectangle_21" data-name="Rectangle 21" width="430" height="52" rx="10" transform="translate(359 858)" fill="#fdd"/>
+      <text id="Rebounds:_4.83" data-name="Rebounds: 4.83" transform="translate(380 890)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Rebounds: 4.83</tspan></text>
+      <rect id="Rectangle_22" data-name="Rectangle 22" width="430" height="52" rx="10" transform="translate(359 930)" fill="#fdd"/>
+      <text id="Assists:_7.67" data-name="Assists: 7.67" transform="translate(380 962)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Assists: 7.67</tspan></text>
+      <rect id="Rectangle_23" data-name="Rectangle 23" width="430" height="52" rx="10" transform="translate(359 1002)" fill="#ddffde"/>
+      <text id="Steals:_1.35" data-name="Steals: 1.35" transform="translate(380 1034)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Steals: 1.35</tspan></text>
+      <rect id="Rectangle_24" data-name="Rectangle 24" width="430" height="52" rx="10" transform="translate(359 1074)" fill="#ddffde"/>
+      <text id="Blocks:_0.42" data-name="Blocks: 0.42" transform="translate(380 1106)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Blocks: 0.42</tspan></text>
+      <rect id="Rectangle_25" data-name="Rectangle 25" width="430" height="52" rx="10" transform="translate(359 1146)" fill="#fdd"/>
+      <text id="Points:_19.73" data-name="Points: 19.73" transform="translate(380 1178)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Points: 19.73</tspan></text>
+      <rect id="Rectangle_26" data-name="Rectangle 26" width="430" height="52" rx="10" transform="translate(359 1218)" fill="#fdd"/>
+      <text id="Field_Goal:_0.417_" data-name="Field Goal: 0.417%" transform="translate(380 1250)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Field Goal: 0.417%</tspan></text>
+      <rect id="Rectangle_27" data-name="Rectangle 27" width="430" height="52" rx="10" transform="translate(359 1290)" fill="#ddffde"/>
+      <text id="Three_Point:_0.354_" data-name="Three Point: 0.354%" transform="translate(380 1322)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Three Point: 0.354%</tspan></text>
+      <rect id="Rectangle_28" data-name="Rectangle 28" width="430" height="52" rx="10" transform="translate(359 1362)" fill="#ddffde"/>
+      <text id="Free_Throw:_0.861_" data-name="Free Throw: 0.861%" transform="translate(380 1394)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Free Throw: 0.861%</tspan></text>
+    </g>
+    <g id="Group_12" data-name="Group 12" transform="translate(-27 1020.02)">
+      <g id="Group_11" data-name="Group 11">
+        <rect id="Rectangle_1" data-name="Rectangle 1" width="137.222" height="47" rx="10" transform="translate(654 1432)" fill="#303e69"/>
+        <text id="CREATE" transform="translate(690 1462)" fill="#fff" font-size="18" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">CREATE</tspan></text>
+      </g>
+      <text id="Remove" transform="translate(559 1462)" font-size="18" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">Remove</tspan></text>
+    </g>
+    <g id="Rectangle_18-2" data-name="Rectangle 18" transform="translate(1120 1600)" fill="#fff" stroke="#303e69" stroke-width="3">
+      <rect width="500" height="933" rx="20" stroke="none"/>
+      <rect x="1.5" y="1.5" width="497" height="930" rx="18.5" fill="none"/>
+    </g>
+    <path id="Path_2" data-name="Path 2" d="M49.815,36.7H15.93V72.375H1.3V-11.816H54.787V-.02H15.93V25.017H49.815Zm42.442,5.551H61.9V30.915H92.257Zm77.483,19.2a27.972,27.972,0,0,1-12.663,9.02,51.665,51.665,0,0,1-18.388,3.065,36.234,36.234,0,0,1-18.735-4.8A31.968,31.968,0,0,1,107.378,55a48.046,48.046,0,0,1-4.6-20.845V27.562q0-19.082,9.136-29.808t25.5-10.726q14.051,0,22.32,6.968t9.946,20.036h-14.34Q152.914-1.177,137.706-1.177q-9.83,0-14.947,7.077t-5.291,20.769v6.47q0,13.634,5.753,21.173t15.988,7.539q11.218,0,15.959-5.088V40.283H137.822v-11.1H169.74Z" transform="translate(1416.061 1659.741)" fill="#e0d5ce" opacity="0.5"/>
+    <g id="Group_4-2" data-name="Group 4" transform="translate(629 994.02)">
+      <text id="Dallas_Mavericks" data-name="Dallas Mavericks" transform="translate(527 715)" font-size="24" font-family="Roboto, Roboto"><tspan x="0" y="0">Dallas Mavericks</tspan></text>
+      <text id="LUKA_DONCIC" data-name="LUKA DONCIC" transform="translate(527 673)" font-size="36" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">LUKA DONCIC</tspan></text>
+      <text id="West" transform="translate(527 748)" font-size="18" font-family="Roboto, Roboto" font-weight="300"><tspan x="0" y="0">West</tspan></text>
+    </g>
+    <g id="Rectangle_20-3" data-name="Rectangle 20" transform="translate(1156 1767.02)" fill="#fff" stroke="#303e69" stroke-width="1">
+      <rect width="200" height="83" rx="10" stroke="none"/>
+      <rect x="0.5" y="0.5" width="199" height="82" rx="9.5" fill="none"/>
+    </g>
+    <text id="_33:18" data-name="33:18" transform="translate(1226 1806.02)" font-size="24" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">33:18</tspan></text>
+    <text id="Playing_Minutes-2" data-name="Playing Minutes" transform="translate(1193 1830.02)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Playing Minutes</tspan></text>
+    <g id="Rectangle_20-4" data-name="Rectangle 20" transform="translate(1386 1767.02)" fill="#fff" stroke="#303e69" stroke-width="1">
+      <rect width="200" height="83" rx="10" stroke="none"/>
+      <rect x="0.5" y="0.5" width="199" height="82" rx="9.5" fill="none"/>
+    </g>
+    <text id="_2019-2" data-name="2019" transform="translate(1459 1806.02)" font-size="24" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">2019</tspan></text>
+    <text id="Season-2" data-name="Season" transform="translate(1457 1830.02)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Season</tspan></text>
+    <rect id="Rectangle_21-2" data-name="Rectangle 21" width="430" height="52" rx="10" transform="translate(1154 1876.02)" fill="#ddffde"/>
+    <text id="Rebounds:_9.30" data-name="Rebounds: 9.30" transform="translate(1175 1908.02)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Rebounds: 9.30</tspan></text>
+    <rect id="Rectangle_22-2" data-name="Rectangle 22" width="430" height="52" rx="10" transform="translate(1154 1948.02)" fill="#ddffde"/>
+    <text id="Assists:_8.70" data-name="Assists: 8.70" transform="translate(1175 1980.02)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Assists: 8.70</tspan></text>
+    <rect id="Rectangle_23-2" data-name="Rectangle 23" width="430" height="52" rx="10" transform="translate(1154 2020.02)" fill="#fdd"/>
+    <text id="Steals:_1.06" data-name="Steals: 1.06" transform="translate(1175 2052.021)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Steals: 1.06</tspan></text>
+    <rect id="Rectangle_24-2" data-name="Rectangle 24" width="430" height="52" rx="10" transform="translate(1154 2092.021)" fill="#fdd"/>
+    <text id="Blocks:_0.19" data-name="Blocks: 0.19" transform="translate(1175 2124.021)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Blocks: 0.19</tspan></text>
+    <rect id="Rectangle_25-2" data-name="Rectangle 25" width="430" height="52" rx="10" transform="translate(1154 2164.021)" fill="#ddffde"/>
+    <text id="Points:_28.69" data-name="Points: 28.69" transform="translate(1175 2196.021)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Points: 28.69</tspan></text>
+    <rect id="Rectangle_26-2" data-name="Rectangle 26" width="430" height="52" rx="10" transform="translate(1154 2236.021)" fill="#ddffde"/>
+    <text id="Field_Goal:_0.461_" data-name="Field Goal: 0.461%" transform="translate(1175 2268.021)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Field Goal: 0.461%</tspan></text>
+    <rect id="Rectangle_27-2" data-name="Rectangle 27" width="430" height="52" rx="10" transform="translate(1154 2308.021)" fill="#fdd"/>
+    <text id="Three_Point:_0.318_" data-name="Three Point: 0.318%" transform="translate(1175 2340.021)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Three Point: 0.318%</tspan></text>
+    <rect id="Rectangle_28-2" data-name="Rectangle 28" width="430" height="52" rx="10" transform="translate(1154 2380.021)" fill="#fdd"/>
+    <text id="Free_Throw:_0.752_" data-name="Free Throw: 0.752%" transform="translate(1175 2412.021)" font-size="18" font-family="Roboto, Roboto"><tspan x="0" y="0">Free Throw: 0.752%</tspan></text>
+    <g id="Group_12-2" data-name="Group 12" transform="translate(793 1020.02)">
+      <g id="Group_11-2" data-name="Group 11">
+        <rect id="Rectangle_1-2" data-name="Rectangle 1" width="137.222" height="47" rx="10" transform="translate(654 1432)" fill="#303e69"/>
+        <text id="CREATE-2" data-name="CREATE" transform="translate(690 1462)" fill="#fff" font-size="18" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">CREATE</tspan></text>
+      </g>
+      <text id="Remove-2" data-name="Remove" transform="translate(559 1462)" font-size="18" font-family="Roboto, Roboto" font-weight="500"><tspan x="0" y="0">Remove</tspan></text>
+    </g>
+    <path id="Path_14" data-name="Path 14" d="M71.749,5.032a27.9,27.9,0,0,1-12.629,9,51.527,51.527,0,0,1-18.339,3.056A36.137,36.137,0,0,1,22.1,12.3,31.882,31.882,0,0,1,9.553-1.4a47.917,47.917,0,0,1-4.585-20.79v-6.574q0-19.031,9.112-29.728t25.432-10.7q14.013,0,22.26,6.949t9.919,19.982H57.39Q54.967-57.423,39.8-57.423q-9.8,0-14.907,7.058T19.617-29.652V-23.2q0,13.6,5.738,21.116T41.3,5.436q11.188,0,15.917-5.075V-16.075h-17.3V-27.147H71.749Z" transform="translate(694.625 1716.188)" fill="#e0d5ce" opacity="0.5"/>
+  </g>
+</svg>

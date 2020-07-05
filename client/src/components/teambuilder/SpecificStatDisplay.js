@@ -18,7 +18,10 @@ export const SpecificStatDisplay = ({ positionState, values }) => {
   };
 
   return (
-    <div className={`${renderBarColor(positionState, values.v, values.k)}Bar`}>
+    <div
+      className={`${renderBarColor(positionState, values.v, values.k)}Bar`}
+      style={{ margin: "15px 0" }}
+    >
       {values.key} : {values.v}
     </div>
   );

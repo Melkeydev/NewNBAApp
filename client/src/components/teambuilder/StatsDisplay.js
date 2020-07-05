@@ -75,38 +75,105 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
 
   return (
     /* View Layer*/
-    <div>
-      <Button
-        onClick={() => dispatch(removeState(renderStats(position)[0][1], id))}
-      >
-        Remove
-      </Button>
-      <Button
-        onClick={() => {
-          dispatch(addPlayer(renderStats(position), id, position));
-          dispatch(FetchLastTenGames(id, true));
+    <div
+      style={{
+        minWidth: "200px",
+        width: "100%",
+        padding: "20px",
+        borderRadius: "10px",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, .3), 0 1px 3px rgba(0, 0, 0, .3)",
+      }}
+    >
+      <span
+        style={{
+          display: "inline",
+          float: "right",
+          fontSize: "4.5rem",
+          marginBottom: "0",
+          opacity: "0.1",
         }}
       >
-        Add
-      </Button>
+        {position}
+      </span>
       <div>
         <h2>
           {first_name} {last_name}
-          <br />
         </h2>
-        <h5>{position}</h5>
 
         <h4>{full_name}</h4>
-        <br />
         <h4>{conference}</h4>
       </div>
-      <h5>Season: {season}</h5>
-      <h5>Playing Minutes: {min}</h5> <br />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <div
+          style={{
+            borderRadius: "5px",
+            justifyContent: "center",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            border: "solid black 1px",
+            padding: "5px",
+            marginRight: "10px",
+          }}
+        >
+          <h5 style={{ marginBottom: "0" }}>Season: {season}</h5>
+        </div>
+        <div
+          style={{
+            borderRadius: "5px",
+            justifyContent: "center",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            border: "solid black 1px",
+            padding: "5px",
+            textAlign: "center",
+          }}
+        >
+          <h5 style={{ marginBottom: "0" }}>Playing Minutes: {min}</h5>
+        </div>
+      </div>
+
       <RenderSpecificStatDisplay
         positionState={positionState}
         Stats={Stats}
         position={position}
       />
+      <div
+        style={{
+          padding: "5px",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Button
+          onClick={() => dispatch(removeState(renderStats(position)[0][1], id))}
+          style={{ textAlign: "right", borderRadius: "5px" }}
+        >
+          Remove
+        </Button>
+        <Button
+          style={{
+            textAlign: "right",
+            marginLeft: "10px",
+            backgroundColor: "#303e69",
+            color: "#ffff",
+            borderRadius: "5px",
+          }}
+          onClick={() => {
+            dispatch(addPlayer(renderStats(position), id, position));
+            dispatch(FetchLastTenGames(id, true));
+          }}
+        >
+          Add
+        </Button>
+      </div>
     </div>
   );
 };

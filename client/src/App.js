@@ -14,6 +14,9 @@ import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
 import { Provider } from "react-redux";
 import store from "./store";
 
+//css
+import "./App.css";
+
 function App() {
   return (
     <Provider store={store}>
@@ -25,7 +28,6 @@ function App() {
           {/* <PrivateRoute exact path="/single-player" component={Searchbar} />
           <PrivateRoute exact path="/teambuilder" component={TeamBuilder} />
           <PrivateRoute exact path="/teamdisplay" component={TeamDisplay} /> */}
-
 
           <Route exact path="/single-player" component={Searchbar} />
           <Route exact path="/teambuilder" component={TeamBuilder} />

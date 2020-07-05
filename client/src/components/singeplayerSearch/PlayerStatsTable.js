@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { teamNames } from "./variables";
-
+import {Row, Col} from  "antd"
 export const PlayerStatsTable = ({ count }) => {
   const { lastTen } = useSelector((state) => state.Player);
 
