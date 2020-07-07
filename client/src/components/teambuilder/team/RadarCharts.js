@@ -2,7 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { leagueLeaders } from "../variables";
 
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  ResponsiveContainer,
+} from "recharts";
 
 export const RadarCharts = ({ stats, color }) => {
   const { players } = useSelector((state) => {
@@ -34,20 +40,22 @@ export const RadarCharts = ({ stats, color }) => {
   };
 
   return (
-    <div>
-      <RadarChart
-        cx={150}
-        cy={150}
-        outerRadius={100}
-        width={300}
-        height={300}
-        data={normalData(stats, leagueLeaders)}
-      >
-        <PolarGrid />
-        <PolarAngleAxis dataKey={"mode_"} />
+    <div style={{ width: "100%" }}>
+      <ResponsiveContainer width={"100%"} height={400}>
+        <RadarChart
+          //cx={150}
+          //cy={150}
+          //outerRadius={100}
+          //width={300}
+          //height={300}
+          data={normalData(stats, leagueLeaders)}
+        >
+          <PolarGrid />
+          <PolarAngleAxis dataKey={"mode_"} />
 
-        {generateRadar()}
-      </RadarChart>
+          {generateRadar()}
+        </RadarChart>
+      </ResponsiveContainer>
     </div>
   );
 };

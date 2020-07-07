@@ -30,17 +30,17 @@ export const DisplayBar = ({ stat_ }) => {
 
   return (
     <div>
-      <Row>
-        <Col xs={20} md={20}>
+      <Row justify="center">
+        <Col xs={16} md={20}>
           <div>{switchComponent(chartState)}</div>
         </Col>
-        <Col xs={2}>
+        <Col xs={{ offset: 1, span: 20 }} md={2}>
           <div>
             <Button
               onClick={() => setChartState("Normalized")}
               style={{
                 marginTop: "10px",
-                wordWrap: "break-word",
+                //wordWrap: "break-word",
                 width: "9rem",
               }}
             >
