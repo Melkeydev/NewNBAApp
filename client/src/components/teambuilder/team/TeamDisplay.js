@@ -20,10 +20,8 @@ export const TeamDisplay = () => {
     <div>
       <Row justify="center">
         <Col xs={24} md={16}>
-          <div style={{ width: "100" }}>
-            <TeamStatDropDown />
-            <TeamRadarChart />
-          </div>
+          <TeamStatDropDown />
+          <TeamRadarChart />
         </Col>
       </Row>
       <Row>
@@ -45,6 +43,7 @@ export const TeamDisplay = () => {
                   <div
                     style={{
                       display: "flex",
+                      //padding: "1rem",
                       flexDirection: "column",
                     }}
                   >
