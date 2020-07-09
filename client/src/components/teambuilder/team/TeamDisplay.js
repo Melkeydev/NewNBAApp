@@ -17,7 +17,7 @@ export const TeamDisplay = () => {
   });
 
   return (
-    <div>
+    <div style={{ paddingBottom: "4rem" }}>
       <Row justify="center">
         <Col xs={24} md={16}>
           <TeamStatDropDown />
@@ -43,7 +43,7 @@ export const TeamDisplay = () => {
                   <div
                     style={{
                       display: "flex",
-                      //padding: "1rem",
+                      padding: "1rem",
                       flexDirection: "column",
                     }}
                   >
@@ -62,7 +62,7 @@ export const TeamDisplay = () => {
                     ></RadarCharts>
                   </div>
 
-                  <Row style={{ overflowX: "scroll" }}>
+                  <Row style={{ overflowX: "auto" }}>
                     <Col xs={24}>
                       <table className="TeamDisplayTable">
                         <thead>

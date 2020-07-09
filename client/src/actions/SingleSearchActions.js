@@ -38,17 +38,20 @@ export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
 };
 
 export const FetchPlayerSeason = (id, season) => async (dispatch) => {
-  console.log("id", id);
-  console.log("season", season);
+  try {
+    const reqSeasons = await axios
+      .get(`${base_url}season_averages?season=${season}&player_ids[]=${id}`)
+      .catch((err) => {
+        console.log(err);
+      });
 
-  const reqSeasons = await axios.get(
-    `${base_url}season_averages?season=${season}&player_ids[]=${id}`
-  );
-
-  dispatch({
-    type: FETCH_SEASONS,
-    payload: reqSeasons.data.data[0],
-  });
+    dispatch({
+      type: FETCH_SEASONS,
+      payload: reqSeasons.data.data[0],
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const FetchLastTenGames = (id, team = false, season = "2019") => async (

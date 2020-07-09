@@ -7,7 +7,7 @@ import { FieldGoalPer } from "./FieldGoalPer";
 import { Button, Row, Col } from "antd";
 
 export const DisplayBar = ({ stat_ }) => {
-  const [chartState, setChartState] = useState("Normalized");
+  const [chartState, setChartState] = useState("Team");
 
   const switchComponent = (chartState) => {
     switch (chartState) {
