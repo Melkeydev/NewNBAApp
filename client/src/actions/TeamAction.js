@@ -5,8 +5,13 @@ import {
   ADD_CENTER_POSITION,
 } from "./types";
 
+import { addPlayers } from "./PlayersAction";
+
 export const addPlayer = (player, id, position) => async (dispatch) => {
   let testPlayer = player.filter((_player) => _player[0].player_id === id);
+
+  console.log(player[0]);
+  await addPlayers(player[0][1]);
 
   var randomColor = "#000000".replace(/0/g, function () {
     return (~~(Math.random() * 16)).toString(16);

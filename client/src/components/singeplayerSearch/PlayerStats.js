@@ -13,7 +13,6 @@ const PlayerStats = () => {
   const [count, setCount] = useState(10);
 
   const { loading, player, team, stats } = useSelector((state) => state.Player);
-  console.log(stats);
 
   const { first_name, id, last_name } = player;
   const { ast, blk, fg3_pct, fg_pct, ft_pct, min, pts, reb, season, stl } =
@@ -96,8 +95,12 @@ const PlayerStats = () => {
               20
             </Button>
           </div>
-
-          <PlayerStatsTable count={count} />
+          <Row style={{ overflowX: "auto" }}>
+            <Col xs={24}>
+              <PlayerStatsTable count={count} />{" "}
+            </Col>
+            :
+          </Row>
         </Fragment>
       )}
     </div>
