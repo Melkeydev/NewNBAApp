@@ -5,6 +5,7 @@ import { addPlayer } from "../../actions/TeamAction";
 import { RenderSpecificStatDisplay } from "./RenderSpecificStatDisplay";
 import { FetchLastTenGames } from "../../actions/SingleSearchActions";
 import { Button } from "antd";
+import { addPlayers } from "../../actions/PlayersAction";
 
 //Put Render functions
 
@@ -20,6 +21,7 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
     };
   });
 
+  console.log(Guard);
   const [positionState, setPositionState] = useState({
     guard: [],
     center: [],
@@ -169,6 +171,7 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
           onClick={() => {
             dispatch(addPlayer(renderStats(position), id, position));
             dispatch(FetchLastTenGames(id, true));
+            dispatch(addPlayers(renderStats(position)));
           }}
         >
           Add

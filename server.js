@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import playerRoute from "./routes/players";
 import userRoute from "./routes/users";
 require("dotenv").config();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json({ extended: false }));
 
 //Routes
+app.use("/api/players", playerRoute);
 app.use("/api/users", userRoute);
 
 //env variables

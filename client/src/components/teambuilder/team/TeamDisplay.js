@@ -17,98 +17,97 @@ export const TeamDisplay = () => {
   });
 
   return (
-    <div>
+    <div style={{ paddingBottom: "4rem" }}>
       <Row justify="center">
-        <Col xs={16}>
-          <div style={{ width: "100" }}>
-            <TeamStatDropDown />
-            <TeamRadarChart />
+        <Col xs={24} md={16}>
+          <TeamStatDropDown />
+          <TeamRadarChart />
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={24}>
+          <div style={{ paddingTop: "5%" }}>
+            {players.map((player) => {
+              const {
+                first_name,
+                last_name,
+                position,
+                id,
+                team: { abbreviation },
+              } = player[1];
+
+              const stats = testData(player, sum_mode, id);
+
+              return (
+                <div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "1rem",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <h2>
+                      {first_name} {last_name}
+                    </h2>
+
+                    <h5>
+                      Position: {position} | Team: {abbreviation}
+                    </h5>
+                    <RadarCharts
+                      style={{ marginLeft: "auto" }}
+                      id={id}
+                      stats={stats}
+                      color={player[2]}
+                    ></RadarCharts>
+                  </div>
+
+                  <Row style={{ overflowX: "auto" }}>
+                    <Col xs={24}>
+                      <table className="TeamDisplayTable">
+                        <thead>
+                          <tr>
+                            {Object.keys(mode).map((key) => {
+                              if (key in player[0]) {
+                                return (
+                                  <th
+                                    style={{
+                                      textAlign: "center",
+                                    }}
+                                  >
+                                    {mode[key]}
+                                  </th>
+                                );
+                              }
+                            })}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            {Object.keys(mode).map((key) => {
+                              if (key in player[0]) {
+                                return (
+                                  <td
+                                    style={{
+                                      textAlign: "center",
+                                    }}
+                                  >
+                                    {player[0][key]}
+                                  </td>
+                                );
+                              }
+                            })}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </Col>
+                  </Row>
+                </div>
+              );
+            })}
           </div>
         </Col>
       </Row>
-      {/* <Row> */}
-      {/*   <Col xs={16}> */}
-      {/*     <div style={{ paddingTop: "5%" }}> */}
-      {/*       {players.map((player) => { */}
-      {/*         const { */}
-      {/*           first_name, */}
-      {/*           last_name, */}
-      {/*           position, */}
-      {/*           id, */}
-      {/*           team: { abbreviation }, */}
-      {/*         } = player[1]; */}
-
-      {/*         const stats = testData(player, sum_mode, id); */}
-
-      {/*         return ( */}
-      {/*           <div> */}
-      {/*             <div */}
-      {/*               style={{ */}
-      {/*                 display: "flex", */}
-      {/*                 flexDirection: "row", */}
-      {/*               }} */}
-      {/*             > */}
-      {/*               <h2> */}
-      {/*                 {first_name} {last_name} */}
-      {/*               </h2> */}
-
-      {/*               <h5> */}
-      {/*                 Position: {position} | Team: {abbreviation} */}
-      {/*               </h5> */}
-      {/*               <RadarCharts */}
-      {/*                 style={{ marginLeft: "auto" }} */}
-      {/*                 id={id} */}
-      {/*                 stats={stats} */}
-      {/*                 color={player[2]} */}
-      {/*               ></RadarCharts> */}
-      {/*             </div> */}
-
-      {/*             {/1* <Row> *1/} */}
-      {/*             {/1*   <Col xs={16}> *1/} */}
-      {/*             {/1*     <table className="TeamDisplayTable"> *1/} */}
-      {/*             {/1*       <thead> *1/} */}
-      {/*             {/1*         <tr> *1/} */}
-      {/*             {/1*           {Object.keys(mode).map((key) => { *1/} */}
-      {/*             {/1*             if (key in player[0]) { *1/} */}
-      {/*             {/1*               return ( *1/} */}
-      {/*             {/1*                 <th *1/} */}
-      {/*             {/1*                   style={{ *1/} */}
-      {/*             {/1*                     textAlign: "center", *1/} */}
-      {/*             {/1*                   }} *1/} */}
-      {/*             {/1*                 > *1/} */}
-      {/*             {/1*                   {mode[key]} *1/} */}
-      {/*             {/1*                 </th> *1/} */}
-      {/*             {/1*               ); *1/} */}
-      {/*             {/1*             } *1/} */}
-      {/*             {/1*           })} *1/} */}
-      {/*             {/1*         </tr> *1/} */}
-      {/*             {/1*       </thead> *1/} */}
-      {/*             {/1*       <tbody> *1/} */}
-      {/*             {/1*         <tr> *1/} */}
-      {/*             {/1*           {Object.keys(mode).map((key) => { *1/} */}
-      {/*             {/1*             if (key in player[0]) { *1/} */}
-      {/*             {/1*               return ( *1/} */}
-      {/*             {/1*                 <td *1/} */}
-      {/*             {/1*                   style={{ *1/} */}
-      {/*             {/1*                     textAlign: "center", *1/} */}
-      {/*             {/1*                   }} *1/} */}
-      {/*             {/1*                 > *1/} */}
-      {/*             {/1*                   {player[0][key]} *1/} */}
-      {/*             {/1*                 </td> *1/} */}
-      {/*             {/1*               ); *1/} */}
-      {/*             {/1*             } *1/} */}
-      {/*             {/1*           })} *1/} */}
-      {/*             {/1*         </tr> *1/} */}
-      {/*             {/1*       </tbody> *1/} */}
-      {/*             {/1*     </table> *1/} */}
-      {/*             {/1*   </Col> *1/} */}
-      {/*             {/1* </Row> *1/} */}
-      {/*           </div> */}
-      {/*         ); */}
-      {/*       })} */}
-      {/*     </div> */}
-      {/*   </Col> */}
-      {/* </Row> */}
     </div>
   );
 };

@@ -13,21 +13,12 @@ const PlayerStats = () => {
   const [count, setCount] = useState(10);
 
   const { loading, player, team, stats } = useSelector((state) => state.Player);
-  const { first_name, id, last_name } = player;
-  const {
-    ast,
-    blk,
-    fg3_pct,
-    fg_pct,
-    ft_pct,
-    min,
-    pts,
-    reb,
-    season,
-    stl,
-  } = stats;
 
-  const { city, conference, name } = team;
+  const { first_name, id, last_name } = player;
+  const { ast, blk, fg3_pct, fg_pct, ft_pct, min, pts, reb, season, stl } =
+    stats || {};
+
+  const { city, conference, name } = team || {};
 
   const dispatch = useDispatch();
 
@@ -44,26 +35,32 @@ const PlayerStats = () => {
           <div>
             <h2>
               {first_name} {last_name}
-              <br />
+            </h2>
+            <h2>
               Team : {city} {name}
             </h2>
             <h3>
               Conference : {conference}
-              <br />
               Season : {season}
             </h3>
           </div>
-          <div>
-            <h5>Playing Minutes: {min}</h5> <br />
-            Points: {pts} <br />
-            Assists: {ast} <br />
-            Rebounds: {reb} <br />
-            Steals: {stl} <br />
-            Blocks: {blk} <br />
-            Field Goal %: {fg_pct} <br />
-            Three Point %: {fg3_pct} <br />
-            Free Throw %: {ft_pct} <br />
-          </div>
+          <ul
+            style={{
+              listStyleType: "none",
+              fontSize: "0.8rem",
+              paddingLeft: "0",
+            }}
+          >
+            <li>Playing Minutes: {min}</li>
+            <li>Free Throw %: {ft_pct}</li>
+            <li>Three Point %: {fg3_pct}</li>
+            <li>Field Goal %: {fg_pct}</li>
+            <li>Blocks: {blk}</li>
+            <li>Steals: {stl}</li>
+            <li>Rebounds: {reb}</li>
+            <li>Assists: {ast}</li>
+            <li>Points: {pts}</li>
+          </ul>
           <PlayerSeasons />
           <StatDropdown count={count} />
           <div
@@ -98,8 +95,12 @@ const PlayerStats = () => {
               20
             </Button>
           </div>
-
-          <PlayerStatsTable count={count} />
+          <Row style={{ overflowX: "auto" }}>
+            <Col xs={24}>
+              <PlayerStatsTable count={count} />{" "}
+            </Col>
+            :
+          </Row>
         </Fragment>
       )}
     </div>

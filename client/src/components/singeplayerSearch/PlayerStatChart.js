@@ -31,6 +31,7 @@ export const PlayerStatChart = ({ statChoice, count }) => {
 
       return data_list.push(display_stat);
     });
+
     return data_list.reverse();
   };
 

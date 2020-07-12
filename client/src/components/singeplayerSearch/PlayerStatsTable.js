@@ -1,7 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { teamNames } from "./variables";
-import {Row, Col} from  "antd"
+import { Row, Col } from "antd";
+import "./css/PlayerStats.css";
+
 export const PlayerStatsTable = ({ count }) => {
   const { lastTen } = useSelector((state) => state.Player);
 
@@ -15,7 +17,7 @@ export const PlayerStatsTable = ({ count }) => {
 
   return (
     <div>
-      <table className="ui single line table">
+      <table className="PlayerStats">
         <thead>
           <tr>
             <th>Versus</th>

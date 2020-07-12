@@ -16,7 +16,7 @@ const TeamBuilder = () => {
   const RenderDisplay = (Zip) => {
     return Zip.map((zip) => {
       return (
-        <Col span={6} xs={24} md={6}>
+        <Col xs={24} md={6}>
           <StatsDisplay Stats={zip[0]} Player={zip[1]} flag={flag} />
         </Col>
       );
@@ -34,13 +34,13 @@ const TeamBuilder = () => {
       </Row>
 
       <Row gutter={[10, 10]} justify="center">
-        <Col xs={24} sm={12} md={6} lg={6} xl={10}>
+        <Col xs={22} sm={12} md={6} lg={6} xl={10}>
           <Button onClick={() => setFlag(!flag)}>Check all Stats</Button>
         </Col>
       </Row>
 
       <Row justify="center">
-        <Col md={14}>
+        <Col md={14} sm={14} xs={14}>
           <Row gutter={[16, 16]} justify="center">
             {Guard.length > 0 && RenderDisplay(Guard)}
           </Row>

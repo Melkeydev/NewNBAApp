@@ -1,28 +1,29 @@
 
-.TeamDisplayTable {
+.PlayerStats {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-.TeamDisplayTable td,
-.TeamDisplayTable th {
+.PlayerStats td,
+.PlayerStats th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-.TeamDisplayTable tr:nth-child(even) {
+.PlayerStats tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.TeamDisplayTable tr:hover {
+.PlayerStats tr:hover {
   background-color: #ddd;
 }
 
-.TeamDisplayTable th {
+.PlayerStats th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color: #303e69;
   color: white;
 }
+

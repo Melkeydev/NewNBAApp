@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PlayerStatChart } from "./PlayerStatChart";
 
 //AntD
-import { Menu, Dropdown, Button } from "antd";
+import { Menu, Dropdown, Button, Row, Col } from "antd";
 
 export const StatDropdown = ({ count }) => {
   const [stat, setStat] = useState("pts");
@@ -48,7 +48,11 @@ export const StatDropdown = ({ count }) => {
         <Button>{text}</Button>
       </Dropdown>
 
-      <PlayerStatChart statChoice={stat} count={count} />
+      <Row justify="center">
+        <Col xs={24}>
+          <PlayerStatChart statChoice={stat} count={count} />
+        </Col>
+      </Row>
     </div>
   );
 };

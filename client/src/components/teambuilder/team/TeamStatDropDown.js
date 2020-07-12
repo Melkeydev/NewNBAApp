@@ -44,7 +44,7 @@ export const TeamStatDropDown = () => {
   );
 
   return (
-    <div style={{ width: "100%" }}>
+    <div>
       <Dropdown overlay={menu}>
         <Button>{text}</Button>
       </Dropdown>
