@@ -3,8 +3,6 @@ import axios from "axios";
 const base_url = "http://localhost:5001/";
 
 export const addPlayers = (player) => async (dispatch) => {
-  console.log("did this baby hitaaaaa");
-  console.log(player);
   const {
     first_name,
     height_feet,
@@ -14,7 +12,7 @@ export const addPlayers = (player) => async (dispatch) => {
     position,
     team: { abbreviation, city, conference, division, full_name, name },
     weight_pounds,
-  } = player;
+  } = player[0][1];
 
   const config = {
     headers: {
@@ -35,7 +33,5 @@ export const addPlayers = (player) => async (dispatch) => {
 
   try {
     const response = await axios.post(`${base_url}api/players`, body, config);
-  } catch (err) {
-    console.log("Melk youre");
-  }
+  } catch (err) {}
 };

@@ -9,6 +9,7 @@ import { RegisterForm } from "./components/Auth/RegisterForm";
 import { LoginForm } from "./components/Auth/LoginForm";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
 import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
+import setAuthToken from "../src/utils/setAuthToken";
 
 //redux
 import { Provider } from "react-redux";
@@ -16,6 +17,10 @@ import store from "./store";
 
 //css
 import "./App.css";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
   return (

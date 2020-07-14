@@ -1,13 +1,15 @@
 import { Schema, model } from "mongoose";
 
 const PlayerStats = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+  },
   FG_Miss: {
     type: Number,
-    required: true,
   },
   FT_Miss: {
     type: Number,
-    required: true,
   },
   ast: {
     type: Number,
@@ -99,5 +101,5 @@ const PlayerStats = new Schema({
   },
 });
 
-const PlayerStats = model("stat", PlayerStats);
-export default PlayerStats;
+const Stats = model("stat", PlayerStats);
+export default Stats;

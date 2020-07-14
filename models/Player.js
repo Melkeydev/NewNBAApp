@@ -1,6 +1,10 @@
 import { Schema, model } from "mongoose";
 
 const PlayerSchema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+  },
   first_name: {
     type: String,
     required: true,

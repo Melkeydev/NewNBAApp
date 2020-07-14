@@ -1,5 +1,8 @@
 import { Router } from "express";
+import auth from "../middleware/authentication";
+import jwt from "jsonwebtoken";
 import { check, validationResult } from "express-validator";
+import User from "../models/User";
 
 //Import Player Schema
 import Player from "../models/Player";
@@ -15,6 +18,7 @@ const router = Router();
 router.post(
   "/",
   [
+    auth,
     [
       check("first_name", "first name not present").not().isEmpty(),
       check("id", "id not found").not().isEmpty(),
@@ -29,6 +33,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    const user = await User.findById(req.user.id).select("-password");
 
     //Deconstruct variables from request body
     const {
@@ -43,7 +48,7 @@ router.post(
     } = req.body;
 
     //Build Player Profile
-    const player = {};
+    const player = { user };
     if (first_name) player.first_name = first_name;
     if (height_feet) player.height_feet = height_feet;
     if (height_inches) player.height_inches = height_inches;
@@ -88,4 +93,21 @@ router.post(
     }
   }
 );
+
+/**
+ * @Route GET routes/players
+ * @desc GET player by user ID
+ * @access Private
+ */
+
+//Find all players bya users Id
+router.get("/", auth, async (req, res) => {
+  try {
+    const players = await Player.find({ user: req.user.id });
+    res.json(players);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 export default router;
