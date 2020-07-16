@@ -23,8 +23,6 @@ const TeamBuilder = () => {
     });
   };
 
-  // <Team style={{ position: "absolute" }} />
-
   return (
     <div>
       <Row justify="center">

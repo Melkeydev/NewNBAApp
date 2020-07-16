@@ -99,6 +99,10 @@ const PlayerStats = new Schema({
     type: Number,
     required: true,
   },
+  color: {
+    type: String,
+    required: true,
+  },
 });
 
 const Stats = model("stat", PlayerStats);

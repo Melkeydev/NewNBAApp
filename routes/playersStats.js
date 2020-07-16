@@ -37,6 +37,7 @@ router.post("/", async (req, res) => {
     season,
     stl,
     turnover,
+    color,
   } = req.body;
 
   try {
@@ -71,6 +72,7 @@ router.post("/", async (req, res) => {
       season,
       stl,
       turnover,
+      color,
     });
     await playerStats.save();
     return res.status(418).json(playerStats);

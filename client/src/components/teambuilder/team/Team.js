@@ -4,6 +4,7 @@ import { RenderCount } from "./RenderCount";
 
 export const Team = () => {
   const teamPlayers = useSelector((state) => state.Team.teamPlayers);
+  console.log(teamPlayers);
 
   return <div>{teamPlayers.length > 0 && <RenderCount />}</div>;
 };

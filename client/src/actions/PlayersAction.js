@@ -64,11 +64,16 @@ export const addPlayerToDB = (player) => async (dispatch) => {
     turnover,
   } = player[0][0];
 
+  const randomColor = "#000000".replace(/0/g, function () {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+
   const config = {
     headers: {
       "content-type": "application/json",
     },
   };
+  console.log(randomColor);
   const body = JSON.stringify({
     FG_Miss,
     FT_Miss,
@@ -94,6 +99,7 @@ export const addPlayerToDB = (player) => async (dispatch) => {
     season,
     stl,
     turnover,
+    color: randomColor,
   });
 
   try {
