@@ -89,6 +89,8 @@ export const login = ({ email, password }) => async (dispatch) => {
       payload: "Successfull Login!",
     });
 
+    dispatch(loadUser());
+
     setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
   } catch (errors) {
     dispatch({
@@ -110,10 +112,9 @@ export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
-  console.log("this is a test");
   try {
     const response = await axios.get(`${base_url}api/players`);
-    console.log(response);
+    console.log(response.data);
   } catch (err) {
     console.log(err);
   }

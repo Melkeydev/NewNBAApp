@@ -1,4 +1,4 @@
-import React, { useEffect, useSelector } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Searchbar from "./components/singeplayerSearch/Searchbar";
 import TeamBuilder from "./components/teambuilder/TeamBuilder";
@@ -11,9 +11,8 @@ import { PrivateRoute } from "./components/Auth/PrivateRoute";
 import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
 import setAuthToken from "../src/utils/setAuthToken";
 import { loadUser } from "./actions/AuthAction";
-
 //redux
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "./store";
 
 //css
@@ -23,7 +22,11 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   return (
     <Provider store={store}>
       <Error />
@@ -41,6 +44,6 @@ function App() {
       </Router>
     </Provider>
   );
-}
+};
 
 export default App;
