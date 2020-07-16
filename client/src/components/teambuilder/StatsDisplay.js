@@ -21,7 +21,6 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
     };
   });
 
-  console.log(Guard);
   const [positionState, setPositionState] = useState({
     guard: [],
     center: [],

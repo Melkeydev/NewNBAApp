@@ -1,6 +1,5 @@
 import { Router } from "express";
 import auth from "../middleware/authentication";
-import jwt from "jsonwebtoken";
 import { check, validationResult } from "express-validator";
 import Stats from "../models/PlayerStats";
 import User from "../models/User";

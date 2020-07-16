@@ -24,7 +24,6 @@ export const Navbar = () => {
   const [checkedCurrent, setCheckedCurrent] = useState(false);
   const [active, setActive] = useState();
   const { isLoggedIn } = useSelector((state) => state.Auth);
-  console.log(isLoggedIn);
 
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
