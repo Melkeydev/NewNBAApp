@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useSelector } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Searchbar from "./components/singeplayerSearch/Searchbar";
 import TeamBuilder from "./components/teambuilder/TeamBuilder";
@@ -10,6 +10,7 @@ import { LoginForm } from "./components/Auth/LoginForm";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
 import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
 import setAuthToken from "../src/utils/setAuthToken";
+import { loadUser } from "./actions/AuthAction";
 
 //redux
 import { Provider } from "react-redux";

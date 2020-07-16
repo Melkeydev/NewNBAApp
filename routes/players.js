@@ -2,6 +2,7 @@ import { Router } from "express";
 import auth from "../middleware/authentication";
 import jwt from "jsonwebtoken";
 import { check, validationResult } from "express-validator";
+import Stats from "../models/PlayerStats";
 import User from "../models/User";
 
 //Import Player Schema
@@ -104,7 +105,21 @@ router.post(
 router.get("/", auth, async (req, res) => {
   try {
     const players = await Player.find({ user: req.user.id });
-    res.json(players);
+    const stats = await Stats.find({
+      player_id: players.map((player) => player.id),
+    });
+
+    let playersWithStats = players.reduce((acc, player) => {
+      return [
+        ...acc,
+        {
+          ...player.toObject(),
+          stats: stats.filter((stat) => stat.player_id == player.id),
+        },
+      ];
+    }, []);
+
+    res.json(playersWithStats);
   } catch (error) {
     console.log(error.message);
   }

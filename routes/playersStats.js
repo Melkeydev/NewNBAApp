@@ -80,4 +80,12 @@ router.post("/", async (req, res) => {
   }
 });
 
+//route.get("/", async (req, res) => {
+//try {
+//const players = await Pla;
+//} catch (error) {
+//console.log(error);
+//}
+//});
+
 export default router;

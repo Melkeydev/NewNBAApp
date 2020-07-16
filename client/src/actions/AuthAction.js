@@ -9,6 +9,7 @@ import {
   LOGIN_ALERT,
 } from "./types";
 import axios from "axios";
+import setAuthToken from "../utils/setAuthToken";
 
 const base_url = "http://localhost:5001/";
 
@@ -102,4 +103,18 @@ export const logout = () => async (dispatch) => {
   dispatch({
     type: LOGOUT,
   });
+};
+
+export const loadUser = () => async (dispatch) => {
+  //check if a user has a token in local memory
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+  console.log("this is a test");
+  try {
+    const response = await axios.get(`${base_url}api/players`);
+    console.log(response);
+  } catch (err) {
+    console.log(err);
+  }
 };
