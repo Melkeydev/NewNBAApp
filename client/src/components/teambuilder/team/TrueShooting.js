@@ -18,12 +18,9 @@ export const TrueShooting = () => {
     };
   });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
-  console.log(loadPlayers);
 
   const calculateTSA = (loadPlayers) => {
     return loadPlayers[0].map((player) => {
-      console.log(player);
-      console.log(player.stats);
       const TSA = (player.stats[0].fga + 0.44 * player.stats[0].fta).toFixed(2);
       const TS = player.stats[0].pts / (2 * Number(TSA));
 
