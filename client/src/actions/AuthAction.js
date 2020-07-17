@@ -11,6 +11,7 @@ import {
 } from "./types";
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
+import { FetchLastTenGames } from "./SingleSearchActions";
 
 const base_url = "http://localhost:5001/";
 
@@ -119,6 +120,9 @@ export const loadUser = () => async (dispatch) => {
     dispatch({
       type: LOAD_PLAYERS,
       payload: response.data,
+    });
+    response.data.map((player) => {
+      dispatch(FetchLastTenGames(player.id, true));
     });
   } catch (err) {
     console.log(err);

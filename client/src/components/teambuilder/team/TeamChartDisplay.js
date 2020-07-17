@@ -19,6 +19,8 @@ export const TeamChartDisplay = ({ stat }) => {
     };
   });
 
+  console.log(teamLastTen);
+
   //data is an array of arrays
   const datas = teamLastTen.map((lastTen) => {
     return lastTen.map((obj, index) => {
