@@ -3,6 +3,7 @@ import {
   ADD_GUARD_POSITION,
   ADD_CENTER_POSITION,
   ADD_FORWARD_POSITION,
+  LOAD_PLAYERS,
 } from "../actions/types";
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   guards: [],
   forwards: [],
   centers: [],
+  loadedPlayers: [],
 };
 
 export default function (state = initialState, action) {
@@ -76,6 +78,11 @@ export default function (state = initialState, action) {
           (player) => player[1].id !== action.payload
         ),
         loading: false,
+      };
+    case LOAD_PLAYERS:
+      return {
+        ...state,
+        loadedPlayers: [action.payload],
       };
     default:
       return state;

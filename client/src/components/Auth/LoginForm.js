@@ -12,28 +12,25 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 export const LoginForm = () => {
   const { isLoggedIn } = useSelector((state) => state.Auth);
   const [email, setEmail] = useState("minsin45@twitch.com");
-  const [password, setPassword] = useState("peninie");  
+  const [password, setPassword] = useState("peninie");
   const [loggingIn, setLoggingIn] = useState(false);
 
   const dispatch = useDispatch();
 
-  const onSubmit = useCallback(
-    async (e) => {
-      if (loggingIn) return;
+  const onSubmit = async (e) => {
+    //if (loggingIn) return;
 
-      setLoggingIn(true);
+    //setLoggingIn(true);
 
-      const formData = {
-        email,
-        password,
-      };
+    const formData = {
+      email,
+      password,
+    };
 
-      await dispatch(login(formData));
+    dispatch(login(formData));
 
-      setLoggingIn(false);
-    },
-    [dispatch, email, loggingIn, password]
-  );
+    //setLoggingIn(false);
+  };
 
   if (isLoggedIn) return <Redirect to="/" />;
 

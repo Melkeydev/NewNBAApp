@@ -30,3 +30,6 @@ export const LOGOUT = "LOGOUT";
 export const SET_ERROR = "SET_ERROR";
 export const REMOVE_ERROR = "REMOVE_ERROR";
 export const LOGIN_ALERT = "LOGIN_ALERT";
+
+//Load User Data
+export const LOAD_PLAYERS = "LOAD_PLAYERS";

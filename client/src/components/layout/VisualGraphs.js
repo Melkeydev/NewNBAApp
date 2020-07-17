@@ -16,8 +16,6 @@ export const VisualGraphs = () => {
     return () => window.removeEventListener("resize", updateWidthAndHeight);
   }, []);
 
-  console.log("width", width);
-
   return (
     <div style={{ marginTop: "15vh" }}>
       <Row justify="center">

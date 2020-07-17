@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { RenderCount } from "./RenderCount";
 
 export const Team = () => {
-  const teamPlayers = useSelector((state) => state.Team.teamPlayers);
+  const loadedPlayers = useSelector((state) => state.Team.loadedPlayers);
 
-  return <div>{teamPlayers.length > 0 && <RenderCount />}</div>;
+  return <div>{loadedPlayers.length > 0 && <RenderCount />}</div>;
 };

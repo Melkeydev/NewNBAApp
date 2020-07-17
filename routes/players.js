@@ -1,5 +1,8 @@
 import { Router } from "express";
+import auth from "../middleware/authentication";
 import { check, validationResult } from "express-validator";
+import Stats from "../models/PlayerStats";
+import User from "../models/User";
 
 //Import Player Schema
 import Player from "../models/Player";
@@ -15,6 +18,7 @@ const router = Router();
 router.post(
   "/",
   [
+    auth,
     [
       check("first_name", "first name not present").not().isEmpty(),
       check("id", "id not found").not().isEmpty(),
@@ -29,6 +33,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    const user = await User.findById(req.user.id).select("-password");
 
     //Deconstruct variables from request body
     const {
@@ -43,7 +48,7 @@ router.post(
     } = req.body;
 
     //Build Player Profile
-    const player = {};
+    const player = { user };
     if (first_name) player.first_name = first_name;
     if (height_feet) player.height_feet = height_feet;
     if (height_inches) player.height_inches = height_inches;
@@ -63,23 +68,20 @@ router.post(
 
     //Check profile if id exists within DB already for user profile
     try {
-      let profile = await Player.findOne({ id: req.id });
-
-      if (profile) {
-        //Update existing player in DB
-        profile = await Player.findOneAndUpdate(
-          { id: req.id },
-          { $set: player },
-          { new: true }
-        );
-
-        return res.json(profile);
+      let players = await Player.find({ user: req.user.id });
+      let playersExistingId = players.map((player) => player.id);
+      if (players) {
+        if (playersExistingId.includes(player.id)) {
+          return res
+            .status(400)
+            .json({ errors: [{ msg: "User already exists" }] });
+        }
       }
 
       //Create new player profile
-      profile = new Player(player);
+      const newPlayer = new Player(player);
 
-      await profile.save();
+      await newPlayer.save();
 
       res.json(profile);
     } catch (error) {
@@ -88,4 +90,35 @@ router.post(
     }
   }
 );
+
+/**
+ * @Route GET routes/players
+ * @desc GET player by user ID
+ * @access Private
+ */
+
+//Find all players bya users Id
+router.get("/", auth, async (req, res) => {
+  try {
+    const players = await Player.find({ user: req.user.id });
+    const stats = await Stats.find({
+      player_id: players.map((player) => player.id),
+    });
+
+    let playersWithStats = players.reduce((acc, player) => {
+      return [
+        ...acc,
+        {
+          ...player.toObject(),
+          stats: stats.filter((stat) => stat.player_id == player.id),
+        },
+      ];
+    }, []);
+
+    res.json(playersWithStats);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 export default router;
