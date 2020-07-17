@@ -68,9 +68,10 @@ router.post(
 
     //Check profile if id exists within DB already for user profile
     try {
-      let profile = await Player.findOne({ user: req.user.id });
-      if (profile) {
-        if (profile.id === player.id) {
+      let players = await Player.find({ user: req.user.id });
+      let playersExistingId = players.map((player) => player.id);
+      if (players) {
+        if (playersExistingId.includes(player.id)) {
           return res
             .status(400)
             .json({ errors: [{ msg: "User already exists" }] });
@@ -78,9 +79,9 @@ router.post(
       }
 
       //Create new player profile
-      profile = new Player(player);
+      const newPlayer = new Player(player);
 
-      await profile.save();
+      await newPlayer.save();
 
       res.json(profile);
     } catch (error) {

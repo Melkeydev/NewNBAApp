@@ -12,6 +12,7 @@ const TeamBuilder = () => {
   const Center = useSelector((state) => state.TeamReducer.center);
   const Guard = useSelector((state) => state.TeamReducer.guard);
   const TeamPlayers = useSelector((state) => state.Team.teamPlayers);
+  const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const RenderDisplay = (Zip) => {
     return Zip.map((zip) => {
@@ -47,10 +48,10 @@ const TeamBuilder = () => {
           </Row>
 
           <Row gutter={[16, 16]} justify="center">
-            {Forward.length > 0 && RenderDisplay(Center)}
+            {Forward.length > 0 && RenderDisplay(Forward)}
           </Row>
         </Col>
-        {TeamPlayers.length > 0 && (
+        {loadPlayers.length > 0 && (
           <Col md={{ offset: 2, span: 3 }} xs={20}>
             <Team />
           </Col>

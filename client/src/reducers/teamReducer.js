@@ -82,7 +82,7 @@ export default function (state = initialState, action) {
     case LOAD_PLAYERS:
       return {
         ...state,
-        loadedPlayers: [action.payload, ...state.loadedPlayers],
+        loadedPlayers: [action.payload],
       };
     default:
       return state;
