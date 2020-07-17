@@ -75,7 +75,6 @@ export const addPlayerToDB = (player) => async (dispatch) => {
       "content-type": "application/json",
     },
   };
-  console.log(randomColor);
   const body = JSON.stringify({
     FG_Miss,
     FT_Miss,

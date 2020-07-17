@@ -9,7 +9,6 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { removePlayer } from "../../../actions/TeamAction";
 
 export const PlayerRow = ({ player, teamPlayers }) => {
-  console.log(teamPlayers);
   const [hover, setHover] = useState(false);
 
   const dispatch = useDispatch();

@@ -83,7 +83,7 @@ router.post(
 
       await newPlayer.save();
 
-      res.json(profile);
+      res.json(newPlayer);
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Server Error");

@@ -1,6 +1,6 @@
 export const modeData = (playersData, mode) => {
-  return playersData.map((player) => {
-    return player[0][mode];
+  return playersData[0].map((player) => {
+    return player.stats[0][mode];
   });
 };
 

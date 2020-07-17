@@ -17,7 +17,8 @@ export const CalculateAverages = () => {
     };
   });
 
-  const averages = all(players, mode, sum_mode);
+  const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
+  const averages = all(loadPlayers, mode, sum_mode);
 
   return (
     <div>
