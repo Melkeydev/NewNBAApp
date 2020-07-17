@@ -121,4 +121,22 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
+/**
+ * @Route DELETE routes/players/:playerId
+ * @desc DELETE player by user ID & player ID
+ * @access Private
+ */
+
+router.delete("/:playerId", auth, async (req, res) => {
+  try {
+    const players = await Player.deleteOne({
+      user: req.user.id,
+      id: req.params.playerId,
+    });
+    res.json({ msg: "Player deleted" });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default router;

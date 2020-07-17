@@ -113,3 +113,13 @@ export const addPlayerToDB = (player) => async (dispatch) => {
     console.log(err);
   }
 };
+
+//Delete Player
+export const deletePlayer = (id) => async (dispatch) => {
+  try {
+    const response = await axios.delete(`${base_url}api/players/${id}`);
+    dispatch(loadUser());
+  } catch (error) {
+    console.log(error);
+  }
+};
