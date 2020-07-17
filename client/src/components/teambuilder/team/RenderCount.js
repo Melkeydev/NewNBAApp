@@ -12,7 +12,7 @@ export const RenderCount = () => {
 
   console.log(TeamPlayers);
   console.log(loadedPlayers);
-  const test = loadedPlayers.map((player) => console.log(player));
+  const test = loadedPlayers[0].map((player) => console.log(player));
   console.log(test);
 
   return (
@@ -27,8 +27,8 @@ export const RenderCount = () => {
           </tr>
         </thead>
         <tbody>
-          {TeamPlayers.map((player, i) => (
-            <PlayerRow player={player[1]} teamPlayers={player[0]} key={i} />
+          {loadedPlayers[0].map((player, i) => (
+            <PlayerRow player={player} teamPlayers={player.stats[0]} key={i} />
           ))}
         </tbody>
       </table>
