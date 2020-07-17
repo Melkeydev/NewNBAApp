@@ -16,6 +16,7 @@ export const RadarCharts = ({ stats, color }) => {
       players: state.Team.teamPlayers,
     };
   });
+  const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const normalData = (stats, leagueLeaders) => {
     return stats.map((stat) => {
@@ -25,8 +26,8 @@ export const RadarCharts = ({ stats, color }) => {
   };
 
   const generateRadar = () => {
-    return players.map((player) => {
-      const { first_name, last_name } = player[1];
+    return loadPlayers[0].map((player) => {
+      const { first_name, last_name } = player;
       return (
         <Radar
           name={`${first_name} ${last_name}`}
@@ -42,14 +43,7 @@ export const RadarCharts = ({ stats, color }) => {
   return (
     <div style={{ width: "100%" }}>
       <ResponsiveContainer width={"100%"} height={400}>
-        <RadarChart
-          //cx={150}
-          //cy={150}
-          //outerRadius={100}
-          //width={300}
-          //height={300}
-          data={normalData(stats, leagueLeaders)}
-        >
+        <RadarChart data={normalData(stats, leagueLeaders)}>
           <PolarGrid />
           <PolarAngleAxis dataKey={"mode_"} />
 

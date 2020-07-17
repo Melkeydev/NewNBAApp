@@ -59,7 +59,7 @@ export const TeamDisplay = () => {
                       style={{ marginLeft: "auto" }}
                       id={id}
                       stats={stats}
-                      color={player[2]}
+                      color={player.stats[0].color}
                     ></RadarCharts>
                   </div>
 
