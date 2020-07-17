@@ -1,4 +1,5 @@
 import axios from "axios";
+import { loadUser } from "./AuthAction";
 
 const base_url = "http://localhost:5001/";
 
@@ -33,6 +34,7 @@ export const addPlayers = (player) => async (dispatch) => {
 
   try {
     const response = await axios.post(`${base_url}api/players`, body, config);
+    dispatch(loadUser());
   } catch (err) {}
 };
 

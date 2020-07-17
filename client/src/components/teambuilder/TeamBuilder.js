@@ -45,8 +45,9 @@ const TeamBuilder = () => {
           <Row gutter={[16, 16]} justify="center">
             {Center.length > 0 && RenderDisplay(Center)}
           </Row>
+
           <Row gutter={[16, 16]} justify="center">
-            {Forward.length > 0 && RenderDisplay(Forward)}
+            {Forward.length > 0 && RenderDisplay(Center)}
           </Row>
         </Col>
         {TeamPlayers.length > 0 && (

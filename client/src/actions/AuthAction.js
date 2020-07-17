@@ -7,6 +7,7 @@ import {
   SET_ERROR,
   REMOVE_ERROR,
   LOGIN_ALERT,
+  LOAD_PLAYERS,
 } from "./types";
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
@@ -115,6 +116,10 @@ export const loadUser = () => async (dispatch) => {
   try {
     const response = await axios.get(`${base_url}api/players`);
     console.log(response.data);
+    dispatch({
+      type: LOAD_PLAYERS,
+      payload: response.data,
+    });
   } catch (err) {
     console.log(err);
   }
