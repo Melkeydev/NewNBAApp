@@ -18,8 +18,7 @@ export const TeamChartDisplay = ({ stat }) => {
       players: state.Team.teamPlayers,
     };
   });
-
-  console.log(teamLastTen);
+  const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   //data is an array of arrays
   const datas = teamLastTen.map((lastTen) => {
@@ -66,14 +65,14 @@ export const TeamChartDisplay = ({ stat }) => {
   };
 
   const mapPlayers = (stat = "pts") => {
-    return players.map((player) => {
-      const { first_name, last_name, id } = player[1];
+    return loadPlayers[0].map((player) => {
+      const { first_name, last_name, id } = player;
       return (
         <Line
           name={`${first_name} ${last_name}`}
           type="monotone"
           dataKey={`${id}.${stat}`}
-          stroke={player[2]}
+          stroke={player.stats[0].color}
         />
       );
     });
