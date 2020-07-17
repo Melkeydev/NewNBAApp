@@ -10,11 +10,6 @@ export const RenderCount = () => {
   const TeamPlayers = useSelector((state) => state.Team.teamPlayers);
   const loadedPlayers = useSelector((state) => state.Team.loadedPlayers);
 
-  console.log(TeamPlayers);
-  console.log(loadedPlayers);
-  const test = loadedPlayers[0].map((player) => console.log(player));
-  console.log(test);
-
   return (
     <div>
       <table className="RenderCountTable">

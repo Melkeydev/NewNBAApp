@@ -1,13 +1,13 @@
 export const modeData = (playersData, mode) => {
-  return playersData.map((player) => {
-    return player[0][mode];
+  return playersData[0].map((player) => {
+    return player.stats[0][mode];
   });
 };
 
 export const testData = (player, mode, id, leagueLeaders) => {
   return Object.keys(mode).map((mode_) => {
-    if (player[1].id === id) {
-      const data = player[0][mode_];
+    if (player.id === id) {
+      const data = player.stats[0][mode_];
       return { mode_, data };
     }
   });

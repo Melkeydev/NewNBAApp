@@ -80,14 +80,5 @@ export const DisplayBar = ({ stat_ }) => {
         </Col>
       </Row>
     </div>
-    // <div
-    //   style={{
-    //     width: "100%",
-    //     display: "flex",
-    //     flexDirection: "row",
-    //   }}
-    // >
-    //   <div>{switchComponent(chartState)}</div>
-    // </div>
   );
 };

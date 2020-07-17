@@ -15,6 +15,7 @@ export const TeamDisplay = () => {
       players: state.Team.teamPlayers,
     };
   });
+  const loadedPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   return (
     <div style={{ paddingBottom: "4rem" }}>
@@ -27,14 +28,14 @@ export const TeamDisplay = () => {
       <Row>
         <Col xs={24}>
           <div style={{ paddingTop: "5%" }}>
-            {players.map((player) => {
+            {loadedPlayers[0].map((player) => {
               const {
                 first_name,
                 last_name,
                 position,
                 id,
                 team: { abbreviation },
-              } = player[1];
+              } = player;
 
               const stats = testData(player, sum_mode, id);
 
@@ -58,7 +59,7 @@ export const TeamDisplay = () => {
                       style={{ marginLeft: "auto" }}
                       id={id}
                       stats={stats}
-                      color={player[2]}
+                      color={player.stats[0].color}
                     ></RadarCharts>
                   </div>
 
@@ -68,7 +69,7 @@ export const TeamDisplay = () => {
                         <thead>
                           <tr>
                             {Object.keys(mode).map((key) => {
-                              if (key in player[0]) {
+                              if (key in player.stats[0]) {
                                 return (
                                   <th
                                     style={{
@@ -85,14 +86,14 @@ export const TeamDisplay = () => {
                         <tbody>
                           <tr>
                             {Object.keys(mode).map((key) => {
-                              if (key in player[0]) {
+                              if (key in player.stats[0]) {
                                 return (
                                   <td
                                     style={{
                                       textAlign: "center",
                                     }}
                                   >
-                                    {player[0][key]}
+                                    {player.stats[0][key]}
                                   </td>
                                 );
                               }

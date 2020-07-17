@@ -75,7 +75,6 @@ export const addPlayerToDB = (player) => async (dispatch) => {
       "content-type": "application/json",
     },
   };
-  console.log(randomColor);
   const body = JSON.stringify({
     FG_Miss,
     FT_Miss,
@@ -112,5 +111,15 @@ export const addPlayerToDB = (player) => async (dispatch) => {
     );
   } catch (err) {
     console.log(err);
+  }
+};
+
+//Delete Player
+export const deletePlayer = (id) => async (dispatch) => {
+  try {
+    const response = await axios.delete(`${base_url}api/players/${id}`);
+    dispatch(loadUser());
+  } catch (error) {
+    console.log(error);
   }
 };

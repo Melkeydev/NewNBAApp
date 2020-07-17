@@ -18,6 +18,9 @@ export const PlayerEfficiencyChart = () => {
       players: state.Team.teamPlayers,
     };
   });
+  const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
+  console.log(players);
+  console.log(loadPlayers);
 
   const PERCalc = (player, playerWeights) => {
     const PER =
@@ -39,27 +42,27 @@ export const PlayerEfficiencyChart = () => {
   };
 
   const missStates = (players, weights) => {
-    return players.map((player) => {
-      const FG_Miss = (player[0].fga - player[0].fgm).toFixed(2);
-      const FT_Miss = player[0].fta - player[0].ftm;
+    return loadPlayers[0].map((player) => {
+      const FG_Miss = (player.stats[0].fga - player.stats[0].fgm).toFixed(2);
+      const FT_Miss = player.stats[0].fta - player.stats[0].ftm;
       Object.assign(
-        player[0],
+        player.stats[0],
         { ["FG_Miss"]: Number(FG_Miss) },
         { ["FT_Miss"]: FT_Miss }
       );
-      const PER = PERCalc(player[0], weights);
-      return { [player[1].id]: { PER } };
+      const PER = PERCalc(player.stats[0], weights);
+      return { [player.id]: { PER } };
     });
   };
 
   const generateBar = () => {
-    return players.map((player) => {
-      const { first_name, last_name, id } = player[1];
+    return loadPlayers[0].map((player) => {
+      const { first_name, last_name, id } = player;
       return (
         <Bar
           name={`${first_name} ${last_name}`}
           dataKey={`${id}.PER`}
-          fill={player[2]}
+          fill={player.stats[0].color}
         />
       );
     });

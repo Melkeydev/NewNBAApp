@@ -2,7 +2,6 @@ import React from "react";
 import { UncontrolledPopover, PopoverHeader, PopoverBody } from "reactstrap";
 
 export const HoverShowStats = ({ isOpen, player, teamPlayer }) => {
-  console.log(teamPlayer);
   const {
     ast,
     blk,
