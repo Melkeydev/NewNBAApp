@@ -44,7 +44,7 @@ export const NormalizedStatsChart = ({ stat }) => {
         <Bar
           name={`${first_name} ${last_name}`}
           dataKey={`${id}.normalValue`}
-          fill="#8884d8"
+          fill={player.stats[0].color}
         />
       );
     });
