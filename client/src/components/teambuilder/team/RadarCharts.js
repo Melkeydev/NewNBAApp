@@ -11,11 +11,6 @@ import {
 } from "recharts";
 
 export const RadarCharts = ({ stats, color }) => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const normalData = (stats, leagueLeaders) => {

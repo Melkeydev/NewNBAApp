@@ -14,11 +14,6 @@ import {
 } from "recharts";
 
 export const NormalizedStatsChart = ({ stat }) => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const normalStats_ = normalStats(loadPlayers, mode);

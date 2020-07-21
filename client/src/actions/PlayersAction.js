@@ -33,7 +33,7 @@ export const addPlayers = (player) => async (dispatch) => {
   });
 
   try {
-    const response = await axios.post(`${base_url}api/players`, body, config);
+    await axios.post(`${base_url}api/players`, body, config);
     dispatch(loadUser());
   } catch (err) {}
 };
@@ -104,11 +104,7 @@ export const addPlayerToDB = (player) => async (dispatch) => {
   });
 
   try {
-    const response = await axios.post(
-      `${base_url}api/playerStats`,
-      body,
-      config
-    );
+    await axios.post(`${base_url}api/playerStats`, body, config);
   } catch (err) {
     console.log(err);
   }
@@ -117,7 +113,7 @@ export const addPlayerToDB = (player) => async (dispatch) => {
 //Delete Player
 export const deletePlayer = (id) => async (dispatch) => {
   try {
-    const response = await axios.delete(`${base_url}api/players/${id}`);
+    await axios.delete(`${base_url}api/players/${id}`);
     dispatch(loadUser());
   } catch (error) {
     console.log(error);

@@ -7,7 +7,6 @@ import { CalculateAverages } from "./CalculateAverages";
 import "../css/RenderCount.css";
 
 export const RenderCount = () => {
-  const TeamPlayers = useSelector((state) => state.Team.teamPlayers);
   const loadedPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   return (

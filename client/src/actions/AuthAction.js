@@ -120,7 +120,7 @@ export const loadUser = () => async (dispatch) => {
       type: LOAD_PLAYERS,
       payload: response.data,
     });
-    response.data.map((player) => {
+    response.data.forEach((player) => {
       dispatch(FetchLastTenGames(player.id, true));
     });
   } catch (err) {

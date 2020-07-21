@@ -13,11 +13,6 @@ import {
 
 export const TeamChartDisplay = ({ stat }) => {
   const { teamLastTen } = useSelector((state) => state.Player);
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   //data is an array of arrays

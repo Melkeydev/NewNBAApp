@@ -35,6 +35,7 @@ export const VisualGraphs = () => {
         {width > 900 ? (
           <Col>
             <img
+              alt={"GraphsPic"}
               src={GraphsPic}
               style={{
                 height: "auto",
@@ -47,6 +48,7 @@ export const VisualGraphs = () => {
         ) : (
           <Col>
             <img
+              alt={"GraphSplit1"}
               src={GraphSplit1}
               style={{
                 height: "auto",
@@ -56,6 +58,7 @@ export const VisualGraphs = () => {
               }}
             />
             <img
+              alt={"GraphSplit2"}
               src={GraphSplit2}
               style={{
                 height: "auto",

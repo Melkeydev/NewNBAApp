@@ -12,7 +12,7 @@ import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
 import setAuthToken from "../src/utils/setAuthToken";
 import { loadUser } from "./actions/AuthAction";
 //redux
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import store from "./store";
 
 //css

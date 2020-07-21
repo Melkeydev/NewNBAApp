@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { FetchPlayer, removeStates } from "../../actions/TeamBuilderAction";
+import { FetchPlayer } from "../../actions/TeamBuilderAction";
 import { setError } from "../../actions/ErrorActions";
 import { Link } from "react-router-dom";
 

@@ -10,11 +10,6 @@ import { Row, Col } from "antd";
 import "../css/TeamDisplay.css";
 
 export const TeamDisplay = () => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadedPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   return (

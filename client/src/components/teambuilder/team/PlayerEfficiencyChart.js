@@ -54,10 +54,11 @@ export const PlayerEfficiencyChart = () => {
   };
 
   const generateBar = () => {
-    return loadPlayers[0].map((player) => {
+    return loadPlayers[0].map((player, i) => {
       const { first_name, last_name, id } = player;
       return (
         <Bar
+          key={i}
           name={`${first_name} ${last_name}`}
           dataKey={`${id}.PER`}
           fill={player.stats[0].color}

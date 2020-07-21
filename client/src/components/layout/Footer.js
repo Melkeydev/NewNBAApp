@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "antd";
-import { Link } from "react-router-dom";
 
 import {
   GithubFilled,
@@ -20,12 +19,12 @@ export const Footer = () => {
         marginTop: "15vh",
       }}
     >
-      <Col sm={24} xs={{ span: 20, offset: 2 }} md={4}>
+      <Col sm={22} xs={{ span: 20, offset: 2 }} md={4}>
         <div style={{ fontWeight: "bold", fontSize: "0.80rem" }}>SITEMAP</div>
         <div style={{ fontSize: "0.80rem" }}>Home</div>
         <div style={{ fontSize: "0.80rem" }}>Contact</div>
       </Col>
-      <Col sm={24} xs={{ span: 20, offset: 2 }} md={{ span: 8, offset: 1 }}>
+      <Col sm={22} xs={{ span: 20, offset: 2 }} md={{ span: 8, offset: 1 }}>
         <div style={{ fontWeight: "bold", fontSize: "0.80rem" }}>
           WANT TO CONTRIBUTE?
         </div>
@@ -34,7 +33,7 @@ export const Footer = () => {
           our site on GitHub
         </p>
       </Col>
-      <Col sm={24} xs={{ span: 20, offset: 2 }} md={{ span: 4, offset: 4 }}>
+      <Col sm={22} xs={{ span: 20, offset: 2 }} md={{ span: 4, offset: 4 }}>
         <div style={{ fontWeight: "bold", fontSize: "0.80rem" }}>FOLLOW ME</div>
         <div style={{ margin: "5px" }}>
           <GithubFilled />
