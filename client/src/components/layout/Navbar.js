@@ -51,14 +51,10 @@ export const Navbar = () => {
     return () => window.removeEventListener("resize", updateWidthAndHeight);
   }, []);
 
-  const handleClick = (e) => {
-    console.log(e.key);
-  };
-
   return (
     <Row>
       <Col xs={18} sm={18} md={6}>
-        <Menu mode="horizontal" style={{ float: "left" }} onClick={handleClick}>
+        <Menu mode="horizontal" style={{ float: "left" }}>
           <Menu.Item key="logo" name="home">
             <Link to="/">
               <img src={TextLogo} height="25px" />
@@ -69,11 +65,7 @@ export const Navbar = () => {
 
       {width > 600 ? (
         <Col sm={0} md={18}>
-          <Menu
-            mode="horizontal"
-            style={{ float: "right" }}
-            onClick={handleClick}
-          >
+          <Menu mode="horizontal" style={{ float: "right" }}>
             {isLoggedIn && (
               <Menu.Item key="singlesearch" icon={<SearchOutlined />}>
                 <Link to="single-player">Single Search</Link>
@@ -113,11 +105,7 @@ export const Navbar = () => {
         </Col>
       ) : (
         <Col xs={5} sm={5} md={5}>
-          <Menu
-            mode="horizontal"
-            style={{ float: "right" }}
-            onClick={handleClick}
-          >
+          <Menu mode="horizontal" style={{ float: "right" }}>
             <MobileNavBar />
           </Menu>
         </Col>

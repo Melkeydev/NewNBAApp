@@ -69,6 +69,7 @@ export const TeamChartDisplay = ({ stat }) => {
       const { first_name, last_name, id } = player;
       return (
         <Line
+          key={id}
           name={`${first_name} ${last_name}`}
           type="monotone"
           dataKey={`${id}.${stat}`}

@@ -42,6 +42,7 @@ export const NormalizedStatsChart = ({ stat }) => {
       const { first_name, last_name, id } = player;
       return (
         <Bar
+          key={id}
           name={`${first_name} ${last_name}`}
           dataKey={`${id}.normalValue`}
           fill={player.stats[0].color}

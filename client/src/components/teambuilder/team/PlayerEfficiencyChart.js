@@ -19,8 +19,6 @@ export const PlayerEfficiencyChart = () => {
     };
   });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
-  console.log(players);
-  console.log(loadPlayers);
 
   const PERCalc = (player, playerWeights) => {
     const PER =

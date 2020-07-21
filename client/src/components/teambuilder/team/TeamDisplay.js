@@ -40,7 +40,7 @@ export const TeamDisplay = () => {
               const stats = testData(player, sum_mode, id);
 
               return (
-                <div>
+                <div key={id}>
                   <div
                     style={{
                       display: "flex",
@@ -68,10 +68,11 @@ export const TeamDisplay = () => {
                       <table className="TeamDisplayTable">
                         <thead>
                           <tr>
-                            {Object.keys(mode).map((key) => {
+                            {Object.keys(mode).map((key, i) => {
                               if (key in player.stats[0]) {
                                 return (
                                   <th
+                                    key={i}
                                     style={{
                                       textAlign: "center",
                                     }}
@@ -85,10 +86,11 @@ export const TeamDisplay = () => {
                         </thead>
                         <tbody>
                           <tr>
-                            {Object.keys(mode).map((key) => {
+                            {Object.keys(mode).map((key, i) => {
                               if (key in player.stats[0]) {
                                 return (
                                   <td
+                                    key={i}
                                     style={{
                                       textAlign: "center",
                                     }}

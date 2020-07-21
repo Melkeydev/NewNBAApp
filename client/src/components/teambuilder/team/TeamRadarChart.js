@@ -48,6 +48,7 @@ export const TeamRadarChart = () => {
       const color = player.stats[0].color;
       return (
         <Radar
+          key={id}
           name={`${first_name} ${last_name}`}
           dataKey={id}
           stroke={color}

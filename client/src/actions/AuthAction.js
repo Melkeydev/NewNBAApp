@@ -116,7 +116,6 @@ export const loadUser = () => async (dispatch) => {
   }
   try {
     const response = await axios.get(`${base_url}api/players`);
-    console.log(response.data);
     dispatch({
       type: LOAD_PLAYERS,
       payload: response.data,
