@@ -57,7 +57,6 @@ export const FetchPlayerSeason = (id, season) => async (dispatch) => {
 export const FetchLastTenGames = (id, team = false, season = "2019") => async (
   dispatch
 ) => {
-  console.log(id);
   const response = await axios.get(
     `${base_url}stats?seasons[]=${season}&player_ids[]=${id}&per_page=50&page=0&`
   );

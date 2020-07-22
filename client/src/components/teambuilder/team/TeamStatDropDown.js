@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { DisplayBar } from "./DisplayBar";
-import { Row, Col } from "antd";
 
 //antD
 import { Menu, Dropdown, Button } from "antd";

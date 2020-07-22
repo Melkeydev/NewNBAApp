@@ -11,11 +11,6 @@ import {
 } from "recharts";
 
 export const RadarCharts = ({ stats, color }) => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const normalData = (stats, leagueLeaders) => {
@@ -27,9 +22,10 @@ export const RadarCharts = ({ stats, color }) => {
 
   const generateRadar = () => {
     return loadPlayers[0].map((player) => {
-      const { first_name, last_name } = player;
+      const { first_name, last_name, id } = player;
       return (
         <Radar
+          key={id}
           name={`${first_name} ${last_name}`}
           dataKey={"data"}
           stroke={color}

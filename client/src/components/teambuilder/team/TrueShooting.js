@@ -12,11 +12,6 @@ import {
 } from "recharts";
 
 export const TrueShooting = () => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const calculateTSA = (loadPlayers) => {
@@ -24,7 +19,7 @@ export const TrueShooting = () => {
       const TSA = (player.stats[0].fga + 0.44 * player.stats[0].fta).toFixed(2);
       const TS = player.stats[0].pts / (2 * Number(TSA));
 
-      Object.assign(player.stats[0], { ["TS"]: Number(TS) });
+      Object.assign(player.stats[0], { [TS]: Number(TS) });
       return { [player.id]: { TS } };
     });
   };
@@ -34,6 +29,7 @@ export const TrueShooting = () => {
       const { first_name, last_name, id } = player;
       return (
         <Bar
+          key={id}
           name={`${first_name} ${last_name}`}
           dataKey={`${id}.TS`}
           fill={player.stats[0].color}

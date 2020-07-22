@@ -12,11 +12,6 @@ import {
 } from "recharts";
 
 export const FieldGoalPer = ({ Made, Attempted }) => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const calculateFGP = (players, Made, Attempted) => {
@@ -33,6 +28,7 @@ export const FieldGoalPer = ({ Made, Attempted }) => {
       const { first_name, last_name, id } = player;
       return (
         <Bar
+          key={id}
           name={`${first_name} ${last_name}`}
           dataKey={`${id}.FieldRatio`}
           fill={player.stats[0].color}

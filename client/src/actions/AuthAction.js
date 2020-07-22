@@ -116,12 +116,11 @@ export const loadUser = () => async (dispatch) => {
   }
   try {
     const response = await axios.get(`${base_url}api/players`);
-    console.log(response.data);
     dispatch({
       type: LOAD_PLAYERS,
       payload: response.data,
     });
-    response.data.map((player) => {
+    response.data.forEach((player) => {
       dispatch(FetchLastTenGames(player.id, true));
     });
   } catch (err) {

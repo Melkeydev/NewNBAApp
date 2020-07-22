@@ -11,12 +11,6 @@ import "../css/CalculateAverages.css";
 import { Button } from "antd";
 
 export const CalculateAverages = () => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
-
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
   const averages = all(loadPlayers, mode, sum_mode);
 

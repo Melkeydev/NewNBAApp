@@ -11,13 +11,14 @@ const TeamBuilder = () => {
   const Forward = useSelector((state) => state.TeamReducer.forward);
   const Center = useSelector((state) => state.TeamReducer.center);
   const Guard = useSelector((state) => state.TeamReducer.guard);
-  const TeamPlayers = useSelector((state) => state.Team.teamPlayers);
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
+  console.log(loadPlayers);
+
   const RenderDisplay = (Zip) => {
-    return Zip.map((zip) => {
+    return Zip.map((zip, i) => {
       return (
-        <Col xs={24} md={6}>
+        <Col key={i} xs={24} sm={12} md={12} lg={12} xl={6}>
           <StatsDisplay Stats={zip[0]} Player={zip[1]} flag={flag} />
         </Col>
       );
@@ -32,7 +33,7 @@ const TeamBuilder = () => {
         </Col>
       </Row>
 
-      <Row gutter={[10, 10]} justify="center">
+      <Row justify="center">
         <Col xs={22} sm={12} md={6} lg={6} xl={10}>
           <Button onClick={() => setFlag(!flag)}>Check all Stats</Button>
         </Col>
@@ -51,8 +52,8 @@ const TeamBuilder = () => {
             {Forward.length > 0 && RenderDisplay(Forward)}
           </Row>
         </Col>
-        {loadPlayers.length > 0 && (
-          <Col md={{ offset: 2, span: 3 }} xs={20}>
+        {loadPlayers[0].length > 0 && (
+          <Col lg={{ offset: 2, span: 3 }} xs={20} sm={20} md={20}>
             <Team />
           </Col>
         )}

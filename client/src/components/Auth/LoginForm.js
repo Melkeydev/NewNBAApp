@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/AuthAction";
@@ -13,7 +13,6 @@ export const LoginForm = () => {
   const { isLoggedIn } = useSelector((state) => state.Auth);
   const [email, setEmail] = useState("minsin45@twitch.com");
   const [password, setPassword] = useState("peninie");
-  const [loggingIn, setLoggingIn] = useState(false);
 
   const dispatch = useDispatch();
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { teamNames } from "./variables";
-import { Row, Col } from "antd";
 import "./css/PlayerStats.css";
 
 export const PlayerStatsTable = ({ count }) => {

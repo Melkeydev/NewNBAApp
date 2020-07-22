@@ -15,18 +15,15 @@ import {
   TeamOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-const { SubMenu } = Menu;
 
 export const Navbar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
   const [checkedCurrent, setCheckedCurrent] = useState(false);
-  const [active, setActive] = useState();
   const { isLoggedIn } = useSelector((state) => state.Auth);
 
   const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
 
   /*
     runs once after page reload,
@@ -34,15 +31,11 @@ export const Navbar = () => {
   */
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
   };
 
   useEffect(() => {
     if (checkedCurrent) return;
 
-    const currentRoute = location.pathname.replace("/", "");
-
-    setActive(currentRoute || "home");
     setCheckedCurrent(true);
   }, [checkedCurrent, location.pathname]);
 
@@ -51,29 +44,21 @@ export const Navbar = () => {
     return () => window.removeEventListener("resize", updateWidthAndHeight);
   }, []);
 
-  const handleClick = (e) => {
-    console.log(e.key);
-  };
-
   return (
     <Row>
       <Col xs={18} sm={18} md={6}>
-        <Menu mode="horizontal" style={{ float: "left" }} onClick={handleClick}>
+        <Menu mode="horizontal" style={{ float: "left" }}>
           <Menu.Item key="logo" name="home">
             <Link to="/">
-              <img src={TextLogo} height="25px" />
+              <img src={TextLogo} height="25px" alt={"TextLogo"} />
             </Link>
           </Menu.Item>
         </Menu>
       </Col>
 
-      {width > 600 ? (
+      {width > 768 ? (
         <Col sm={0} md={18}>
-          <Menu
-            mode="horizontal"
-            style={{ float: "right" }}
-            onClick={handleClick}
-          >
+          <Menu mode="horizontal" style={{ float: "right" }}>
             {isLoggedIn && (
               <Menu.Item key="singlesearch" icon={<SearchOutlined />}>
                 <Link to="single-player">Single Search</Link>
@@ -113,11 +98,7 @@ export const Navbar = () => {
         </Col>
       ) : (
         <Col xs={5} sm={5} md={5}>
-          <Menu
-            mode="horizontal"
-            style={{ float: "right" }}
-            onClick={handleClick}
-          >
+          <Menu mode="horizontal" style={{ float: "right" }}>
             <MobileNavBar />
           </Menu>
         </Col>

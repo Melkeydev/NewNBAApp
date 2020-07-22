@@ -14,11 +14,6 @@ import {
 } from "recharts";
 
 export const NormalizedStatsChart = ({ stat }) => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const normalStats_ = normalStats(loadPlayers, mode);
@@ -42,9 +37,10 @@ export const NormalizedStatsChart = ({ stat }) => {
       const { first_name, last_name, id } = player;
       return (
         <Bar
+          key={id}
           name={`${first_name} ${last_name}`}
           dataKey={`${id}.normalValue`}
-          fill="#8884d8"
+          fill={player.stats[0].color}
         />
       );
     });

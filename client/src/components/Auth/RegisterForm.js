@@ -2,21 +2,11 @@ import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/AuthAction";
 import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 //AntD
-import {
-  Form,
-  Input,
-  Checkbox,
-  Button,
-  AutoComplete,
-  Row,
-  Col,
-  PageHeader,
-} from "antd";
+import { Form, Input, Checkbox, Button, Row, Col, PageHeader } from "antd";
 
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -34,20 +24,17 @@ export const RegisterForm = () => {
 
   const { first_name, last_name, email, password, password2 } = formData;
 
-  const onSubmit = useCallback(
-    async (e) => {
-      if (registering) return;
+  const onSubmit = useCallback(async () => {
+    if (registering) return;
 
-      setRegistering(true);
+    setRegistering(true);
 
-      if (password === password2) {
-        await dispatch(register(formData));
+    if (password === password2) {
+      dispatch(register(formData));
 
-        setRegistering(false);
-      }
-    },
-    [dispatch, formData, password, password2, registering]
-  );
+      setRegistering(false);
+    }
+  }, [dispatch, formData, password, password2, registering]);
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -164,7 +151,8 @@ export const RegisterForm = () => {
           </Form.Item>
 
           <Checkbox>
-            I have read the <a href="">agreement</a>
+            I have read the{" "}
+            <a href="https://github.com/Amokstakov/NewNBAApp">agreement</a>
           </Checkbox>
 
           <Form.Item>
@@ -179,32 +167,5 @@ export const RegisterForm = () => {
         </Form>
       </Col>
     </Row>
-    // <Container>
-    //   <Form onSubmit={onSubmit} loading={registering}>
-
-    //     <Form.Field>
-    //       <label>Password</label>
-    //       <input
-    //         type="password"
-    //         name="password"
-    //         value={password}
-    //         onChange={onChange}
-    //       />
-    //     </Form.Field>
-    //     <Form.Field>
-    //       <label>Repeat Password</label>
-    //       <input
-    //         type="password"
-    //         name="password2"
-    //         value={password2}
-    //         onChange={onChange}
-    //       />
-    //     </Form.Field>
-    //     <Form.Field>
-    //       <Checkbox label="I agree to the Terms and Conditions" />
-    //     </Form.Field>
-    //     <Button type="submit">Register</Button>
-    //   </Form>
-    // </Container>
   );
 };

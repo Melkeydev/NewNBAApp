@@ -89,8 +89,7 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
         style={{
           display: "inline",
           float: "right",
-          fontSize: "4.5rem",
-          marginBottom: "0",
+          fontSize: "2.5rem",
           opacity: "0.1",
         }}
       >

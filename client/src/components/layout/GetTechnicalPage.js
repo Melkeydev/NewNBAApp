@@ -21,6 +21,7 @@ export const GetTechnicalPage = () => {
       <Row justify="center">
         <Col>
           <img
+            alt={"PlayerCards"}
             src={PlayerCards}
             style={{
               maxWidth: "100%",

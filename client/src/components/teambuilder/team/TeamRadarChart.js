@@ -12,12 +12,6 @@ import {
 } from "recharts";
 
 export const TeamRadarChart = () => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
-
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const radarData = (players, mode, leagueLeaders) => {
@@ -48,6 +42,7 @@ export const TeamRadarChart = () => {
       const color = player.stats[0].color;
       return (
         <Radar
+          key={id}
           name={`${first_name} ${last_name}`}
           dataKey={id}
           stroke={color}
