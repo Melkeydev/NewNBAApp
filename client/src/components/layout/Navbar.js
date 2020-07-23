@@ -45,9 +45,12 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <Row>
+    <Row style={{ backgroundColor: "pink" }}>
       <Col xs={18} sm={18} md={6}>
-        <Menu mode="horizontal" style={{ float: "left" }}>
+        <Menu
+          mode="horizontal"
+          style={{ float: "left", backgroundColor: "pink" }}
+        >
           <Menu.Item key="logo" name="home">
             <Link to="/">
               <img src={TextLogo} height="25px" alt={"TextLogo"} />
@@ -58,9 +61,16 @@ export const Navbar = () => {
 
       {width > 768 ? (
         <Col sm={0} md={18}>
-          <Menu mode="horizontal" style={{ float: "right" }}>
+          <Menu
+            mode="horizontal"
+            style={{ float: "right", backgroundColor: "pink" }}
+          >
             {isLoggedIn && (
-              <Menu.Item key="singlesearch" icon={<SearchOutlined />}>
+              <Menu.Item
+                key="singlesearch"
+                icon={<SearchOutlined />}
+                style={{ backgroundColor: "purple" }}
+              >
                 <Link to="single-player">Single Search</Link>
               </Menu.Item>
             )}
