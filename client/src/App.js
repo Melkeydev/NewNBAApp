@@ -11,6 +11,7 @@ import { PrivateRoute } from "./components/Auth/PrivateRoute";
 import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
 import setAuthToken from "../src/utils/setAuthToken";
 import { loadUser } from "./actions/AuthAction";
+import { Footer } from "./components/layout/Footer";
 //redux
 import { Provider } from "react-redux";
 import store from "./store";
@@ -41,6 +42,7 @@ const App = () => {
           <Route exact path="/register" component={RegisterForm} />
           <Route exact path="/login" component={LoginForm} />
         </Switch>
+        <Footer />
       </Router>
     </Provider>
   );

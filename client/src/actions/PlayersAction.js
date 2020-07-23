@@ -13,7 +13,7 @@ export const addPlayers = (player) => async (dispatch) => {
     position,
     team: { abbreviation, city, conference, division, full_name, name },
     weight_pounds,
-  } = player[0][1];
+  } = player;
 
   const config = {
     headers: {
