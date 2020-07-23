@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { HoverShowStats } from "./HoverShowStats";
 
-import { Button } from "antd";
+import { Button, Popover } from "antd";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { deletePlayer } from "../../../actions/PlayersAction";
-
-import { Popover } from "antd";
 
 export const PlayerRow = ({ player, teamPlayers }) => {
   const [hover, setHover] = useState(false);

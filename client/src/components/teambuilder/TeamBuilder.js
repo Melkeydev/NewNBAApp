@@ -13,8 +13,6 @@ const TeamBuilder = () => {
   const Guard = useSelector((state) => state.TeamReducer.guard);
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
-  console.log(loadPlayers);
-
   const RenderDisplay = (Zip) => {
     return Zip.map((zip, i) => {
       return (

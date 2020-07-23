@@ -4,6 +4,7 @@ import { loadUser } from "./AuthAction";
 const base_url = "http://localhost:5001/";
 
 export const addPlayers = (player) => async (dispatch) => {
+  console.log(player);
   const {
     first_name,
     height_feet,
@@ -13,7 +14,7 @@ export const addPlayers = (player) => async (dispatch) => {
     position,
     team: { abbreviation, city, conference, division, full_name, name },
     weight_pounds,
-  } = player[0][1];
+  } = player;
 
   const config = {
     headers: {

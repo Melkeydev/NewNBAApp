@@ -8,9 +8,10 @@ import {
 import { addPlayers } from "./PlayersAction";
 
 export const addPlayer = (player, id, position) => async (dispatch) => {
+  console.log(id);
   let testPlayer = player.filter((_player) => _player[0].player_id === id);
 
-  await addPlayers(player[0][1]);
+  dispatch(addPlayers(testPlayer[0][1]));
 
   var randomColor = "#000000".replace(/0/g, function () {
     return (~~(Math.random() * 16)).toString(16);
