@@ -10,6 +10,7 @@ export const testData = (player, mode, id) => {
       const data = player.stats[0][mode_];
       return { mode_, data };
     }
+    return null;
   });
 };
 

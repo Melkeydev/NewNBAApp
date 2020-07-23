@@ -13,11 +13,6 @@ import {
 } from "recharts";
 
 export const PlayerEfficiencyChart = () => {
-  const { players } = useSelector((state) => {
-    return {
-      players: state.Team.teamPlayers,
-    };
-  });
   const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
 
   const PERCalc = (player, playerWeights) => {
@@ -39,15 +34,16 @@ export const PlayerEfficiencyChart = () => {
     return PER_;
   };
 
-  const missStates = (players, weights) => {
+  const missStates = (loadPlayers, weights) => {
     return loadPlayers[0].map((player) => {
       const FG_Miss = (player.stats[0].fga - player.stats[0].fgm).toFixed(2);
       const FT_Miss = player.stats[0].fta - player.stats[0].ftm;
-      Object.assign(
-        player.stats[0],
-        { ["FG_Miss"]: Number(FG_Miss) },
-        { ["FT_Miss"]: FT_Miss }
-      );
+      player.stats[0] = {
+        ...player.stats[0],
+        FG_Miss: Number(FG_Miss),
+        FT_Miss: FT_Miss,
+      };
+
       const PER = PERCalc(player.stats[0], weights);
       return { [player.id]: { PER } };
     });
@@ -73,7 +69,7 @@ export const PlayerEfficiencyChart = () => {
         <BarChart
           width={1000}
           height={450}
-          data={missStates(players, weights)}
+          data={missStates(loadPlayers, weights)}
           margin={{
             top: 5,
             right: 30,

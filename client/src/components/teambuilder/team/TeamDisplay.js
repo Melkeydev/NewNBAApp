@@ -64,8 +64,8 @@ export const TeamDisplay = () => {
                         <thead>
                           <tr>
                             {Object.keys(mode).map((key, i) => {
-                              if (key in player.stats[0]) {
-                                return (
+                              return (
+                                key in player.stats[0] && (
                                   <th
                                     key={i}
                                     style={{
@@ -74,16 +74,16 @@ export const TeamDisplay = () => {
                                   >
                                     {mode[key]}
                                   </th>
-                                );
-                              }
+                                )
+                              );
                             })}
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
                             {Object.keys(mode).map((key, i) => {
-                              if (key in player.stats[0]) {
-                                return (
+                              return (
+                                key in player.stats[0] && (
                                   <td
                                     key={i}
                                     style={{
@@ -92,8 +92,8 @@ export const TeamDisplay = () => {
                                   >
                                     {player.stats[0][key]}
                                   </td>
-                                );
-                              }
+                                )
+                              );
                             })}
                           </tr>
                         </tbody>
