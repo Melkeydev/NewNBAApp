@@ -8,6 +8,7 @@ import {
   FacebookFilled,
   LinkedinFilled,
   YoutubeFilled,
+  TwitterOutlined,
 } from "@ant-design/icons";
 
 export const Footer = () => {
@@ -36,11 +37,13 @@ export const Footer = () => {
       <Col sm={22} xs={{ span: 20, offset: 2 }} md={{ span: 4, offset: 4 }}>
         <div style={{ fontWeight: "bold", fontSize: "0.80rem" }}>FOLLOW ME</div>
         <div style={{ margin: "5px" }}>
-          <GithubFilled />
-          <InstagramFilled />
+          <a href="https://github.com/Amokstakov" style={{ color: "inherit" }}>
+            <GithubFilled />
+          </a>
+          <a href="https://twitter.com/MelkeyDev" style={{ color: "inherit" }}>
+            <TwitterOutlined />
+          </a>
           <LinkedinFilled />
-          <YoutubeFilled />
-          <FacebookFilled />
         </div>
         <div>
           <MailFilled />

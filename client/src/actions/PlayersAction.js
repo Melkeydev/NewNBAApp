@@ -4,7 +4,6 @@ import { loadUser } from "./AuthAction";
 const base_url = "http://localhost:5001/";
 
 export const addPlayers = (player) => async (dispatch) => {
-  console.log(player);
   const {
     first_name,
     height_feet,

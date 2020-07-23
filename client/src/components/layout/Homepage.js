@@ -4,7 +4,6 @@ import { Row, Col, Card, Button } from "antd";
 import { Link } from "react-router-dom";
 import { GetTechnicalPage } from "./GetTechnicalPage";
 import { VisualGraphs } from "./VisualGraphs";
-import { Footer } from "./Footer";
 
 export const Homepage = () => (
   <div>
@@ -54,7 +53,6 @@ export const Homepage = () => (
       <Col span={24}>
         <GetTechnicalPage />
         <VisualGraphs />
-        <Footer />
       </Col>
     </Row>
   </div>

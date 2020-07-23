@@ -8,7 +8,6 @@ import {
 import { addPlayers } from "./PlayersAction";
 
 export const addPlayer = (player, id, position) => async (dispatch) => {
-  console.log(id);
   let testPlayer = player.filter((_player) => _player[0].player_id === id);
 
   dispatch(addPlayers(testPlayer[0][1]));
