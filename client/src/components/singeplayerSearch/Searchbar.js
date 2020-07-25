@@ -25,7 +25,7 @@ const Searchbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div style={{ height: "100%" }}>
+    <div style={{ minHeight: "100%" }}>
       <Row
         type="flex"
         justify="center"

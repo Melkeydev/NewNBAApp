@@ -63,11 +63,7 @@ export const Navbar = () => {
         <Col sm={0} md={18}>
           <Menu mode="horizontal" className="NavbarRight">
             {isLoggedIn && (
-              <Menu.Item
-                key="singlesearch"
-                icon={<SearchOutlined />}
-                style={{ backgroundColor: "purple" }}
-              >
+              <Menu.Item key="singlesearch" icon={<SearchOutlined />}>
                 <Link to="single-player">Single Search</Link>
               </Menu.Item>
             )}
