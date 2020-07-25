@@ -102,7 +102,7 @@ export const Navbar = () => {
             )}
 
             <Menu.Item key="mail" icon={<GithubOutlined />} name="home">
-              Github
+              <a href="https://github.com/Amokstakov"> Github</a>
             </Menu.Item>
           </Menu>
         </Col>
