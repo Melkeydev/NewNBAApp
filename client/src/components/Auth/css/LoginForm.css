@@ -1,0 +1,15 @@
+.LoginForm {
+    min-height: 100vh;
+    padding-top: 5%;
+}
+
+.CardLoginForm {
+
+    box-shadow: 0px 5px 5px 0px rgba(50,50,50,0.25);
+}
+
+.ButtonLoginForm {
+    width: 50%;
+    display: block;
+    background-color: #ec9326
+}

@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/AuthAction";
 import { Redirect } from "react-router-dom";
 
+//css
+import "./css/LoginForm.css";
+
 //AntD
 import { Row, Col, Form, Input, Button, Checkbox, Card } from "antd";
 
@@ -34,20 +37,11 @@ export const LoginForm = () => {
   if (isLoggedIn) return <Redirect to="/" />;
 
   return (
-    <Row
-      type="flex"
-      justify="center"
-      style={{ minHeight: "100vh", paddingTop: "5%" }}
-    >
-      <Col span={12}>
-        <Card
-          style={{
-            boxShadow: "0px 10px 5px 0px rgba(50, 50, 50, 0.25)",
-            //backgroundColor: "#d182ac",
-          }}
-        >
+    <Row type="flex" justify="center" className="LoginForm">
+      <Col span={6}>
+        <Card className="CardLoginForm">
           <Form
-            style={{ maxWidth: "600px" }}
+            //style={{ maxWidth: "600px" }}
             name="normal_login"
             className="login-form"
             initialValues={{
@@ -93,7 +87,7 @@ export const LoginForm = () => {
                 <Checkbox>Remember me</Checkbox>
               </Form.Item>
 
-              <Link style={{ float: "right" }} to="/">
+              <Link style={{ float: "right", color: "#ec9326" }} to="/">
                 Forgot Password
               </Link>
             </Form.Item>
@@ -105,12 +99,16 @@ export const LoginForm = () => {
                 style={{
                   width: "50%",
                   display: "block",
-                  //backgroundColor: "#ec9326",
+                  backgroundColor: "#ec9326",
+                  borderColor: "#ec9326",
                 }}
               >
                 Log in
               </Button>
-              Or <Link to="/register">Register</Link>
+              Or{" "}
+              <Link to="/register" style={{ color: "#ec9326" }}>
+                Register
+              </Link>
             </Form.Item>
           </Form>
         </Card>
