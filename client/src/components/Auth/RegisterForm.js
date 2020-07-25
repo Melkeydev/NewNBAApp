@@ -56,7 +56,7 @@ export const RegisterForm = () => {
 
   return (
     <Row type="flex" justify="center" className="RegisterForm">
-      <Col span={6}>
+      <Col xs={16} sm={12} md={12} lg={6}>
         <Card className="CardRegisterForm">
           <PageHeader title="Register" subTitle="Create your account" />
           <Form

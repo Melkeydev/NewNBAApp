@@ -59,7 +59,7 @@ export const Navbar = () => {
         </Menu>
       </Col>
 
-      {width > 768 ? (
+      {width >= 768 ? (
         <Col sm={0} md={18}>
           <Menu mode="horizontal" className="NavbarRight">
             {isLoggedIn && (

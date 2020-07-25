@@ -20,28 +20,21 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = async (e) => {
-    //if (loggingIn) return;
-
-    //setLoggingIn(true);
-
     const formData = {
       email,
       password,
     };
 
     dispatch(login(formData));
-
-    //setLoggingIn(false);
   };
 
   if (isLoggedIn) return <Redirect to="/" />;
 
   return (
     <Row type="flex" justify="center" className="LoginForm">
-      <Col span={6}>
+      <Col xs={16} sm={12} md={12} lg={6}>
         <Card className="CardLoginForm">
           <Form
-            //style={{ maxWidth: "600px" }}
             name="normal_login"
             className="login-form"
             initialValues={{
