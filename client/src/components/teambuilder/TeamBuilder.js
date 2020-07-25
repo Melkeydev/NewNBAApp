@@ -4,10 +4,12 @@ import { useSelector } from "react-redux";
 import { StatsDisplay } from "./StatsDisplay";
 import { Row, Col, Button } from "antd";
 import { Team } from "./team/Team";
+import { Link } from "react-router-dom";
 
 const TeamBuilder = () => {
   const [flag, setFlag] = useState(false);
 
+  const loadedPlayers = useSelector((state) => state.Team.loadedPlayers);
   const Forward = useSelector((state) => state.TeamReducer.forward);
   const Center = useSelector((state) => state.TeamReducer.center);
   const Guard = useSelector((state) => state.TeamReducer.guard);
@@ -24,16 +26,21 @@ const TeamBuilder = () => {
   };
 
   return (
-    <div>
+    <div style={{ minHeight: "100%" }}>
       <Row justify="center">
         <Col span={12}>
           <Searchbar />
         </Col>
       </Row>
 
-      <Row justify="center">
+      <Row justify="center" style={{ paddingBottom: "20px" }}>
         <Col xs={22} sm={12} md={6} lg={6} xl={10}>
           <Button onClick={() => setFlag(!flag)}>Check all Stats</Button>
+          {loadedPlayers[0].length > 0 && (
+            <Link to="/teamdisplay">
+              <Button>View Team</Button>
+            </Link>
+          )}
         </Col>
       </Row>
 

@@ -16,7 +16,7 @@ const Searchbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div style={{ paddingTop: "20px" }}>
       <Form
         style={{ maxWidth: "600px" }}
         name="normal_login"
