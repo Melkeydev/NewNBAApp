@@ -21,6 +21,9 @@ export const sum_mode = {
   reb: "Rebounds",
   stl: "Steals",
   blk: "Blocks",
+  fg3_pct: "Three Point %",
+  fg_pct: "Field Goal %",
+  ft_pct: "Free Throw %",
 };
 
 export const leagueLeaders = {
@@ -29,6 +32,9 @@ export const leagueLeaders = {
   ast: 10.6,
   blk: 3.1,
   stl: 2.1,
+  fg3_pct: 0.48,
+  fg_pct: 0.742,
+  ft_pct: 0.931,
 };
 
 export const weights = {
