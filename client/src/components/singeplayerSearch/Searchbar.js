@@ -25,12 +25,8 @@ const Searchbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div style={{ height: "100%" }}>
-      <Row
-        type="flex"
-        justify="center"
-        // style={{ minHeight: "100vh", paddingTop: "5%" }}
-      >
+    <div style={{ minHeight: "100%", paddingTop: "20px" }}>
+      <Row type="flex" justify="center">
         <Col span={12}>
           <Form
             style={{ maxWidth: "600px" }}

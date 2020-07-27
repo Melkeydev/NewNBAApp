@@ -1,0 +1,11 @@
+#root .Navbar, #root .NavbarLeft, #root .NavbarRight {
+    background-color: #d182ac ; 
+}
+
+.NavbarLeft {
+    float: left;
+} 
+
+.NavbarRight {
+    float: right;
+} 

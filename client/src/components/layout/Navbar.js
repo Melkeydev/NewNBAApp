@@ -4,6 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 import { logout } from "../../actions/AuthAction";
 import { useDispatch, useSelector } from "react-redux";
 
+//CSS
+import "./css/Navbar.css";
+
 //ant.d re-design
 import { MobileNavBar } from "./MobileNavBar";
 import { Row, Col, Menu } from "antd";
@@ -45,12 +48,9 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <Row style={{ backgroundColor: "pink" }}>
+    <Row className="Navbar">
       <Col xs={18} sm={18} md={6}>
-        <Menu
-          mode="horizontal"
-          style={{ float: "left", backgroundColor: "pink" }}
-        >
+        <Menu mode="horizontal" className="NavbarLeft">
           <Menu.Item key="logo" name="home">
             <Link to="/">
               <img src={TextLogo} height="25px" alt={"TextLogo"} />
@@ -59,18 +59,11 @@ export const Navbar = () => {
         </Menu>
       </Col>
 
-      {width > 768 ? (
+      {width >= 768 ? (
         <Col sm={0} md={18}>
-          <Menu
-            mode="horizontal"
-            style={{ float: "right", backgroundColor: "pink" }}
-          >
+          <Menu mode="horizontal" className="NavbarRight">
             {isLoggedIn && (
-              <Menu.Item
-                key="singlesearch"
-                icon={<SearchOutlined />}
-                style={{ backgroundColor: "purple" }}
-              >
+              <Menu.Item key="singlesearch" icon={<SearchOutlined />}>
                 <Link to="single-player">Single Search</Link>
               </Menu.Item>
             )}
@@ -102,7 +95,7 @@ export const Navbar = () => {
             )}
 
             <Menu.Item key="mail" icon={<GithubOutlined />} name="home">
-              Github
+              <a href="https://github.com/Amokstakov"> Github</a>
             </Menu.Item>
           </Menu>
         </Col>
