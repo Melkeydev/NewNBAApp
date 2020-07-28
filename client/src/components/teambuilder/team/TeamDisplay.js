@@ -19,8 +19,10 @@ export const TeamDisplay = () => {
       <Row justify="center">
         <Col xs={24} md={16}>
           <TeamStatDropDown />
-          <TeamRadarChart />
-          <AverageAlert />
+          <div style={{ display: "flex" }}>
+            <TeamRadarChart />
+            <AverageAlert />
+          </div>
         </Col>
       </Row>
       <Row>

@@ -13,13 +13,15 @@ body,
 #root,
 .App {
   font-family: "Staatliches" !important;
-  /* font-size: calc(36px + (80 - 36) * ((100vw - 300px) / (1900 - 700))); */
   height: 100%;
   width: 100%;
-  /*background-image: url("./assets/Images/Wal_background_illustrator.png");*/
-  /*background-size:cover;*/
-  /*background-repeat: no-repeat*/
 } 
+
+*{box-sizing: border-box}
+
+/*div{*/
+    /*border: 1px solid #FF0000*/
+/*}*/
 
 
 @media screen and (min-width: 320px) {
