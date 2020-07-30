@@ -19,10 +19,6 @@ import store from "./store";
 //css
 import "./App.css";
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
-
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -38,7 +34,6 @@ const App = () => {
           <PrivateRoute exact path="/single-player" component={Searchbar} />
           <PrivateRoute exact path="/teambuilder" component={TeamBuilder} />
           <PrivateRoute exact path="/teamdisplay" component={TeamDisplay} />
-
           <Route exact path="/register" component={RegisterForm} />
           <Route exact path="/login" component={LoginForm} />
         </Switch>

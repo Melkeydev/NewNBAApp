@@ -9,22 +9,15 @@ import {
 } from "./types";
 import axios from "axios";
 
+//Base url for API Call
 const base_url = "https://www.balldontlie.io/api/v1/";
 
 export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
   try {
+    //Make request to get player information
     const reqPlayer = await axios.get(
       `${base_url}players?search=${Player}&per_page=75`
     );
-
-    if (reqPlayer.length === 0) {
-      dispatch({
-        type: SET_ERROR,
-        payload: `${Player} is not a player - please check spelling`,
-      });
-
-      setTimeout(() => dispatch({ type: REMOVE_ERROR }), 2000);
-    }
 
     const { id } = reqPlayer.data.data[0];
 
@@ -44,6 +37,7 @@ export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
       payload: [reqStats.data.data[0], reqPlayer.data.data[0]],
     });
   } catch (error) {
+    console.log("Catch consolelog");
     dispatch({
       type: SET_ERROR,
       payload: `${Player} is not a player - please check spelling`,

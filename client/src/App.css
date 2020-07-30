@@ -19,10 +19,6 @@ body,
 
 *{box-sizing: border-box}
 
-/*div{*/
-    /*border: 1px solid #FF0000*/
-/*}*/
-
 
 @media screen and (min-width: 320px) {
   html {
