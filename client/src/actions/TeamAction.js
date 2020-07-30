@@ -12,12 +12,6 @@ export const addPlayer = (player, id, position) => async (dispatch) => {
 
   dispatch(addPlayers(Player[0][1]));
 
-  var randomColor = "#000000".replace(/0/g, function () {
-    return (~~(Math.random() * 16)).toString(16);
-  });
-
-  Player[0].push(randomColor);
-
   dispatch({
     type: addType(position),
     payload: Player[0],

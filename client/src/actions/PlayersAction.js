@@ -1,6 +1,7 @@
 import axios from "axios";
 import { loadUser } from "./AuthAction";
 
+//Base url for server
 const base_url = "http://localhost:5001/";
 
 export const addPlayers = (player) => async (dispatch) => {
@@ -38,7 +39,7 @@ export const addPlayers = (player) => async (dispatch) => {
   } catch (err) {}
 };
 
-export const addPlayerToDB = (player) => async (dispatch) => {
+export const addPlayerToDB = (player) => async () => {
   const {
     FG_Miss,
     FT_Miss,
