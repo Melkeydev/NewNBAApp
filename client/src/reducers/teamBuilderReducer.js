@@ -31,7 +31,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         team: [action.payload[1].team, ...state.team],
-
         players: [action.payload, ...state.players],
         loading: false,
       };

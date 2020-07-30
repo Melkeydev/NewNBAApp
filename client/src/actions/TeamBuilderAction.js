@@ -19,25 +19,24 @@ export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
       `${base_url}players?search=${Player}&per_page=75`
     );
 
+    //Pull ID from first axios GET request
     const { id } = reqPlayer.data.data[0];
 
+    //Pull position from first axios GET request
+    const { position } = reqPlayer.data.data[0];
+
+    //Make request to get player's season stats
     const reqStats = await axios.get(
       `${base_url}season_averages?season=${season}&player_ids[]=${id}`
     );
 
-    dispatch({
-      type: TEAM_FETCH,
-      payload: [reqStats.data.data[0], reqPlayer.data.data[0]],
-    });
-
-    const { position } = reqPlayer.data.data[0];
-
-    dispatch({
-      type: Position(position),
-      payload: [reqStats.data.data[0], reqPlayer.data.data[0]],
-    });
+    [TEAM_FETCH, Position(position)].map((type) =>
+      dispatch({
+        type,
+        payload: [reqStats.data.data[0], reqPlayer.data.data[0]],
+      })
+    );
   } catch (error) {
-    console.log("Catch consolelog");
     dispatch({
       type: SET_ERROR,
       payload: `${Player} is not a player - please check spelling`,
