@@ -4,46 +4,43 @@ import {
   ADD_FORWARD_POSITION,
   ADD_CENTER_POSITION,
 } from "./types";
-
 import { addPlayers } from "./PlayersAction";
 
 export const addPlayer = (player, id, position) => async (dispatch) => {
-  let testPlayer = player.filter((_player) => _player[0].player_id === id);
+  //Filter our single player from array of players
+  let Player = player.filter((_player) => _player[0].player_id === id);
 
-  dispatch(addPlayers(testPlayer[0][1]));
+  dispatch(addPlayers(Player[0][1]));
 
   var randomColor = "#000000".replace(/0/g, function () {
     return (~~(Math.random() * 16)).toString(16);
   });
 
-  testPlayer[0].push(randomColor);
+  Player[0].push(randomColor);
 
   dispatch({
     type: addType(position),
-    payload: testPlayer[0],
+    payload: Player[0],
   });
 };
 
 const addType = (position) => {
-  switch (position) {
-    case "F-G":
-    case "G":
-      return ADD_GUARD_POSITION;
-    case "F":
-      return ADD_FORWARD_POSITION;
-    case "C":
-    case "F-C":
-      return ADD_CENTER_POSITION;
-    default:
-      return null;
-  }
+  return (
+    {
+      "F-G": ADD_GUARD_POSITION,
+      G: ADD_GUARD_POSITION,
+      F: ADD_FORWARD_POSITION,
+      C: ADD_CENTER_POSITION,
+      "F-C": ADD_CENTER_POSITION,
+    }[position] || null
+  );
 };
 
-export const removePlayer = (player) => async (dispatch) => {
+export const removePlayer = (player) => {
   const { player_id } = player;
 
-  dispatch({
+  return {
     type: REMOVE_PLAYER,
     payload: player_id,
-  });
+  };
 };
