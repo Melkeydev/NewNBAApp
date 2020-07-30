@@ -125,24 +125,29 @@ export const loadUser = () => async (dispatch) => {
 
     const response = await axios.get(`${base_url}api/me`);
 
-    const response_ = await axios.get(`${base_url}api/players`);
-
     //return user based on token
     dispatch({
       type: TOKEN_VALIDATION_SUCCESS,
       payload: response,
-    });
-    dispatch({
-      type: LOAD_PLAYERS,
-      payload: response_.data,
-    });
-
-    response_.data.forEach((player) => {
-      dispatch(FetchLastTenGames(player.id, true));
     });
   } catch (err) {
     dispatch({
       type: TOKEN_VALIDATION_ERROR,
     });
   }
+};
+
+export const loadTeam = () => async (dispatch) => {
+  const response = await axios.get(`${base_url}api/players`);
+
+  try {
+    dispatch({
+      type: LOAD_PLAYERS,
+      payload: response.data,
+    });
+
+    response.data.forEach((player) => {
+      dispatch(FetchLastTenGames(player.id, true));
+    });
+  } catch (err) {}
 };

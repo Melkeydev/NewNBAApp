@@ -9,7 +9,7 @@ import { RegisterForm } from "./components/Auth/RegisterForm";
 import { LoginForm } from "./components/Auth/LoginForm";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
 import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
-import { loadUser } from "./actions/AuthAction";
+import { loadTeam } from "./actions/AuthAction";
 import { Footer } from "./components/layout/Footer";
 //redux
 import { Provider, useDispatch, useSelector } from "react-redux";
@@ -21,7 +21,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadUser());
+    dispatch(loadTeam());
   }, []);
 
   return (

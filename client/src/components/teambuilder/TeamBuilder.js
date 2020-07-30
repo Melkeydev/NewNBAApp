@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Searchbar from "./Searchbar";
 import { useSelector } from "react-redux";
 import { StatsDisplay } from "./StatsDisplay";
 import { Row, Col, Button } from "antd";
 import { Team } from "./team/Team";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loadTeam } from "../../actions/AuthAction";
 
 const TeamBuilder = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadTeam());
+  }, []);
+
   const [flag, setFlag] = useState(false);
 
   const loadedPlayers = useSelector((state) => state.Team.loadedPlayers);
   const Forward = useSelector((state) => state.TeamReducer.forward);
   const Center = useSelector((state) => state.TeamReducer.center);
   const Guard = useSelector((state) => state.TeamReducer.guard);
-  const loadPlayers = useSelector((state) => state.Team.loadedPlayers);
+
+  if (!loadedPlayers.length) return null;
 
   const RenderDisplay = (Zip) => {
     return Zip.map((zip, i) => {
@@ -57,7 +66,7 @@ const TeamBuilder = () => {
             {Forward.length > 0 && RenderDisplay(Forward)}
           </Row>
         </Col>
-        {loadPlayers[0].length > 0 && (
+        {loadedPlayers[0].length > 0 && (
           <Col lg={{ offset: 2, span: 3 }} xs={20} sm={20} md={20}>
             <Team />
           </Col>
