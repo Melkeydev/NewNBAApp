@@ -69,17 +69,17 @@ const RemovalType = (position) => {
   }[position];
 };
 
-export const removeState = (player, teamId) => (dispatch) => {
+export const removeState = (player, teamId) => {
   const { id, position } = player;
 
-  dispatch({
+  return {
     type: RemovalType(position),
     payload: { id, teamId },
-  });
+  };
 };
 
-export const removeStates = () => (dispatch) => {
-  dispatch({
+export const removeStates = () => {
+  return {
     type: REMOVE_STATES,
-  });
+  };
 };
