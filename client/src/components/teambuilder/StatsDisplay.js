@@ -169,7 +169,6 @@ export const StatsDisplay = ({ Stats, Player, flag }) => {
           onClick={() => {
             dispatch(addPlayer(renderStats(position), id, position));
             dispatch(FetchLastTenGames(id, true));
-            //dispatch(addPlayers(renderStats(position)));
             dispatch(addPlayerToDB(renderStats(position)));
           }}
         >

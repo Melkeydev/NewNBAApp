@@ -9,16 +9,20 @@ import {
   TEAM_FETCH_LAST_TEN,
 } from "./types";
 
+//Base url for api calls
 const base_url = "https://www.balldontlie.io/api/v1/";
 
 export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
   try {
+    //Make first GET request for Player
     const reqPlayers = await axios.get(
       `${base_url}players?search=${Player}&per_page=75`
     );
 
+    //Get ID from first response
     const { id } = reqPlayers.data.data[0];
 
+    //Make second GET request for Player Stats in Season
     const reqStats = await axios.get(
       `${base_url}season_averages?season=${season}&player_ids[]=${id}`
     );
@@ -33,6 +37,7 @@ export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
       payload: `${Player} is not a player - please check spelling`,
     });
 
+    //Remove Error alert after 4 seconds
     setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
   }
 };
@@ -57,6 +62,7 @@ export const FetchPlayerSeason = (id, season) => async (dispatch) => {
 export const FetchLastTenGames = (id, team = false, season = "2019") => async (
   dispatch
 ) => {
+  //First response to get the last tem games of the player
   const response = await axios.get(
     `${base_url}stats?seasons[]=${season}&player_ids[]=${id}&per_page=50&page=0&`
   );
@@ -80,8 +86,8 @@ export const FetchLastTenGames = (id, team = false, season = "2019") => async (
   }
 };
 
-export const removeStatesSingle = () => (dispatch) => {
-  dispatch({
+export const removeStatesSingle = () => {
+  return {
     type: REMOVE_STATES_SINGLE,
-  });
+  };
 };

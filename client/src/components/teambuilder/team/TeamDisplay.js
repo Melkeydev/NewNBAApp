@@ -6,6 +6,8 @@ import { RadarCharts } from "./RadarCharts";
 import { TeamRadarChart } from "./TeamRadarChart";
 import { testData } from "./helpers";
 import { Row, Col } from "antd";
+import { AverageAlert } from "./AverageAlert";
+
 //css
 import "../css/TeamDisplay.css";
 
@@ -17,7 +19,10 @@ export const TeamDisplay = () => {
       <Row justify="center">
         <Col xs={24} md={16}>
           <TeamStatDropDown />
-          <TeamRadarChart />
+          <div style={{ display: "flex" }}>
+            <TeamRadarChart />
+            <AverageAlert />
+          </div>
         </Col>
       </Row>
       <Row>

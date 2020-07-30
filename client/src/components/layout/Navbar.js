@@ -51,7 +51,7 @@ export const Navbar = () => {
     <Row className="Navbar">
       <Col xs={18} sm={18} md={6}>
         <Menu mode="horizontal" className="NavbarLeft">
-          <Menu.Item key="logo" name="home">
+          <Menu.Item key="logo" name="home" className="NavbarLink">
             <Link to="/">
               <img src={TextLogo} height="25px" alt={"TextLogo"} />
             </Link>
@@ -63,19 +63,31 @@ export const Navbar = () => {
         <Col sm={0} md={18}>
           <Menu mode="horizontal" className="NavbarRight">
             {isLoggedIn && (
-              <Menu.Item key="singlesearch" icon={<SearchOutlined />}>
+              <Menu.Item
+                key="singlesearch"
+                icon={<SearchOutlined />}
+                className="NavbarLink"
+              >
                 <Link to="single-player">Single Search</Link>
               </Menu.Item>
             )}
 
             {isLoggedIn && (
-              <Menu.Item key="teambuilding" icon={<TeamOutlined />}>
+              <Menu.Item
+                className="NavbarLink"
+                key="teambuilding"
+                icon={<TeamOutlined />}
+              >
                 <Link to="/teambuilder">Team Building</Link>
               </Menu.Item>
             )}
 
             {isLoggedIn && (
-              <Menu.Item key="logout" icon={<LogoutOutlined />}>
+              <Menu.Item
+                key="logout"
+                icon={<LogoutOutlined />}
+                className="NavbarLink"
+              >
                 <Link to="/" onClick={() => dispatch(logout())}>
                   Logout
                 </Link>
@@ -83,18 +95,31 @@ export const Navbar = () => {
             )}
 
             {!isLoggedIn && (
-              <Menu.Item key="login" icon={<LoginOutlined />}>
+              <Menu.Item
+                key="login"
+                icon={<LoginOutlined />}
+                className="NavbarLink"
+              >
                 <Link to="/login">Login</Link>
               </Menu.Item>
             )}
 
             {!isLoggedIn && (
-              <Menu.Item key="register" icon={<UserAddOutlined />}>
+              <Menu.Item
+                key="register"
+                icon={<UserAddOutlined />}
+                className="NavbarLink"
+              >
                 <Link to="/register">Register</Link>
               </Menu.Item>
             )}
 
-            <Menu.Item key="mail" icon={<GithubOutlined />} name="home">
+            <Menu.Item
+              key="mail"
+              icon={<GithubOutlined />}
+              name="home"
+              className="NavbarLink"
+            >
               <a href="https://github.com/Amokstakov"> Github</a>
             </Menu.Item>
           </Menu>

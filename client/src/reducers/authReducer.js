@@ -4,6 +4,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  HAS_CHECKED_USER,
+  TOKEN_VALIDATION_ERROR,
+  TOKEN_VALIDATION_SUCCESS,
 } from "../actions/types";
 
 const initialState = {
@@ -23,7 +26,13 @@ export default function (state = initialState, action) {
         user: action.payload,
         isLoggedIn: true,
       };
+    case TOKEN_VALIDATION_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
     case LOGOUT:
+    case TOKEN_VALIDATION_ERROR:
     case LOGIN_FAIL:
     case REGISTER_FAIL:
       localStorage.removeItem("token");

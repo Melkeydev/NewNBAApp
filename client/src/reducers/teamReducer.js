@@ -13,6 +13,7 @@ const initialState = {
   forwards: [],
   centers: [],
   loadedPlayers: [],
+  hasCheckedUser: false,
 };
 
 export default function (state = initialState, action) {
@@ -83,6 +84,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         loadedPlayers: [action.payload],
+        hasCheckedUser: true,
       };
     default:
       return state;

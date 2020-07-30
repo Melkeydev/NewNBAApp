@@ -9,3 +9,27 @@
 .NavbarRight {
     float: right;
 } 
+
+#root .NavbarLink:hover{
+    color: #e0d5ce;
+    text-decoration: none;
+    border:none;
+} 
+
+#root Link {
+    border-bottom: 0px;
+}
+
+#root .NavbarLink {
+    border-color: #d182ac;
+}
+
+
+#root .NavbarLink a:hover {
+    color: #e0d5ce;
+}
+
+#root .NavbarLink:hover::before{
+    border: none;
+}
+

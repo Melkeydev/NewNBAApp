@@ -4,6 +4,7 @@ import cors from "cors";
 import playerRoute from "./routes/players";
 import userRoute from "./routes/users";
 import playerStatsRoute from "./routes/playersStats";
+import meRoute from "./routes/me";
 require("dotenv").config();
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json({ extended: false }));
 app.use("/api/players", playerRoute);
 app.use("/api/users", userRoute);
 app.use("/api/playerStats", playerStatsRoute);
+app.use("/api/me", meRoute);
 
 //env variables
 const MONGO = process.env.MONGO_URI;
