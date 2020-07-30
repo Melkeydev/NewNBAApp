@@ -37,41 +37,36 @@ export const FetchPlayer = (Player, season = "2019") => async (dispatch) => {
       })
     );
   } catch (error) {
+    //Catch empty request error
     dispatch({
       type: SET_ERROR,
       payload: `${Player} is not a player - please check spelling`,
     });
 
+    //Trigger remover error alert after 4 seconds
     setTimeout(() => dispatch({ type: REMOVE_ERROR }), 4000);
   }
 };
 
 const Position = (position) => {
-  return position === "F"
-    ? FORWARD_FETCH
-    : position === "F-C"
-    ? CENTER_FETCH
-    : position === "C"
-    ? CENTER_FETCH
-    : position === "G"
-    ? GUARD_FETCH
-    : position === "F-G"
-    ? GUARD_FETCH
-    : null;
+  return {
+    F: FORWARD_FETCH,
+    "F-C": CENTER_FETCH,
+    "F-G": CENTER_FETCH,
+    G: GUARD_FETCH,
+
+    "F-G": GUARD_FETCH,
+  }[position];
 };
 
 const RemovalType = (position) => {
-  return position === "F"
-    ? "REMOVE_FORWARD"
-    : position === "F-C"
-    ? "REMOVE_CENTER"
-    : position === "C"
-    ? "REMOVE_CENTER"
-    : position === "G"
-    ? "REMOVE_GUARD"
-    : position === "F-G"
-    ? "REMOVE_GUARD"
-    : null;
+  return {
+    F: "REMOVE_FORWARD",
+    "F-C": "REMOVE_CENTER",
+    C: "REMOVE_CENTER",
+    G: "REMOVE_GUARD",
+    "F-G": "REMOVE_GUARD",
+  }[position];
 };
 
 export const removeState = (player, teamId) => (dispatch) => {
