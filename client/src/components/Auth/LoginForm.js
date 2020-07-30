@@ -19,7 +19,7 @@ export const LoginForm = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = async (e) => {
+  const onSubmit = async () => {
     const formData = {
       email,
       password,

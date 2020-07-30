@@ -31,3 +31,10 @@ export const LOGIN_ALERT = "LOGIN_ALERT";
 
 //Load User Data
 export const LOAD_PLAYERS = "LOAD_PLAYERS";
+
+//Logic for Logged in
+export const HAS_CHECKED_USER = "HAS_CHECKED_USER";
+
+export const TOKEN_VALIDATION_SUCCESS = "TOKEN_VALIDATION_SUCCESS";
+
+export const TOKEN_VALIDATION_ERROR = "TOKEN_VALIDATION_ERROR";

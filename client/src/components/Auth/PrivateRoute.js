@@ -4,8 +4,9 @@ import { useSelector } from "react-redux";
 
 export const PrivateRoute = ({ component: Component, ...props }) => {
   const { isLoggedIn } = useSelector((state) => state.Auth);
+  const { hasCheckedUser } = useSelector((state) => state.Team);
 
-  if (!isLoggedIn) {
+  if (!hasCheckedUser) {
     return <Redirect to="/login" />;
   }
 

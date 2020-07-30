@@ -4,6 +4,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  HAS_CHECKED_USER,
 } from "../actions/types";
 
 const initialState = {

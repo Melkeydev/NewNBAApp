@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Searchbar from "./components/singeplayerSearch/Searchbar";
 import TeamBuilder from "./components/teambuilder/TeamBuilder";
@@ -9,23 +9,26 @@ import { RegisterForm } from "./components/Auth/RegisterForm";
 import { LoginForm } from "./components/Auth/LoginForm";
 import { PrivateRoute } from "./components/Auth/PrivateRoute";
 import { TeamDisplay } from "./components/teambuilder/team/TeamDisplay";
-import setAuthToken from "../src/utils/setAuthToken";
 import { loadUser } from "./actions/AuthAction";
 import { Footer } from "./components/layout/Footer";
 //redux
-import { Provider } from "react-redux";
-import store from "./store";
+import { Provider, useDispatch, useSelector } from "react-redux";
 
 //css
 import "./App.css";
 
 const App = () => {
+  const dispatch = useDispatch();
+  const { hasCheckedUser } = useSelector((state) => state.Team);
+
   useEffect(() => {
-    store.dispatch(loadUser());
+    dispatch(loadUser());
   }, []);
 
+  console.log(hasCheckedUser);
+
   return (
-    <Provider store={store}>
+    <Fragment>
       <Error />
       <Router>
         <Navbar />
@@ -39,7 +42,7 @@ const App = () => {
         </Switch>
         <Footer />
       </Router>
-    </Provider>
+    </Fragment>
   );
 };
 
