@@ -103,10 +103,10 @@ export const login = ({ email, password }) => async (dispatch) => {
 };
 
 //Logout User
-export const logout = () => async (dispatch) => {
-  dispatch({
+export const logout = () => {
+  return {
     type: LOGOUT,
-  });
+  };
 };
 
 export const loadUser = () => async (dispatch) => {
