@@ -6,7 +6,7 @@ export const PrivateRoute = ({ component: Component, ...props }) => {
   const { isLoggedIn } = useSelector((state) => state.Auth);
   const { hasCheckedUser } = useSelector((state) => state.Team);
 
-  if (!hasCheckedUser) {
+  if (!isLoggedIn) {
     return <Redirect to="/login" />;
   }
 

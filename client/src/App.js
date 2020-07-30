@@ -19,13 +19,10 @@ import "./App.css";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { hasCheckedUser } = useSelector((state) => state.Team);
 
   useEffect(() => {
     dispatch(loadUser());
   }, []);
-
-  console.log(hasCheckedUser);
 
   return (
     <Fragment>

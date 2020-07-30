@@ -1,4 +1,6 @@
 import {
+  TOKEN_VALIDATION_SUCCESS,
+  TOKEN_VALIDATION_ERROR,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
   LOGIN_SUCCESS,
@@ -115,21 +117,32 @@ export const loadUser = () => async (dispatch) => {
     setAuthToken(localStorage.token);
   }
   try {
-    const response = await axios.get(`${base_url}api/players`);
+    //Store token in local storage
     dispatch({
       type: LOGIN_SUCCESS,
       payload: { token: localStorage.token },
     });
 
+    const response = await axios.get(`${base_url}api/me`);
+
+    const response_ = await axios.get(`${base_url}api/players`);
+
+    //return user based on token
+    dispatch({
+      type: TOKEN_VALIDATION_SUCCESS,
+      payload: response,
+    });
     dispatch({
       type: LOAD_PLAYERS,
-      payload: response.data,
+      payload: response_.data,
     });
 
-    response.data.forEach((player) => {
+    response_.data.forEach((player) => {
       dispatch(FetchLastTenGames(player.id, true));
     });
   } catch (err) {
-    console.log(err);
+    dispatch({
+      type: TOKEN_VALIDATION_ERROR,
+    });
   }
 };
