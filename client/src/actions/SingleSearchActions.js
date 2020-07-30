@@ -62,6 +62,7 @@ export const FetchPlayerSeason = (id, season) => async (dispatch) => {
 export const FetchLastTenGames = (id, team = false, season = "2019") => async (
   dispatch
 ) => {
+  //First response to get the last tem games of the player
   const response = await axios.get(
     `${base_url}stats?seasons[]=${season}&player_ids[]=${id}&per_page=50&page=0&`
   );
@@ -85,8 +86,8 @@ export const FetchLastTenGames = (id, team = false, season = "2019") => async (
   }
 };
 
-export const removeStatesSingle = () => (dispatch) => {
-  dispatch({
+export const removeStatesSingle = () => {
+  return {
     type: REMOVE_STATES_SINGLE,
-  });
+  };
 };
