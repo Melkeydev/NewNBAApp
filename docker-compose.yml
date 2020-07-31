@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - 3000:3000
+    environment:
+      - "BROWSER=none" 
+      - "HOST=0.0.0.0"
+    command: npm run start
+    stdin_open: true
+  server: 
+    build: . 
+    ports:
+      - 5001:5001
+    environment:
+      - 'MONGO_URI=mongodb://db:27017'
+  db: 
+    image: 'mongo'
+    volumes:
+      - /var/lib/mongodb:/data/db
+
+
+
