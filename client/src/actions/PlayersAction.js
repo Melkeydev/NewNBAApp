@@ -1,5 +1,5 @@
 import axios from "axios";
-import { loadUser } from "./AuthAction";
+import { loadTeam } from "./AuthAction";
 
 //Base url for server
 const base_url = "http://localhost:5001/";
@@ -35,7 +35,7 @@ export const addPlayers = (player) => async (dispatch) => {
 
   try {
     await axios.post(`${base_url}api/players`, body, config);
-    dispatch(loadUser());
+    dispatch(loadTeam());
   } catch (err) {}
 };
 
@@ -115,7 +115,7 @@ export const addPlayerToDB = (player) => async () => {
 export const deletePlayer = (id) => async (dispatch) => {
   try {
     await axios.delete(`${base_url}api/players/${id}`);
-    dispatch(loadUser());
+    dispatch(loadTeam());
   } catch (error) {
     console.log(error);
   }
