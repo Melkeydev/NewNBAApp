@@ -2,7 +2,7 @@ import axios from "axios";
 import { loadTeam } from "./AuthAction";
 
 //Base url for server
-const base_url = "http://localhost:5001/";
+const base_url = "https://enigmatic-reef-35438.herokuapp.com/";
 
 export const addPlayers = (player) => async (dispatch) => {
   const {
