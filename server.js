@@ -36,7 +36,7 @@ if(process.env.NODE_ENV === 'production'){
 const MONGO = process.env.MONGO_URI;
 
 //Set dummy port
-const port = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 
 //Connect to Mongoose
 const connectMongo = async () => {
@@ -57,4 +57,4 @@ const connectMongo = async () => {
 };
 
 connectMongo();
-app.listen(process.env.PORT || 5000, () => console.log("Server Connected"));
+app.listen(PORT, () => console.log("Server Connected"));
