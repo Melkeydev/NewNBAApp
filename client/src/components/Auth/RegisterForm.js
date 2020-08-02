@@ -60,7 +60,6 @@ export const RegisterForm = () => {
         <Card className="CardRegisterForm">
           <PageHeader title="Register" subTitle="Create your account" />
           <Form
-            //style={{ maxWidth: "600px" }}
             name="normal_login"
             className="login-form"
             initialValues={{
@@ -87,6 +86,7 @@ export const RegisterForm = () => {
                 id="first_name"
               />
             </Form.Item>
+            <label htmlFor="last_name">Last Name</label>
             <Form.Item
               name="last_name"
               initialValue={last_name}
@@ -98,7 +98,6 @@ export const RegisterForm = () => {
               ]}
               onChange={(e) => onChange(e)}
             >
-              <label htmlFor="last_name">Last Name</label>
               <Input
                 prefix={<UserOutlined />}
                 placeholder="Doe"
@@ -106,6 +105,7 @@ export const RegisterForm = () => {
                 id="last_name"
               />
             </Form.Item>
+            <label htmlFor="email">Email</label>
             <Form.Item
               name="email"
               initialValue={email}
@@ -117,7 +117,6 @@ export const RegisterForm = () => {
               ]}
               onChange={(e) => onChange(e)}
             >
-              <label htmlFor="email">Email</label>
               <Input
                 prefix={<UserOutlined />}
                 placeholder="John.Doe@mail.com"
