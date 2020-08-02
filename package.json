@@ -4,7 +4,7 @@
   "description": "Refactoring old NBA app",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "babel-node server.js --presets @babel/preset-env",
     "server": "nodemon server.js --exec babel-node --presets @babel/preset-env",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
