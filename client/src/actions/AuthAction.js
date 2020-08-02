@@ -31,7 +31,7 @@ export const register = ({ first_name, last_name, email, password }) => async (
 
   try {
     const response = await axios
-      .post(`/routes/users`, body, config)
+      .post(`/api/users`, body, config)
       .catch((err) => {
         err.response.data.errors.map((error) =>
           dispatch({
