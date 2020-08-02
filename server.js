@@ -57,4 +57,4 @@ const connectMongo = async () => {
 };
 
 connectMongo();
-app.listen(port, () => console.log("Server Connected"));
+app.listen(process.env.PORT || 5000, () => console.log("Server Connected"));
