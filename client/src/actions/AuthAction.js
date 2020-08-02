@@ -15,7 +15,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import { FetchLastTenGames } from "./SingleSearchActions";
 
-const base_url = "http://localhost:5001/";
+const base_url = "https://enigmatic-reef-35438.herokuapp.com/";
 
 //Register User
 export const register = ({ first_name, last_name, email, password }) => async (
