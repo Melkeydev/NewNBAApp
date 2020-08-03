@@ -34,7 +34,7 @@ export const addPlayers = (player) => async (dispatch) => {
   });
 
   try {
-    await axios.post(`${base_url}api/players`, body, config);
+    await axios.post(`/api/players`, body, config);
     dispatch(loadTeam());
   } catch (err) {}
 };
@@ -105,7 +105,7 @@ export const addPlayerToDB = (player) => async () => {
   });
 
   try {
-    await axios.post(`${base_url}api/playerStats`, body, config);
+    await axios.post(`/api/playerStats`, body, config);
   } catch (err) {
     console.log(err);
   }
@@ -114,7 +114,7 @@ export const addPlayerToDB = (player) => async () => {
 //Delete Player
 export const deletePlayer = (id) => async (dispatch) => {
   try {
-    await axios.delete(`${base_url}api/players/${id}`);
+    await axios.delete(`/api/players/${id}`);
     dispatch(loadTeam());
   } catch (error) {
     console.log(error);

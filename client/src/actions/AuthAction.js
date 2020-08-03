@@ -15,7 +15,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import { FetchLastTenGames } from "./SingleSearchActions";
 
-const base_url = "http://localhost:5001/";
+const base_url = "/api/";
 
 //Register User
 export const register = ({ first_name, last_name, email, password }) => async (
@@ -74,7 +74,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 
   try {
     const response = await axios
-      .post(`${base_url}api/users/login`, body, config)
+      .post(`/api/users/login`, body, config)
       .catch((err) => {
         dispatch({
           type: SET_ERROR,
@@ -123,7 +123,7 @@ export const loadUser = () => async (dispatch) => {
       payload: { token: localStorage.token },
     });
 
-    const response = await axios.get(`${base_url}api/me`);
+    const response = await axios.get(`/api/me`);
 
     //return user based on token
     dispatch({
@@ -138,7 +138,7 @@ export const loadUser = () => async (dispatch) => {
 };
 
 export const loadTeam = () => async (dispatch) => {
-  const response = await axios.get(`${base_url}api/players`);
+  const response = await axios.get(`/api/players`);
 
   try {
     dispatch({
